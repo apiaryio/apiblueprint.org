@@ -1,3 +1,5 @@
+activate :bh
+
 ###
 # Compass
 ###
@@ -56,17 +58,38 @@ set :images_dir, 'images'
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
-  # activate :minify_css
+  activate :minify_css
 
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
 
   # Enable cache buster
-  # activate :asset_hash
+   activate :asset_hash
 
   # Use relative URLs
   # activate :relative_assets
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+end
+
+set :markdown, { fenced_code_blocks: true }
+set :markdown_engine, :redcarpet
+activate :rouge_syntax
+
+page '/documentation/*', :layout => 'documentation'
+
+helpers do
+  def include(path)
+    IO.read(path).sub(/^#[ \w].+$/, '')
+  end
+
+  def tools
+    data.tools.reduce(Hash.new) do |accumulator, tool|
+      tools = accumulator[tool.category] || []
+      tools << tool
+      accumulator[tool.category] = tools
+      accumulator
+    end
+  end
 end
