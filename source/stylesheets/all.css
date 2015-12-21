@@ -1,55 +1,34 @@
 @charset "utf-8";
 
-body {
-  background: #d4d4d4 url("../images/background.png");
-  text-align: center;
-  font-family: sans-serif; }
+@import "bootstrap";
 
-h1 {
-  color: rgba(0, 0, 0, .3);
-  font-weight: bold;
-  font-size: 32px;
-  letter-spacing: -1px;
-  text-transform: uppercase;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
-  background: url("../images/middleman.png") no-repeat center 100px;
-  padding: 350px 0 10px;
-  margin: 0; }
+header {
+  border-bottom: 1px solid #dedede;
+  margin-bottom: 20px;
+}
 
-.doc {
-  font-size: 14px;
-  margin: 0; }
-  .doc:before,
-  .doc:after {
-    opacity: .2;
-    padding: 6px;
-    font-style: normal;
-    position: relative;
-    content: "•"; }
-  .doc a {
-    color: rgba(0, 0, 0, 0.3); }
-    .doc a:hover {
-      color: #666; }
+#sidebar {
+  padding-top: 25px;
+  border-right: 1px solid #dedede;
+}
 
-.welcome {
-  -webkit-animation-name: welcome;
-  -webkit-animation-duration: .9s; }
+footer {
+  margin-top: 50px;
+}
 
-@-webkit-keyframes welcome {
-  from {
-    -webkit-transform: scale(0);
-    opacity: 0;
-  }
-  50% {
-   -webkit-transform: scale(0);
-   opacity: 0;
-  }
-  82.5% {
-    -webkit-transform: scale(1.03);
-    -webkit-animation-timing-function: ease-out;
-    opacity: 1;
-  }
-  to {
-    -webkit-transform: scale(1);
-  }
+/* Navigation */
+#sidebar .nav .nav {
+  display: none;
+}
+
+#sidebar .nav .active .nav {
+  display: block;
+}
+
+#sidebar .nav li.active > a {
+  border-left: 2px solid #dedede;
+}
+
+#sidebar .nav .nav {
+  padding-left: 15px;
 }
