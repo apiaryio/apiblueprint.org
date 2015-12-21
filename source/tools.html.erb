@@ -1,0 +1,31 @@
+---
+title: API Blueprint Tools
+---
+
+<div class="row">
+  <div id="sidebar" class="col-md-3" role="complementary">
+    <ul class="nav">
+      <li class="active"><a href="/tools.html">Tools</a>
+        <ul class="nav">
+        <% tools.keys.each do |category| %>
+          <li><a href="#<%= category %>"><%= category.capitalize %></a></li>
+        <% end %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-9" role="main">
+      <h2><%= current_page.data.title %></h2>
+
+      <% tools.each do |category,tools| %>
+        <h3 id="<%= category %>"><%= category.capitalize %></h3>
+
+        <ul>
+        <% tools.each do |tool| %>
+          <li><a href="<%= tool.url %>"><%= tool.name %></a> - <%= tool.summary %></li>
+        <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
