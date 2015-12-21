@@ -1,0 +1,21 @@
+machine:
+  ruby:
+    version: 2.2.3
+
+checkout:
+  post:
+    - git submodule init
+    - git submodule update
+
+test:
+  override:
+    - /bin/true
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - git config --global user.name "Apiary Bot"
+      - git config --global user.email "support@apiary.io"
+      - git remote set-url origin "https://${GH_TOKEN}@github.com/apiaryio/apiblueprint.org"
+      - rake deploy
