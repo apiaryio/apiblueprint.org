@@ -23,6 +23,10 @@ a {
   border-bottom: 1px solid #FFF;
 }
 
+ul {
+  font-size: 18px;
+}
+
 a:hover {
   color: #FFF;
   text-decoration: none;
