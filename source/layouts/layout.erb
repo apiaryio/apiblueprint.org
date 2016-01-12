@@ -7,8 +7,9 @@
 
     <title><%= current_page.data.title || 'API Blueprint' %></title>
 
-    <%= stylesheet_link_tag font_awesome_css, bootstrap_css, bootstrap_theme_css, 'all', 'highlight' %>
+    <%= stylesheet_link_tag font_awesome_css, bootstrap_css, 'all', 'highlight' %>
     <%= javascript_include_tag  "all" %>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
   </head>
 
   <body class="<%= page_classes %>">
@@ -38,18 +39,53 @@
 
     <footer>
       <div class="container">
-        <div id="support" class="well">
+        <div class="social">
           <ul>
-              <li><a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">FAQ - Stack Overflow</a></li>
-              <li><a href="https://github.com/apiaryio/api-blueprint">Issues - GitHub</a></li>
-              <li><a href="https://apiblueprint-slack.herokuapp.com/">Chat - Slack</a></li>
-              <li><a href="https://twitter.com/apiblueprint">Twitter - @apiblueprint</a></li>
+              <li>
+                <a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">
+                  <img src="/images/stackoverflow.svg" />
+                  <span class="relation">FAQ</span>
+                  <span class="service">Stack Overflow</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/apiaryio/api-blueprint/issues">
+                  <img src="/images/github.svg" />
+                  <span class="relation">Issues</span>
+                  <span class="service">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://apiblueprint-slack.herokuapp.com/">
+                  <img src="/images/slack.svg" />
+                  <span class="relation">Chat</span>
+                  <span class="service">Slack</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/apiblueprint">
+                  <img src="/images/twitter.svg" />
+                  <span class="relation">Twitter</span>
+                  <span class="service">@apiblueprint</span>
+                </a>
+              </li>
           </ul>
         </div>
 
         <hr />
-        <p>Copyright 2013 - <%= Time.now.year %> API Blueprint</p>
-        <p>API Blueprint is released under the MIT License</p>
+
+        <div class="info">
+          <div class="brand">
+            <img src="/images/apiblueprint-footer.svg" alt="API Blueprint Logo" width=38 height=36 />
+
+            <ul>
+              <li class="brand">API Blueprint</li>
+              <li>&copy; 2013 - <%= Time.now.year %></li>
+            </ul>
+          </div>
+
+          <span class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></span>
+        </div>
       </div>
     </footer>
 

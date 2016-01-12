@@ -2,14 +2,76 @@
 
 @import "bootstrap";
 
+body {
+  background: #1C2126;
+  background-image: linear-gradient(#020304, #1C2126 1100px);
+  color: #768491;
+  font-family: 'Open Sans', sans-serif;
+}
+
+::selection {
+  background: #5E9CFF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  color: #FFF;
+}
+
+a {
+  color: #FFF;
+  border-bottom: 1px solid #FFF;
+}
+
+a:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+
+p {
+  font-size: 18px;
+}
+
 header {
-  border-bottom: 1px solid #dedede;
-  margin-bottom: 20px;
+  height: 50px;
+  margin: 135px 0 135px;
+}
+
+header .navbar-brand {
+  height: 47px;
+  padding: 0;
+  font-size: 32px;
+  text-transform: lowercase;
+  color: #FFF;
+  font-weight: 300;
+  border-bottom: none;
+}
+
+header .navbar-brand:before {
+  content: url(/images/api-blueprint.svg);
+  height: 47px;
+  width: 51px;
+  padding-right: 15px;
+}
+
+.navbar-nav a {
+  font-size: 16px;
+}
+
+header .navbar-nav a:hover, header .navbar-nav a:focus {
+  background: inherit;
+}
+
+.nav a {
+  border-bottom: none;
+}
+
+header .nav a:hover {
+  border-bottom: 2px solid #FFF;
 }
 
 #sidebar {
   padding-top: 25px;
-  border-right: 1px solid #dedede;
 }
 
 footer {
@@ -31,4 +93,103 @@ footer {
 
 #sidebar .nav .nav {
   padding-left: 15px;
+}
+
+#sidebar .nav a:hover {
+  background: #1C2126;
+}
+
+footer {
+  margin-bottom: 50px;
+}
+
+footer .social {
+  background: #2E3842;
+  padding: 50px;
+}
+
+footer .social ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+footer .social li {
+  border-left: 1px solid #3E4A56;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+footer .social li:first-child {
+  border: 0;
+}
+
+footer .social li {
+  display: inline-block;
+}
+
+footer .social a {
+  border: 0;
+  font-size: 18px;
+}
+
+footer .social .service {
+  color: #62707D;
+  font-size: 13px;
+}
+
+footer .brand {
+  display: inline;
+  float: left;
+}
+
+footer .license {
+  float: right;
+}
+
+footer ul {
+  padding-left: 10px;
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+}
+
+footer img {
+  margin-bottom: 24px;
+}
+
+footer .info li.brand {
+  font-size: 20px;
+  font-weight: 300;
+  text-transform: lowercase;
+  color: #FFF;
+}
+
+hr {
+  border-top: 1px solid #2D343C;
+}
+
+pre {
+  background: #27303A;
+  border: 0;
+  border-left: 4px solid #545E6B;
+  border-radius: 0;
+  color: #6C7887;
+  overflow-x: auto;
+}
+
+pre code {
+  overflow-wrap: normal;
+  white-space: pre;
+}
+
+code {
+  background: #27303A;
+  border: 0;
+  border-radius: 0;
+  color: #6C7887;
+}
+
+blockquote {
+  border-left: 4px solid #545E6B;
 }
