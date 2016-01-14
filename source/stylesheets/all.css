@@ -9,6 +9,10 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.container {
+    width: 960px;
+}
+
 ::selection {
   background: #5E9CFF;
 }
@@ -196,4 +200,76 @@ code {
 
 blockquote {
   border-left: 4px solid #545E6B;
+}
+
+/* Tools */
+#filters {
+    padding: 52px 0;
+}
+#tools-search {
+    border-bottom: 1px solid #394652;
+    position: relative;
+}
+#tools-search:before {
+    content: url(/images/search.svg);
+    height: 22px;
+    width: 22px;
+    position: absolute;
+    top: 50%;
+    margin-top: -11px;
+    left: 20px;
+}
+#tools-search input {
+    padding: 22px;
+    background: transparent;
+    font-size: 20px;
+    color: #fff;
+    line-height: 25px;
+    padding-left: 55px;
+    width: 100%;
+    border: 0;
+    outline: none;
+}
+.nav.nav-pills a{
+    font-size: 15px;
+    color: #FFFFFF;
+    line-height: 18px;
+}
+.nav.nav-pills .active a {
+    background: #4D5862;
+    border-radius: 40px;
+}
+.tool {
+    padding: 31px 0;
+    border-top: 1px solid #394652;
+    transition: background .1s ease-out;
+}
+.tool:hover {
+    background: rgba(57,70,82, .12);
+    cursor: pointer;
+}
+.tool h3{
+    font-size: 24px;
+    color: #FFFFFF;
+    line-height: 33px;
+    margin: 0;
+    padding: 0;
+}
+.tool h3 a {
+    text-decoration: none;
+    border-bottom: 0;
+}
+.tool .summary p {
+    font-size: 16px;
+    color: #768491;
+    line-height: 26px;
+    margin: 0;
+    padding: 0;
+}
+.tool .label.label-default {
+    border: 2px solid #4D5862;
+    border-radius: 3px;
+    background: transparent;
+    margin-top: 8px;
+    display: inline-block;
 }
