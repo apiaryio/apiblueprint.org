@@ -78,10 +78,6 @@ header .nav a:hover {
   border-bottom: 2px solid #FFF;
 }
 
-#sidebar {
-  padding-top: 25px;
-}
-
 footer {
   margin-top: 50px;
 }
@@ -95,12 +91,17 @@ footer {
   display: block;
 }
 
-#sidebar .nav li.active > a {
-  border-left: 2px solid #dedede;
+#sidebar .nav>li>a {
+    padding: 0;
+  font-size: 15px;
+  color: #FFFFFF;
+  line-height: 40px;
 }
 
-#sidebar .nav .nav {
+#sidebar .nav li.active > a {
+  border-left: 3px solid #545E6B;
   padding-left: 15px;
+  color: #545E6B;
 }
 
 #sidebar .nav a:hover {
@@ -202,15 +203,109 @@ blockquote {
   border-left: 4px solid #545E6B;
 }
 
+/* Documentation */
+
+body > .container > h2,
+body > .container > h3,
+.text h2,
+.text h3 {
+    font-weight: lighter;
+    font-size: 24px;
+    color: #FFFFFF;
+    line-height: 50px;
+    margin-top: 52px;
+}
+body > .container > h2:first-child,
+.text h2:first-child{
+    font-size: 32px;
+    margin-top: 0;
+}
+body > .container > p,
+.text p {
+    font-weight: lighter;
+    font-size: 18px;
+    color: #A7B8C8;
+}
+body > .container > ul:not(.nav),
+.text ul:not(.nav) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+body > .container > ul:not(.nav) li,
+.text ul:not(.nav) li {
+    position: relative;
+    margin-bottom: 5px;
+}
+body > .container > ul:not(.nav) li:before,
+.text ul:not(.nav) li:before{
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    border: 2px solid #5E9CFF;
+    margin-right: 15px;
+}
+body > .container > ol,
+.text ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: ol-counter;
+}
+body > .container > ol li,
+.text ol li {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 50px;
+    margin-top: 40px;
+}
+body > .container > ol li:before,
+.text ol li:before {
+    content: counter(ol-counter);
+    counter-increment: ol-counter;
+    border: 1px solid #394652;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 40px;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    color: #5E9CFC;
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+}
+body > .container pre,
+.text pre {
+    padding: 40px;
+}
+body > .container > p,
+body > .container > ul:not(.nav),
+body > .container > ol,
+.text p,
+.text ul:not(.nav),
+.text ol {
+    line-height: 34px;
+    margin-bottom: 24px;
+}
+.documentation .content {
+    margin-top: 90px;
+}
+
 /* Tools */
 #filters {
     padding: 52px 0;
 }
-#tools-search {
+.search-form {
     border-bottom: 1px solid #394652;
     position: relative;
 }
-#tools-search:before {
+.search-form:before {
     content: url(/images/search.svg);
     height: 22px;
     width: 22px;
@@ -219,7 +314,7 @@ blockquote {
     margin-top: -11px;
     left: 20px;
 }
-#tools-search input {
+.search-form input {
     padding: 22px;
     background: transparent;
     font-size: 20px;
