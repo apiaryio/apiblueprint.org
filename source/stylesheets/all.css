@@ -7,6 +7,24 @@ body {
   background-image: linear-gradient(#020304, #1C2126 1100px);
   color: #768491;
   font-family: 'Open Sans', sans-serif;
+  position: relative;
+}
+
+.rocket {
+  content: url(/images/rocket.svg);
+  height: 23px;
+  width: 36px;
+  position: fixed;
+  top: 300px;
+  left: 5%;
+}
+.moon {
+  content: url(/images/moon.svg);
+  height: 46px;
+  width: 46px;
+  position: fixed;
+  top: 250px;
+  right: 5%;
 }
 
 .container {
