@@ -525,3 +525,21 @@ body.index > .container p:nth-of-type(2) a:hover{
     }
 }
 
+h1 .permalink,
+h2 .permalink,
+h3 .permalink,
+h4 .permalink,
+h5 .permalink,
+h6 .permalink {
+  display: none;
+  margin-left: 10px;
+}
+
+h1:hover .permalink,
+h2:hover .permalink,
+h3:hover .permalink,
+h4:hover .permalink,
+h5:hover .permalink,
+h6:hover .permalink {
+  display: inline;
+}
