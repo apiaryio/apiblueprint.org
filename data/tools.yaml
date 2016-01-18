@@ -1,24 +1,30 @@
 - name: Dredd
   summary: Plug your API Blueprint into the CI and get no more outdated API documentation.
-  category: testing
+  tags:
+    - testing
   url: http://dredd.readthedocs.org/en/latest/
 - name: Hyperdrive
   summary: Hyperdrive allows you to build Swift applications that can evolve at run-time powered by API Blueprint.
-  category: client
+  tags:
+    - client
   url: https://github.com/the-hypermedia-project/Hyperdrive
 - name: Atom Blueprint Language
   summary: API Blueprint & MSON syntax highlighting.
-  category: editors
+  tags:
+    - editors
   url: https://atom.io/packages/language-api-blueprint
 - name: Atom Blueprint Preview
   summary: Preview HTML Blueprint in the editor.
-  category: editors
+  tags:
+    - editors
   url: https://atom.io/packages/api-blueprint-preview
 - name: vim
   summary: API BLueprint syntax highlighting and integration with vim.
-  category: editors
+  tags:
+    - editors
   url: https://github.com/kylef/apiblueprint.vim
 - name: Sublime
   summary: API Blueprint & MSON syntax highlighting, live validation and parsing.
-  category: editors
+  tags:
+    - editors
   url: https://github.com/apiaryio/api-blueprint-sublime-plugin

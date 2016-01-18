@@ -84,12 +84,8 @@ helpers do
     IO.read(path).sub(/^#[ \w].+$/, '')
   end
 
-  def tools
-    data.tools.reduce(Hash.new) do |accumulator, tool|
-      tools = accumulator[tool.category] || []
-      tools << tool
-      accumulator[tool.category] = tools
-      accumulator
-    end
+  # Returns all of the available tool tags
+  def tool_tags
+    data.tools.map(&:tags).flatten.uniq
   end
 end
