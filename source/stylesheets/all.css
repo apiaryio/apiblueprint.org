@@ -16,27 +16,6 @@ body {
   position: relative;
 }
 
-.rocket {
-  content: url(/images/rocket.svg);
-  height: 23px;
-  width: 36px;
-  position: absolute;
-  top: 150px;
-  left: 5%;
-}
-.moon {
-  content: url(/images/moon.svg);
-  height: 46px;
-  width: 46px;
-  position: absolute;
-  top: 100px;
-  right: 5%;
-}
-
-.container {
-    width: 960px;
-}
-
 ::selection {
   background: #5E9CFF;
 }
@@ -74,8 +53,9 @@ p {
 
 header {
   height: 50px;
-  margin: 95px 0 95px;
+  margin: 25px 0 55px;
   position: relative;
+  z-index: 20;
 }
 header:after{
     content: '';
@@ -88,19 +68,20 @@ header:after{
     top: 0;
     margin-left: -500px;
     z-index: 1;
+    max-width: 100%;
 }
 header .container {
     position: relative;
     z-index: 2;
 }
 header .navbar-brand {
-  height: 47px;
   padding: 0;
-  font-size: 32px;
+  font-size: 18px;
   text-transform: lowercase;
   color: #FFF;
   font-weight: 300;
   border-bottom: none;
+  padding-left: 15px;
 }
 
 header .navbar-brand:before {
@@ -110,7 +91,13 @@ header .navbar-brand:before {
   padding-right: 15px;
   vertical-align: text-bottom;
 }
-
+.navbar-collapse{
+    z-index: 40;
+}
+.navbar-collapse.in,
+.navbar-collapse.collapsing {
+    background: rgba(29,17,64,0.85);
+}
 .navbar-nav a {
   font-size: 16px;
   opacity: .5;
@@ -175,31 +162,18 @@ footer {
 
 footer .social {
   background: #00D779;
-  padding: 50px;
-  display: block;
-}
-
-footer .social ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  vertical-align: top;
+  padding: 20px;
 }
 
 footer .social li {
-  border-left: 1px solid rgba(0,0,0,0.19);
   padding-left: 20px;
   padding-right: 20px;
-  width: 24%;
-  vertical-align: top;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 footer .social li:first-child {
   border: 0;
-}
-
-footer .social li {
-  display: inline-block;
 }
 
 footer .social a {
@@ -224,7 +198,6 @@ footer .license {
 
 footer ul {
   padding-left: 10px;
-  display: inline-block;
   list-style-type: none;
   margin: 0;
 }
@@ -455,10 +428,6 @@ body.index {
     background: #2C1B56 url(/images/index-bg.jpg) no-repeat top center;
     background-size: 100% auto;
 }
-body.index > .container h2:first-of-type,
-body.index > .container p:first-of-type {
-    max-width: 75%;
-}
 body.index > .container p:first-of-type {
     opacity: 0.63;
     font-size: 17px;
@@ -474,9 +443,11 @@ body.index > .container p:nth-of-type(2) a{
     background: #00D779;
     border-radius: 46px;
     border: 2px solid transparent;
-    display: inline-block;
+    display: block;
     padding: 5px 50px;
     margin: 0;
+    margin-bottom: 10px;
+    text-align: center;
     
     -webkit-transition: all .1s ease-out;
     -moz-transition: all .1s ease-out;
@@ -491,4 +462,58 @@ body.index > .container p:nth-of-type(2) a:last-child{
 body.index > .container p:nth-of-type(2) a:hover{
     background: #00b767;
     border-color: #00b767;
+}
+
+.navbar-toggle{
+    border: 1px solid #fff;
+}
+.navbar-toggle .icon-bar{
+    background: #fff;   
+}
+
+/* Responsive */
+
+@media (min-width: 1200px) {
+    header {
+        margin: 95px 0 95px;
+    }
+    header .navbar-brand {
+        font-size: 32px;
+        padding-left: 0;
+    }
+    body.index > .container p:nth-of-type(2) a{
+        display: inline-block;
+    }
+    body.index > .container h2:first-of-type,
+    body.index > .container p:first-of-type {
+        max-width: 75%;
+    }
+    .rocket {
+        content: url(/images/rocket.svg);
+        height: 23px;
+        width: 36px;
+        position: absolute;
+        top: 150px;
+        left: 5%;
+    }
+    .moon {
+        content: url(/images/moon.svg);
+        height: 46px;
+        width: 46px;
+        position: absolute;
+        top: 100px;
+        right: 5%;
+    }
+    .container {
+        width: 960px;
+    }
+    footer .social {
+        display: flex;
+        padding: 50px;
+    }
+    footer .social li {
+        flex-grow: 1;
+        margin: 0;
+        border-left: 1px solid rgba(0,0,0,0.19);
+    }
 }
