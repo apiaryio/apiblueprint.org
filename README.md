@@ -26,8 +26,9 @@ Open the file `data/tools.yaml` and add a new entry for your tool.
 $ cat << 'EOF' >> data/tools.yaml
 - name: Hyperdrive
   summary: Hyperdrive allows you to build Swift applications that can evolve at run-time powered by API Blueprint.
-  tags: client
   url: https://github.com/the-hypermedia-project/Hyperdrive
+  tags:
+    - client
 EOF
 ```
 
