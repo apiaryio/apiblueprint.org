@@ -22,7 +22,7 @@ deployed mission-critical APIs.
 
 ### Focused on Collaboration
 
-The API Blueprint is built to encourage dialogue and collaboration between
+API Blueprint is built to encourage dialogue and collaboration between
 project stakeholders, developers and customers at any point in the API
 lifecycle. At the same time, the API Blueprint tools provide the support to
 achieve the goals be it API development, governance or delivery.
@@ -32,18 +32,19 @@ achieve the goals be it API development, governance or delivery.
 API Blueprint is completely open sourced under the MIT license.
 Its future is [transparent and open][roadmap].
 API Blueprint doesn't need a closed work group. Instead it uses the RFC
-process similar to Rust lang or DEP RFC processes.
+process similar to Rust language or Django Enhancement Proposal RFC processes.
 
-To contribute submit a proposals to [API Blueprint RFC repository][apibrfc].
+To contribute, submit a proposal to [API Blueprint RFC repository][apibrfc].
 
 ### At home on GitHub
 
-API Blueprint language is recognized by GitHub. [Search for API Blueprint][search] on
-GitHub using the `language:"API Blueprint"` query.
+The API Blueprint language is recognized by GitHub.
+[Search for API Blueprint][search] on GitHub using the
+`language:"API Blueprint"` query.
 
-API Blueprint media type is `text/vnd.apiblueprint` and standard file extension
-is `.apib`. If you use this extension your blueprints on GitHub will get
-syntax-highlighted.
+The media type for API Blueprint is `text/vnd.apiblueprint`, and the
+standard file extension is `.apib`. If you use this extension your
+blueprints on GitHub will get syntax-highlighted.
 
 ### Built for better API Designs
 
@@ -90,9 +91,9 @@ implementation is living up to the expectations set in the contract.
 
 Thanks to its broad adoption there is a plethora of tools built for API Blueprint.
 From various standalone tools such as mock server, documentation and testing
-tools to full-featured API lifecycle solutions.
+tools to full-featured API life-cycle solutions.
 
-See the [Tools section][tools] for the listing.
+See the [Tools section][tools] for the list.
 
 ---
 
