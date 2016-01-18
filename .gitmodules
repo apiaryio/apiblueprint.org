@@ -1,0 +1,6 @@
+[submodule "api-blueprint"]
+	path = api-blueprint
+	url = https://github.com/apiaryio/api-blueprint
+[submodule "mson"]
+	path = mson
+	url = https://github.com/apiaryio/mson

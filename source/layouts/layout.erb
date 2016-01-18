@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><%= current_page.data.title || 'API Blueprint' %></title>
+
+    <%= stylesheet_link_tag font_awesome_css, bootstrap_css, 'all', 'highlight' %>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js" %>
+    <%= javascript_include_tag "all" %>
+  </head>
+
+  <body class="<%= page_classes %>">
+    <header>
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">API Blueprint</a>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container page-content">
+      <%= yield %>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div>
+          <ul class="social">
+              <li>
+                <a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">
+                  <img src="/images/stackoverflow.svg" />
+                  <span class="relation">FAQ</span>
+                  <span class="service">Stack Overflow</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/apiaryio/api-blueprint/issues">
+                  <img src="/images/github.svg" />
+                  <span class="relation">Issues</span>
+                  <span class="service">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://apiblueprint-slack.herokuapp.com/">
+                  <img src="/images/slack.svg" />
+                  <span class="relation">Chat</span>
+                  <span class="service">Slack</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/apiblueprint">
+                  <img src="/images/twitter.svg" />
+                  <span class="relation">Twitter</span>
+                  <span class="service">@apiblueprint</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="info">
+          <div class="brand">
+            <img src="/images/apiblueprint-footer.svg" alt="API Blueprint Logo" width=38 height=36 />
+
+            <ul>
+              <li class="brand">API Blueprint</li>
+              <li>&copy; 2013 - <%= Time.now.year %></li>
+            </ul>
+          </div>
+
+          <span class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></span>
+        </div>
+      </div>
+    </footer>
+    
+    <div class="rocket"></div>
+    <div class="moon"></div>
+
+    <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js' %>
+    <%= javascript_include_tag bootstrap_js %>
+  </body>
+</html>

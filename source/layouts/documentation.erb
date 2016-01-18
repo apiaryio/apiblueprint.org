@@ -1,0 +1,32 @@
+<% wrap_layout :layout do %>
+<!-- TODO Support Search
+    <div id="documentation-search" class="row search-form">
+        <input type="search" placeholder="Search Documentation" />
+    </div>
+-->
+    <div class="row content">
+        <div id="sidebar" class="col-md-3" role="complementary">
+            <ul class="nav">
+                <li class="active"><a href="/documentation/">Documentation</a>
+                    <ul class="nav">
+                        <li><a href="/documentation/tutorial.html">Tutorial</a></li>
+                        <li><a href="/documentation/advanced-tutorial.html">Advanced Tutorial</a></li>
+                        <li><a href="/documentation/specification.html">Specification</a></li>
+                        <li><a href="/documentation/glossary.html">Glossay of Terms</a></li>
+                        <li><a href="/documentation/mson/tutorial.html">MSON</a>
+                            <ul class="nav">
+                                <li><a href="/documentation/mson/tutorial.html">Tutorial</a></li>
+                                <li><a href="/documentation/mson/specification.html">Specification</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-9 text" role="main">
+            <h2><%= current_page.data.title || 'API Blueprint' %></h2>
+            <%= yield %>
+        </div>
+    </div>
+<% end %>

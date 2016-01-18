@@ -1,0 +1,213 @@
+- name: Apiary
+  summary: Apiary supercharges your Blueprints with interactive documentation, API
+    mock, test suites, validations, traffic inspector and collaboration.
+  url: http://apiary.io
+  tags:
+    - editors
+- name: Dredd
+  summary: Plug your API Blueprint into the CI and get no more outdated API documentation.
+  url: https://github.com/apiaryio/dredd
+  tags:
+    - testing
+- name: Drafter
+  summary: Native C/C++ API Blueprint Parser
+  url: https://github.com/apiaryio/drafter
+  tags:
+    - parsers
+- name: Protagonist
+  summary: Node.js wrapper for the API Blueprint parser
+  url: https://github.com/apiaryio/protagonist
+  tags:
+    - parsers
+- name: Drakov
+  summary: Mock server that implements the API Blueprint specification, with a few
+    extras rolled in. Usable as both a standalone server as well as a Node.js module.
+  url: https://www.npmjs.com/package/drakov
+  tags: []
+- name: cURL trace parser
+  summary: Record HTTP communication directly in the API Blueprint format.
+  url: https://github.com/apiaryio/curl-trace-parser
+  tags: []
+- name: RSpec API Blueprint
+  summary: Generate API Blueprint from request specs.
+  url: https://github.com/playround/rspec_api_blueprint
+  tags:
+    - testing
+- name: Iglo
+  summary: Generate static HTML documentation from API Blueprint.
+  url: https://github.com/subosito/iglo
+  tags: []
+- name: Sublime Text plugin
+  summary: API Blueprint & MSON syntax highlighting, live validation and parsing in
+    your favorite text editor.
+  url: https://github.com/apiaryio/api-blueprint-sublime-plugin
+  tags:
+    - editors
+- name: Atom editor language
+  summary: API Blueprint & MSON syntax highlighting.
+  url: https://atom.io/packages/language-api-blueprint
+  tags:
+    - editors
+- name: Atom editor preview
+  summary: Preview HTML Blueprint in the editor.
+  url: https://atom.io/packages/api-blueprint-preview
+  tags:
+    - editors
+- name: Vim editor plugin
+  summary: API Blueprint syntax highlighting and integration with Vim.
+  url: https://github.com/kylef/apiblueprint.vim
+  tags:
+    - editors
+- name: Aglio
+  summary: Render HTML from API blueprint files, with support for custom themes. Executable
+    and asynchronous Node.js library.
+  url: https://github.com/danielgtaylor/aglio
+  tags: []
+- name: Matter Compiler
+  summary: Matter Compiler is an API Blueprint AST to API Blueprint conversion tool.
+    It composes an API blueprint from its serialized AST media-type.
+  url: https://github.com/apiaryio/matter_compiler
+  tags: []
+- name: API-Mock
+  summary: Generate a simple, fast mock server from an API Blueprint.
+  url: https://github.com/localmed/api-mock
+  tags: []
+- name: API Blueprint Mock Server
+  summary: Run a simple, fast mock server in Java from an API Blueprint. Plans for
+    Android support in the future.
+  url: https://bitbucket.org/outofcoffee/api-blueprint-mockserver
+  tags: []
+- name: Blueman
+  summary: Convert an API Blueprint into a Postman collection.
+  url: http://git.io/blueman
+  tags: []
+- name: apiary2postman
+  summary: Convert an API Blueprint into a Postman collection, supports fetching from
+    Apiary API and reading from files or stdin.
+  url: https://github.com/thecopy/apiary2postman
+  tags: []
+- name: Blueprint docify
+  summary: Add your API spec in the root of your repo and push! It will make great
+    API docs for each branch, which are available at http://org.github.io/repo/branch
+  url: https://github.com/renewablefunding/blueprint-docify
+  tags: []
+- name: CCLRequestReplay
+  summary: Write your iOS and OS X tests directly to your API specification without
+    writing any extra code.
+  url: https://github.com/cocodelabs/CCLRequestReplay
+  tags:
+    - testing
+- name: API Blueprint Plugin for SoapUI Pro
+  summary: This plugin is available for SoapUI Pro versions 5.1 and above. The plugin
+    allows you import API Blueprint files into SoapUI Pro for testing and mocking,
+    as well as generate an API Blueprint file for any REST API defined in SoapUI Pro.
+    You can get the plugin by downloading a version of SoapUI Pro.
+  url: https://smartbear.com/products/qa-tools/web-service-testing-tool/free-soapui-trial/
+  tags: []
+- name: vREST.io
+  summary: This tool allows you to record, specify, mock and test your web APIs. You
+    can import existing API Blueprints into this tool.
+  url: http://vrest.io/
+  tags: []
+- name: Sandbox
+  summary: Simplify your testing. Quick and easy web API mocks, generated from API
+    Blueprint, instant deploy, collaborative build, and debugging tools for API integration.
+  url: https://getsandbox.com
+  tags: []
+- name: Vigia
+  summary: Flexible and scalable tool to provide RSpec integration tests using definition
+    files such as API Blueprint
+  url: https://github.com/nogates/vigia
+  tags: []
+- name: Paw
+  summary: A fully-featured HTTP client for the Mac featuring API Blueprint integration
+    via extensions.
+  url: http://blog.apiary.io/2014/12/02/Paw-Integration/
+  tags: []
+- name: APIMATIC
+  summary: Generates SDKs in various programming languages using API descriptions,
+    such as API Blueprint. Also offers a Code-generation-as-a-Service API for CI integration.
+  url: https://apimatic.io/
+  tags: []
+- name: ASP.net Blueprint Mock Server
+  summary: Host your API Blueprints inside your ASP.net solution using this built-in
+    mock server inside an encapsulated HTTP module.
+  url: https://github.com/BishoyDemian/api-blueprint-aspnet-host
+  tags: []
+- name: grape-apiary
+  summary: Generate API blueprints automatically from your already defined Grape api
+    endpoints.
+  url: https://github.com/connexio-labs/grape-apiary
+  tags: []
+- name: grunt-apiary-blueprint
+  summary: Generate your full API blueprint APIB by concatenation from smaller sections.
+  url: https://github.com/dac09/grunt-apiary-blueprint
+  tags: []
+- name: generator-apiblueprint
+  summary: Yeoman generator to create a new apiblueprint project with a Grunfile allowing
+    generation of HTML (via aglio), a connect HTTP server and live-reload.
+  url: https://github.com/ransico/generator-apiblueprint
+  tags: []
+- name: Dredd::Rack
+  summary: A configurable Dredd runner and a clonable Rake task to automate the testing
+    of your Rack (Rails, Sinatra, Grape...) applications API against their blueprints,
+    with Dredd, in Ruby.
+  url: https://github.com/gonzalo-bulnes/dredd-rack
+  tags: []
+- name: Hyperdrive
+  summary: Hyperdrive allows you to build Swift applications that can evolve at run-time
+    powered by API Blueprint.
+  url: https://github.com/the-hypermedia-project/Hyperdrive
+  tags: []
+- name: API Blueprint Manager
+  summary: Check your implementation state, and generate entities and request based
+    on API Blueprint.
+  url: https://github.com/Tuxilero/ABM
+  tags: []
+- name: Hercule
+  summary: Ideal for working with multiple API blueprint files.
+  url: https://github.com/jamesramsay/hercule
+  tags: []
+- name: Apigility
+  summary: Beautiful and powerful documentation for your API created with Apigility.
+  url: https://github.com/zfcampus/zf-apigility-documentation-apiblueprint
+  tags: []
+- name: Focus Booster
+  summary: Gulp tasks for writing large API Blueprints efficiently
+  url: https://github.com/saamo/api-blueprint-focus-booster
+  tags: []
+- name: Bluepaste
+  summary: API Blueprint pastebin service.
+  url: https://bluepaste.herokuapp.com
+  tags: []
+- name: swagger2blueprint
+  summary: Convert Swagger API descriptions into API Blueprint.
+  url: https://github.com/apiaryio/swagger2blueprint
+  tags: []
+- name: Gelato.io
+  summary: Import your API Blueprint and get hosted documentation, with an API Explorer,
+    Developer Registration, proper Search and more!
+  url: https://gelato.io
+  tags: []
+- name: API Transformer
+  summary: Transforms API descriptions from/to various formats. You can covert all
+    famous API description formats to API Blueprint with MSON. It also performs validation
+    to detect several types of errors that may exist in our API descritpion. Minor
+    errors are automatically fixed through our a linting process.
+  url: https://apitransformer.com/
+  tags: []
+- name: Apib::MockServer
+  summary: Create a mock server for your Ruby tests based on API Blueprints.
+  url: https://github.com/karnov/apib-mock_server
+  tags: []
+- name: Blueprint API Validator
+  summary: Ensure your Blueprint API files conform to a standard. This plugin validates
+    the format, JSON bodies and Schema in your Blueprint spec files.
+  url: https://www.npmjs.com/package/grunt-blueprint-validator
+  tags: []
+- name: API Blueprint Linter
+  summary: Linter plugin providing API Blueprint validation and access to the parser
+    output.
+  url: https://github.com/zdne/linter-api-blueprint
+  tags:
+    - editors
