@@ -9,7 +9,7 @@ lifecycle. Its syntax is concise yet expressive. With API Blueprint you can
 quickly design and prototype APIs to be created or document and test already
 deployed mission-critical APIs.
 
----
+[Tutorial](./documentation/) [Tools section](./tools.html) 
 
 ```apib
 # GET /message
@@ -17,8 +17,6 @@ deployed mission-critical APIs.
 
         Hello World!
 ```
-
----
 
 ### Focused on Collaboration
 

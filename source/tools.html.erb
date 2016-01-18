@@ -2,30 +2,35 @@
 title: API Blueprint Tools
 ---
 
-<div class="row">
-  <div id="sidebar" class="col-md-3" role="complementary">
-    <ul class="nav">
-      <li class="active"><a href="/tools.html">Tools</a>
-        <ul class="nav">
-        <% tools.keys.each do |category| %>
-          <li><a href="#<%= category %>"><%= category.capitalize %></a></li>
-        <% end %>
-        </li>
-      </ul>
+
+    <div id="tools-search" class="row search-form">
+        <input type="search" placeholder="Search Tooling" />
+    </div>
+    <div id="filters" class="row">
+        <ul class="nav nav-pills">
+            <li class="active"><a href="/tools.html">Tools</a>
+            
+            <% tools.keys.each do |category| %>
+                <li><a href="#<%= category %>"><%= category.capitalize %></a></li>
+            <% end %>
+        </ul>
     </div>
 
-    <div class="col-md-9" role="main">
-      <h2><%= current_page.data.title %></h2>
-
+    <div role="main">
       <% tools.each do |category,tools| %>
-        <h3 id="<%= category %>"><%= category.capitalize %></h3>
-
-        <ul>
+        <div>
         <% tools.each do |tool| %>
-          <li><a href="<%= tool.url %>"><%= tool.name %></a> - <%= tool.summary %></li>
+          <div class="row tool">
+            <div class="col-md-5">
+                <h3><a href="<%= tool.url %>"><%= tool.name %></a></h3>
+                <span class="label label-default"><%= tool.category %></span>
+            </div>
+            <div class="col-md-7 summary">
+                <p><%= tool.summary %></p>
+            </div>
+          </div>
         <% end %>
-        </ul>
+        </div>
       <% end %>
     </div>
-  </div>
 
