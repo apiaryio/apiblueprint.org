@@ -339,9 +339,11 @@ body > .container > ol,
     line-height: 34px;
     margin-bottom: 24px;
 }
+/* TODO support search
 .documentation .content {
     margin-top: 90px;
 }
+*/
 
 /* Tools */
 #filters {
