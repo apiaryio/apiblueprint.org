@@ -119,6 +119,26 @@ header .nav a:hover {
   opacity: 1;
 }
 
+body.documentation header .nav a.documentation {
+  border-bottom: 2px solid #FFF;
+  opacity: 1;
+}
+
+body.developers header .nav a.developers {
+  border-bottom: 2px solid #FFF;
+  opacity: 1;
+}
+
+body.support header .nav a.support {
+  border-bottom: 2px solid #FFF;
+  opacity: 1;
+}
+
+body.tools header .nav a.tools {
+  border-bottom: 2px solid #FFF;
+  opacity: 1;
+}
+
 footer {
   margin-top: 50px;
 }
