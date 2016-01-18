@@ -11,7 +11,7 @@ html {
 body {
   background: #2C1B56;
   background-image: linear-gradient(#0F0626, #2C1B56 1100px);
-  color: #768491;
+  color: #B9AED2;
   font-family: 'Open Sans', sans-serif;
   position: relative;
 }
@@ -49,6 +49,14 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: #FFF;
   border-bottom: 1px solid rgba(255, 255, 255, 0.19);
+  
+   -webkit-transition: border .1s ease-out;
+    -moz-transition: border .1s ease-out;
+    -o-transition: border .1s ease-out;
+    transition: border .1s ease-out;
+}
+a:hover {
+    border-bottom-color: #fff;
 }
 
 ul {
@@ -100,6 +108,7 @@ header .navbar-brand:before {
   height: 47px;
   width: 51px;
   padding-right: 15px;
+  vertical-align: text-bottom;
 }
 
 .navbar-nav a {
@@ -114,10 +123,6 @@ header .navbar-brand:before {
 
 header .navbar-nav a:hover, header .navbar-nav a:focus {
   background: inherit;
-}
-.navbar-right {
-    top: 10px;
-    position: relative;
 }
 .nav a {
   border-bottom: none;
@@ -146,17 +151,23 @@ footer {
   font-size: 15px;
   color: #FFFFFF;
   line-height: 40px;
+  -webkit-transition: all .1s ease-out;
+    -moz-transition: all .1s ease-out;
+    -o-transition: all .1s ease-out;
+    transition: all .1s ease-out;
+    border-left: 3px solid transparent;
+    margin-left: -3px;
 }
 
+#sidebar .nav>li>a:hover,
 #sidebar .nav li.active > a {
-  border-left: 3px solid #545E6B;
+  border-left: 3px solid #9073D2;
   padding-left: 15px;
-  color: #545E6B;
+  margin-left: 0;
+  color: #9073D2;
+  background: transparent;
 }
 
-#sidebar .nav a:hover {
-  background: #1C2126;
-}
 
 footer {
   margin-bottom: 50px;
@@ -246,6 +257,7 @@ pre {
 pre code {
   overflow-wrap: normal;
   white-space: pre;
+  color: #B4AEC5;
 }
 
 code {
@@ -256,10 +268,15 @@ code {
 }
 
 blockquote {
-  border-left: 4px solid #545E6B;
+  border-left: 4px solid #9073D2;
 }
 
 /* Documentation */
+
+body > .container {
+    position: relative;
+    z-index: 4;
+}
 
 body > .container > h2,
 body > .container > h3,
@@ -386,11 +403,16 @@ body > .container > ol,
     font-size: 15px;
     color: #FFFFFF;
     line-height: 18px;
+     border-radius: 40px;
+    -webkit-transition: all .1s ease-out;
+    -moz-transition: all .1s ease-out;
+    -o-transition: all .1s ease-out;
+    transition: all .1s ease-out;
 }
 .nav.nav-pills .active a,
 .nav.nav-pills a:hover {
     background: #9073D2;
-    border-radius: 40px;
+   
 }
 .tool {
     padding: 31px 0;
