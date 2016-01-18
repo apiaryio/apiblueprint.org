@@ -13,7 +13,7 @@ deployed mission-critical APIs.
 
 ```apib
 # GET /message
-- Response 200 (text/plain)
++ Response 200 (text/plain)
 
         Hello World!
 ```
@@ -56,13 +56,13 @@ For example, model your data first using the data description syntax.
 # Data Structures
 
 ## Blog Post (object)
-- id: 42 (number, required)
-- text: Hello World (string)
-- author (Author) - Author of the blog post.
++ id: 42 (number, required)
++ text: Hello World (string)
++ author (Author) - Author of the blog post.
 
 ## Author (object)
-- name: Boba Fett
-- email: fett@intergalactic.com
++ name: Boba Fett
++ email: fett@intergalactic.com
 ```
 
 Then, use and reuse the data in your API endpoints.
@@ -71,8 +71,8 @@ Then, use and reuse the data in your API endpoints.
 # Blog Posts [/posts]
 
 ## Retrieve All Posts [GET]
-- Response 200 (application/json)
-    - Attributes (array[Blog Post])
++ Response 200 (application/json)
+    + Attributes (array[Blog Post])
 ```
 
 ### Design-first
