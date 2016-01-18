@@ -263,7 +263,8 @@ body > .container > h3,
 }
 body > .container > h2:first-child,
 .text h2:first-child{
-    font-size: 32px;
+    font-size: 25px;
+    line-height: 41px;
     margin-top: 0;
 }
 body > .container > p,
@@ -480,6 +481,11 @@ body.index > .container p:nth-of-type(2) a:hover{
     header .navbar-brand {
         font-size: 32px;
         padding-left: 0;
+    }
+    body > .container > h2:first-child,
+    .text h2:first-child{
+        font-size: 32px;
+        line-height: 50px;
     }
     body.index > .container p:nth-of-type(2) a{
         display: inline-block;
