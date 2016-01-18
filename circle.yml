@@ -19,3 +19,8 @@ deployment:
       - git config --global user.email "support@apiary.io"
       - git remote set-url origin "https://${GH_TOKEN}@github.com/apiaryio/apiblueprint.org"
       - rake deploy
+
+general:
+  branches:
+    ignore:
+      - gh-pages

@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/kylef/rouge
-  revision: 7380391df32f3e040ace9bc8633ebb2d4636a4fb
+  revision: e9a2d1e504712026d8e201555dc59d42227ca77f
   branch: kylef/apiblueprint-lexer
   specs:
-    rouge (1.8.0)
+    rouge (1.10.1)
 
 GEM
   remote: https://rubygems.org/
@@ -171,4 +171,4 @@ DEPENDENCIES
   rouge!
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
