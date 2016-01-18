@@ -35,8 +35,7 @@ task :deploy do
 
     puts 'Creating a commit for the deploy.'
 
-    puts `git ls-files --deleted -z | xargs -0 git rm;`
-    puts `git add .`
+    puts `git add -A .`
     puts `git commit -m "Deploy"`
 
     puts 'Pushing to github.'
