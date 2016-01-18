@@ -6,9 +6,9 @@ API Blueprint can be consumed via an API Blueprint parser which outputs an [API 
 
 - [Command line tool](#using-the-command-line-tool)
 - [Parsing service](#using-the-api-blueprint-parsing-service)
-- [Node.js binding](#using-a-parser-binding-nodejs)
-- [JavaScript parser](#using-drafterjs-pure-javascript-parser)
-- [Native Parser](#using-the-native-parser-interface-cc)
+- [Node.js binding](#using-a-parser-binding-node-js)
+- [JavaScript parser](#using-drafter-js-pure-javascript-parser)
+- [Native Parser](#using-the-native-parser-interface-c-c)
 
 Regardless of the parsing method, the parsing output is [Refract](https://github.com/refractproject/refract-spec).
 
@@ -164,21 +164,21 @@ $ curl -X POST
     #include "SerializeResult.h" // Result Wrapper for serialization
     #include "sosJSON.h"         // Serializer
 
-     mdp::ByteBuffer blueprint = R"(
+    mdp::ByteBuffer blueprint = R"(
     # My API
     ## GET /message
-     + Response 200 (text/plain)
+    + Response 200 (text/plain)
 
             Hello World!
     )";
 
     // Blueprint parsing
-     snowcrash::ParseResult<snowcrash::Blueprint> ast;
-     drafter::ParseBlueprint(blueprint, 0, ast);
+    snowcrash::ParseResult<snowcrash::Blueprint> ast;
+    drafter::ParseBlueprint(blueprint, 0, ast);
 
-     std::cout << "API Name: " << ast.node.name << std::endl;
+    std::cout << "API Name: " << ast.node.name << std::endl;
 
     // Serialization to JSON format
-     sos::SerializeJSON serializer;
-     serializer.process(drafter::WrapResult(ast.node, drafter::WrapperOptions(drafter::RefractASTType)), std::cout);
+    sos::SerializeJSON serializer;
+    serializer.process(drafter::WrapResult(ast.node, drafter::WrapperOptions(drafter::RefractASTType)), std::cout);
     ```
