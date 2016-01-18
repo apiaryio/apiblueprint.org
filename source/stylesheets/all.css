@@ -386,3 +386,39 @@ body > .container > ol,
     margin-top: 8px;
     display: inline-block;
 }
+
+/* Index */
+
+body.index {
+    background: #1c2127 url(/images/index-bg.jpg) no-repeat top center;
+    background-size: 100% auto;
+}
+body.index > .container h2:first-of-type,
+body.index > .container p:first-of-type {
+    max-width: 60%;
+}
+body.index > .container p:nth-of-type(2) {
+    margin-bottom: 100px;
+}
+body.index > .container p:nth-of-type(2) a{
+    /* Rectangle 128: */
+    background: #5E9CFF;
+    border-radius: 46px;
+    border: 2px solid #5E9CFF;
+    display: inline-block;
+    padding: 5px 50px;
+    margin: 0;
+    
+    -webkit-transition: all .1s ease-out;
+    -moz-transition: all .1s ease-out;
+    -o-transition: all .1s ease-out;
+    transition: all .1s ease-out;
+}
+
+body.index > .container p:nth-of-type(2) a:last-child{
+    background: transparent;
+}
+body.index > .container p:nth-of-type(2) a:hover{
+    background: #3885FF;
+    border-color: #3885FF;
+}
