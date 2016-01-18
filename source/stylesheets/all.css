@@ -55,7 +55,6 @@ header {
   height: 50px;
   margin: 25px 0 55px;
   position: relative;
-  z-index: 20;
 }
 header:after{
     content: '';
@@ -523,3 +522,4 @@ body.index > .container p:nth-of-type(2) a:hover{
         border-left: 1px solid rgba(0,0,0,0.19);
     }
 }
+
