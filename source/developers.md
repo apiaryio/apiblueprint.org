@@ -111,7 +111,7 @@ $ curl -X POST
 
 ### Using drafter.js (Pure JavaScript parser)
 
-[`drafter.js`](https://github.com/apiaryio/drafter#drafterjs) is a pure JavaScript version of the `drafter` library. It exposes a single `parse` function which takes an API Blueprint stirng and options and returns the Refract Parse Result.
+[`drafter.js`](https://github.com/apiaryio/drafter#drafterjs) is a pure JavaScript version of the `drafter` library. It exposes a single `parse` function which takes an API Blueprint string and options and returns the Refract Parse Result.
 
 1. Install drafter.js
 
