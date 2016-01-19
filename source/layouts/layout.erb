@@ -79,18 +79,23 @@
 
         <hr />
 
-        <div class="info">
-          <div class="brand">
-            <img src="/images/apiblueprint-footer.svg" alt="API Blueprint Logo" width=38 height=36 />
-
-            <ul>
-              <li class="brand">API Blueprint</li>
-              <li>&copy; 2013 - <%= Time.now.year %></li>
+        <div class="info row">
+          <div class="brand-block col-md-6">
+              <img src="/images/apiblueprint-footer.svg" alt="API Blueprint Logo" width=38 height=36 />
+              <div class="brand-info">
+                <span class="brand">API Blueprint</span>
+                <span>&copy; 2013 - <%= Time.now.year %></span>
+              </div>
             </ul>
           </div>
-
-          <span class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></span>
+          <ul class="nav nav-pills col-md-6 text-md-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
         </div>
+        <div class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></div>
       </div>
     </footer>
     

@@ -55,6 +55,7 @@ header {
   height: 50px;
   margin: 25px 0 55px;
   position: relative;
+  z-index: 10;
 }
 header:after{
     content: '';
@@ -99,7 +100,6 @@ header .navbar-brand:before {
 }
 .navbar-nav a {
   font-size: 16px;
-  opacity: .5;
   border-bottom: 2px solid transparent;
     -webkit-transition: all .1s ease-out;
     -moz-transition: all .1s ease-out;
@@ -141,8 +141,28 @@ body.tools header .nav a.tools {
 
 footer {
   margin-top: 50px;
+  clear: both;
 }
-
+footer .brand-block img {
+    float: left;
+}
+footer .brand-block .brand-info span {
+    display: block;
+}
+footer .brand {
+    text-transform: lowercase;
+}
+footer .nav-pills{
+    margin: 20px 0;
+}
+footer .nav-pills>li {
+    display: block;
+    float: none;
+}
+footer .social li img {
+    float: left;
+}
+    
 /* Navigation */
 #sidebar .nav .nav {
   display: none;
@@ -206,13 +226,10 @@ footer .social .service {
   display: block;
 }
 
-footer .brand {
-  display: inline;
-  float: left;
-}
-
 footer .license {
-  float: right;
+  text-align: center;
+  padding: 20px 0;
+  opacity: .5;
 }
 
 footer ul {
@@ -234,7 +251,7 @@ footer .info li.brand {
 }
 
 hr {
-  border-top: 1px solid #2D343C;
+  border-top: 1px solid #472F82;
 }
 
 pre {
@@ -496,8 +513,18 @@ body.index > .container p:nth-of-type(2) a:hover{
 /* Responsive */
 
 @media (min-width: 1200px) {
+    .navbar-nav a {
+        opacity: .5;
+    }
+    .text-md-right{
+        text-align: right;
+    }
+    footer .nav-pills>li {
+        display: inline-block;
+    }
     header {
         margin: 95px 0 95px;
+        z-index: 1;
     }
     header .navbar-brand {
         font-size: 32px;
@@ -542,6 +569,9 @@ body.index > .container p:nth-of-type(2) a:hover{
         flex-grow: 1;
         margin: 0;
         border-left: 1px solid rgba(0,0,0,0.19);
+    }
+    footer .nav-pills{
+        margin: 0;
     }
 }
 
