@@ -11,6 +11,10 @@ configure :build do
   activate :asset_hash  # Cache Buster
 end
 
+configure :development do
+  activate :livereload
+end
+
 set :markdown, { fenced_code_blocks: true, with_toc_data: true }
 set :markdown_engine, :redcarpet
 activate :rouge_syntax
