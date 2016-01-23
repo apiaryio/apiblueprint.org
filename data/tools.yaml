@@ -216,3 +216,7 @@
   url: https://github.com/vmarkovtsev/plueprint
   tags:
     - parsers
+- name: test2doc
+  summary: "Generate API documentation from your tests: a simple addition to Go's testing pkg"
+  url: https://github.com/adams-sarah/test2doc
+  tags: []
