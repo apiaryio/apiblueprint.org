@@ -53,7 +53,7 @@ p {
 
 header {
   height: 50px;
-  margin: 25px 0 55px;
+  margin: 15px 0 55px;
   position: relative;
   z-index: 10;
 }
@@ -70,6 +70,12 @@ header:after{
     z-index: 1;
     max-width: 100%;
 }
+
+header hr {
+  border: 0;
+  height: 10px;
+}
+
 header .container {
     position: relative;
     z-index: 2;
@@ -523,7 +529,7 @@ body.index > .container p:nth-of-type(2) a:hover{
         display: inline-block;
     }
     header {
-        margin: 95px 0 95px;
+        margin: 75px 0 95px;
         z-index: 1;
     }
     header .navbar-brand {
