@@ -211,3 +211,8 @@
   url: https://github.com/zdne/linter-api-blueprint
   tags:
     - editors
+- name: plueprint
+  summary: API Blueprint Python parser
+  url: https://github.com/vmarkovtsev/plueprint
+  tags:
+    - parsers
