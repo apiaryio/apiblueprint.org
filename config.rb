@@ -19,8 +19,6 @@ set :markdown, { fenced_code_blocks: true, with_toc_data: true }
 set :markdown_engine, :redcarpet
 activate :rouge_syntax
 
-page '/documentation/*', :layout => 'documentation'
-
 helpers do
   def include(path)
     IO.read(path).sub(/^#[ \w].+$/, '')

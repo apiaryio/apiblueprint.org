@@ -1,5 +1,6 @@
 ---
 title: Documentation
+priority: 10
 ---
 
 A powerful high-level API design language for web APIs.
