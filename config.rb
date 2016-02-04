@@ -1,3 +1,5 @@
+require 'lib/gfm_ids.rb'
+
 activate :bh
 
 set :css_dir, 'stylesheets'
@@ -18,6 +20,7 @@ end
 set :markdown, { fenced_code_blocks: true, with_toc_data: true }
 set :markdown_engine, :redcarpet
 activate :rouge_syntax
+activate :gfm_ids
 
 page '/documentation/*', :layout => 'documentation'
 
