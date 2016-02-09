@@ -22,8 +22,6 @@ set :markdown_engine, :redcarpet
 activate :rouge_syntax
 activate :gfm_ids
 
-page '/documentation/*', :layout => 'documentation'
-
 helpers do
   def include(path)
     IO.read(path).sub(/^#[ \w].+$/, '')

@@ -47,7 +47,27 @@
     </header>
 
     <div class="container page-content">
+      <% if current_resource.path.include? "documentation"%>
+      <div class="row content">
+        <div id="sidebar" class="col-md-3" role="complementary">
+            <ul class="nav">
+            <% res = sitemap.resources.find_all { |r| r.path.include? "documentation"}
+               res.sort! {|a,b| a.data.priority <=> b.data.priority}
+               for r in res do
+            %>
+                  <li<%= ' class="active"' if r.path == current_resource.path%>>
+                  <%= link_to r.data.menu_title || r.data.title, r.url %></li>
+            <% end %>
+            </ul>
+        </div>
+        <div class="col-md-9 text" role="main">
+            <h2><%= current_page.data.title || 'API Blueprint' %></h2>
+            <%= yield %>
+        </div>
+      </div>
+      <% else %>
       <%= yield %>
+      <% end %>
     </div>
 
     <footer>
