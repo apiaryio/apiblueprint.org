@@ -12,11 +12,11 @@ API Blueprint can be consumed via an API Blueprint parser which outputs an [API 
 
 Regardless of the parsing method, the parsing output is [Refract](https://github.com/refractproject/refract-spec).
 
-## Refract API Description
+## API Elements
 
-The [Refract API Description namespace](https://github.com/refractproject/refract-spec/blob/master/namespaces/api-description-namespace.md) is the recommended format to parse API Blueprint into, it supersedes the now deprecated API Blueprint AST. Refract is a versatile format for recursive structures. Its constructed of many element types which act as building blocks for building data structures and descriptions. Refract has namespaces which build upon the core Refract elements and adds elements for other descriptions such as API Description.
+The [API Elements](http://api-elements.readthedocs.org/) is the recommended format to consume API Blueprint, it supersedes the now deprecated API Blueprint AST. 
 
-For example, an HTTP Response can be expressed in Refract using the following:
+For example, an HTTP Response can be expressed in API Elements using the following:
 
 ```json
 {
@@ -35,6 +35,8 @@ For example, an HTTP Response can be expressed in Refract using the following:
   ]
 }
 ```
+
+API Elements are built on top of Refract. Refract is a versatile format for recursive structures. Its constructed of many element types which act as building blocks for building data structures and descriptions.
 
 Every Refract element may have 4 attributes, the element name, Refract specific metadata, attributes specified by the element type, and a content value holding the content for the specific element.
 
