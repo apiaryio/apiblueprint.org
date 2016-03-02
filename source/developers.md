@@ -36,7 +36,7 @@ For example, an HTTP Response can be expressed in API Elements using the followi
 }
 ```
 
-API Elements are built on top of Refract. Refract is a versatile format for recursive structures. Its constructed of many element types which act as building blocks for building data structures and descriptions.
+API Elements are built on top of [Refract](https://github.com/refractproject/refract-spec). Refract is a versatile format for recursive structures. Its constructed of many element types which act as building blocks for building data structures and descriptions.
 
 Every Refract element may have 4 attributes, the element name, Refract specific metadata, attributes specified by the element type, and a content value holding the content for the specific element.
 
