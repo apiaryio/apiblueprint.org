@@ -7,6 +7,10 @@ checkout:
     - git submodule init
     - git submodule update
 
+dependencies:
+  pre:
+    - gem install bundler -v "$(cat Gemfile.lock | tail -n 1 | tr -d '[[:space:]]')"
+
 test:
   override:
     - /bin/true
