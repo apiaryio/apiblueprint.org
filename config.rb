@@ -1,5 +1,9 @@
 require 'lib/gfm_ids.rb'
 
+activate :deploy do |deploy|
+  deploy.deploy_method = :git
+end
+
 activate :bh
 
 set :css_dir, 'stylesheets'
