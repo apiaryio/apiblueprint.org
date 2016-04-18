@@ -22,7 +22,7 @@ deployment:
       - git config --global user.name "Apiary Bot"
       - git config --global user.email "support@apiary.io"
       - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/apiaryio/apiblueprint.org"
-      - middleman deploy
+      - bundle exec middleman deploy
 
 general:
   branches:
