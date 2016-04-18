@@ -518,7 +518,7 @@ body.index > .container p:nth-of-type(2) a:hover{
 
 /* Responsive */
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
     .navbar-nav a {
         opacity: .5;
     }
@@ -564,9 +564,7 @@ body.index > .container p:nth-of-type(2) a:hover{
         top: 100px;
         right: 5%;
     }
-    .container {
-        width: 960px;
-    }
+    
     footer .social {
         display: flex;
         padding: 50px;
@@ -578,6 +576,11 @@ body.index > .container p:nth-of-type(2) a:hover{
     }
     footer .nav-pills{
         margin: 0;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 960px;
     }
 }
 
