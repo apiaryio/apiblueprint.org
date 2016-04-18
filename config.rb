@@ -1,7 +1,7 @@
 require 'lib/gfm_ids.rb'
 
 activate :deploy do |deploy|
-  deploy.deploy_method = :git
+  deploy.method = :git
 end
 
 activate :bh
