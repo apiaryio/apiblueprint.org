@@ -11,7 +11,7 @@ title: API Blueprint Tools
     <ul class="nav nav-pills">
         <li class="active" data-id="all"><a href="#">Tools</a></li>
         <% tool_tags.each do |tag| %>
-            <li data-id="<%= tag %>"><a href="#"><%= tag.capitalize %></a></li>
+            <li data-id="<%= tag.gsub(' ','-') %>"><a href="#"><%= tag.capitalize %></a></li>
         <% end %>
     </ul>
 </div>
@@ -19,7 +19,7 @@ title: API Blueprint Tools
 <div role="main">
     <div id="tools">
         <% data.tools.each do |tool| %>
-            <div class="row tool <%= tool.tags.map{|tag| "tool-#{tag}" }.join(' ') %>">
+            <div class="row tool <%= tool.tags.map{|tag| "tool-#{tag.gsub(' ','-')}" }.join(' ') %>">
                 <div class="col-md-5">
                     <h3><a href="<%= tool.url %>"><%= tool.name %></a></h3>
 
