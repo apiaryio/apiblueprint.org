@@ -1,9 +1,17 @@
 GIT
-  remote: https://github.com/kylef/rouge
-  revision: e9a2d1e504712026d8e201555dc59d42227ca77f
-  branch: kylef/apiblueprint-lexer
+  remote: https://github.com/jneen/rouge
+  revision: 53f00b8686921553e70c62403c14a5644f828e95
   specs:
     rouge (1.10.1)
+
+GIT
+  remote: https://github.com/middleman-contrib/middleman-deploy
+  revision: 243ab38b08896cd5a37d6845a01a5761b934a898
+  specs:
+    middleman-deploy (2.0.0.pre.alpha)
+      middleman-core (>= 3.2)
+      net-sftp
+      ptools
 
 GEM
   remote: https://rubygems.org/
@@ -123,6 +131,9 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.1.1)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     padrino-helpers (0.12.5)
@@ -131,6 +142,7 @@ GEM
       tilt (~> 1.4.1)
     padrino-support (0.12.5)
       activesupport (>= 3.1)
+    ptools (1.3.3)
     rack (1.6.4)
     rack-livereload (0.3.16)
       rack
@@ -178,6 +190,7 @@ DEPENDENCIES
   bh (~> 1.3)
   bootstrap-sass (~> 3.3)
   middleman (~> 3.4)
+  middleman-deploy!
   middleman-livereload
   middleman-rouge
   rouge!
