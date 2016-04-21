@@ -244,3 +244,8 @@
   tags: 
     - testing
     - mock servers
+- name: apib-mode
+  summary: Emacs major mode for API Blueprint.
+  url: https://github.com/w-vi/apib-mode
+  tags:
+    - editors
