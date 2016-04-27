@@ -239,9 +239,9 @@
   url: https://github.com/adams-sarah/test2doc
   tags: []
 - name: apish
-  summary: Mock APIs and Services from API Blueprint in JS tests 
+  summary: Mock APIs and Services from API Blueprint in JS tests
   url: https://github.com/JackuB/apish
-  tags: 
+  tags:
     - testing
     - mock servers
 - name: apib-mode
@@ -249,3 +249,7 @@
   url: https://github.com/w-vi/apib-mode
   tags:
     - editors
+- name: Bluth
+  summary: Node.js library to validate payloads against a specified JSON Schema within your API Blueprint.
+  url: https://github.com/ribot/bluth
+  tags: []
