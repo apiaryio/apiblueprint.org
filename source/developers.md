@@ -113,7 +113,7 @@ $ curl -X POST
 
 ### Using drafter.js (Pure JavaScript parser)
 
-[`drafter.js`](https://github.com/apiaryio/drafter#drafterjs) is a pure JavaScript version of the `drafter` library. It exposes a single `parse` function which takes an API Blueprint string and options and returns the Refract Parse Result.
+[`drafter.js`](https://github.com/apiaryio/drafter.js) is a pure JavaScript version of the `drafter` library. It exposes a single `parse` function which takes an API Blueprint string and options and returns the Refract Parse Result.
 
 1. Install drafter.js
 
@@ -150,7 +150,7 @@ $ curl -X POST
 
 ### Using the native parser interface (C/C++)
 
-1. Build Drafter
+1. Build [Drafter](https://github.com/apiaryio/drafter)
 
     ```sh
     $ ./configure
@@ -159,28 +159,27 @@ $ curl -X POST
 
     See full [build instructions](https://github.com/apiaryio/drafter#build)
 
-2. Parse your API Blueprint into its AST
+2. Parse your API Blueprint
 
-    ```c++
-    #include "drafter.h"         // Blueprint Parser
-    #include "SerializeResult.h" // Result Wrapper for serialization
-    #include "sosJSON.h"         // Serializer
+    ```c
+    #include <drafter/drafter.h>
 
-    mdp::ByteBuffer blueprint = R"(
-    # My API
-    ## GET /message
-    + Response 200 (text/plain)
+    const char *blueprint =
+      "# My API\n"
+      "## GET /message\n"
+      "+ Response 200 (text/plain)\n"
+      "\n"
+      "      Hello World!\n";
 
-            Hello World!
-    )";
+    drafter_options options;
+    options.format = DRAFTER_SERIALIZE_JSON;
+    options.sourcemap = true;
 
-    // Blueprint parsing
-    snowcrash::ParseResult<snowcrash::Blueprint> ast;
-    drafter::ParseBlueprint(blueprint, 0, ast);
-
-    std::cout << "API Name: " << ast.node.name << std::endl;
-
-    // Serialization to JSON format
-    sos::SerializeJSON serializer;
-    serializer.process(drafter::WrapResult(ast.node, drafter::WrapperOptions(drafter::RefractASTType)), std::cout);
+    char *result = NULL;
+    if (drafter_parse_blueprint_to(blueprint, &result, options) == 0) {
+        printf("%s\n", result);
+        free(result);
+    }
     ```
+
+    Please see [Drafter](https://github.com/apiaryio/drafter) for full API documentation.
