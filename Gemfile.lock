@@ -1,9 +1,3 @@
-GIT
-  remote: https://github.com/jneen/rouge
-  revision: 53f00b8686921553e70c62403c14a5644f828e95
-  specs:
-    rouge (1.10.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -155,6 +149,7 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     redcarpet (3.3.4)
+    rouge (2.0.1)
     sass (3.4.21)
     sprockets (2.12.4)
       hike (~> 1.2)
@@ -188,7 +183,7 @@ DEPENDENCIES
   middleman-deploy
   middleman-livereload
   middleman-rouge
-  rouge!
+  rouge
 
 BUNDLED WITH
-   1.11.2
+   1.12.5

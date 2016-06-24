@@ -5,6 +5,6 @@ gem 'middleman-rouge'
 gem 'middleman-livereload'
 gem 'middleman-deploy'
 
-gem 'rouge', git: 'https://github.com/jneen/rouge'
+gem 'rouge'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'bh', '~> 1.3'
