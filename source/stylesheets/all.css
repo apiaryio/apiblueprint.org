@@ -369,6 +369,15 @@ body > .container > ol li:before,
     position: absolute;
     left: 0;
 }
+
+/* Sub list items */
+.container ul:not(.nav) ul {
+    padding-left: 30px;
+}
+.container ul:not(.nav) ul li:before {
+    border: 2px solid #FFFFFF;
+}
+
 body > .container pre,
 .text pre {
     padding: 40px;
