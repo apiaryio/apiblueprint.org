@@ -253,3 +253,7 @@
   summary: Node.js library to validate payloads against a specified JSON Schema within your API Blueprint.
   url: https://github.com/ribot/bluth
   tags: []
+- name: api-blueprint-s3
+  summary: A complete workflow for converting API Blueprint to hosted documentation on S3.
+  url: https://github.com/philipbrown/api-blueprint-s3
+  tags: []
