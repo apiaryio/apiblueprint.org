@@ -208,7 +208,7 @@
   summary: Transforms API descriptions from/to various formats. You can covert all
     famous API description formats to API Blueprint with MSON. It also performs validation
     to detect several types of errors that may exist in our API descritpion. Minor
-    errors are automatically fixed through our a linting process.
+    errors are automatically fixed through a linting process.
   url: https://apitransformer.com/
   tags:
     - converters
