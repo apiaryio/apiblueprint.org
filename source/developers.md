@@ -88,16 +88,16 @@ $ curl -X POST
 
 ### Using a parser binding (Node.js)
 
-1. Install binding for your language (e.g. [Protagonist](https://github.com/apiaryio/protagonist) for Node.js)
+1. Install binding for your language (e.g. [Drafter NPM](https://github.com/apiaryio/drafter-npm) for Node.js)
 
     ```sh
-    $ npm install protagonist
+    $ npm install drafter
     ```
 
 2. Parse your API Blueprint into Refract
 
     ```javascript
-    var protagonist = require('protagonist');
+    var drafter = require('drafter');
 
     var blueprint = '''
     # GET /message
@@ -113,17 +113,11 @@ $ curl -X POST
 
 ### Using drafter.js (Pure JavaScript parser)
 
-[`drafter.js`](https://github.com/apiaryio/drafter.js) is a pure JavaScript version of the `drafter` library. It exposes a single `parse` function which takes an API Blueprint string and options and returns the Refract Parse Result.
+[`drafter.js`](https://github.com/apiaryio/drafter.js) is a pure JavaScript version of the `drafter` library designed to work in web browsers. It exposes a single `parse` function which takes an API Blueprint string and options and returns the Refract Parse Result.
 
 1. Install drafter.js
 
-    Via NPM:
-
-    ```sh
-    $ npm install drafter.js
-    ```
-
-    You may also download drafter.js from the [releases page](https://github.com/apiaryio/drafter/releases) and reference it in HTML.
+    You may also download drafter.js from the [releases page](https://github.com/apiaryio/drafter.js/releases) and reference it in HTML.
 
     ```html
     <script src="./drafter.js"></script>
