@@ -6,9 +6,9 @@ API Blueprint can be consumed via an API Blueprint parser which outputs an [API 
 
 - [Command line tool](#using-the-command-line-tool)
 - [Parsing service](#using-the-api-blueprint-parsing-service)
-- [Node.js binding](#using-a-parser-binding-node-js)
-- [JavaScript parser](#using-drafter-js-pure-javascript-parser)
-- [Native Parser](#using-the-native-parser-interface-c-c)
+- [Node.js binding](#using-a-parser-binding-nodejs)
+- [JavaScript parser](#using-drafterjs-pure-javascript-parser)
+- [Native Parser](#using-the-native-parser-interface-cc)
 
 Regardless of the parsing method, the parsing output is [Refract](https://github.com/refractproject/refract-spec).
 
