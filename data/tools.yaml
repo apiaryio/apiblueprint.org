@@ -257,3 +257,8 @@
   summary: A complete workflow for converting API Blueprint to hosted documentation on S3.
   url: https://github.com/philipbrown/api-blueprint-s3
   tags: []
+- name: vscode-apielements
+  summary: Visual Studio Code extension for API Blueprint
+  url: https://github.com/XVincentX/vscode-apielements
+  tags:
+    - editors
