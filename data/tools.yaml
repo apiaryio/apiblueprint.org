@@ -262,3 +262,8 @@
   url: https://github.com/XVincentX/vscode-apielements
   tags:
     - editors
+- name: PHPDraft
+  summary: Generate static HTML documentation from API Blueprint.
+  url: https://github.com/SMillerDev/phpdraft/
+  tags:
+    - renderers
