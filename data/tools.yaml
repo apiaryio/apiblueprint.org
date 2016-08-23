@@ -266,3 +266,8 @@
   summary: Node server to generate documentation.md file for all the endpoints supported by your server
   url: https://github.com/sandeep89/doc-proxy
   tags: []
+- name: PHPDraft
+  summary: Generate static HTML documentation from API Blueprint.
+  url: https://github.com/SMillerDev/phpdraft/
+  tags:
+    - renderers
