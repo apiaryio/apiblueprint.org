@@ -12,7 +12,7 @@
 - name: Drafter
   summary: Native C/C++ API Blueprint Parser
   url: https://github.com/apiaryio/drafter
-  tags:
+  tags:t
     - parsers
 - name: Protagonist
   summary: Node.js wrapper for the API Blueprint parser
@@ -262,3 +262,7 @@
   url: https://github.com/XVincentX/vscode-apielements
   tags:
     - editors
+- name: doc-proxy
+  summary: Node server to generate documentation.md file for all the endpoints supported by your server
+  url: https://github.com/sandeep89/doc-proxy
+  tags:[]
