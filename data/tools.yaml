@@ -12,7 +12,7 @@
 - name: Drafter
   summary: Native C/C++ API Blueprint Parser
   url: https://github.com/apiaryio/drafter
-  tags:t
+  tags:
     - parsers
 - name: Protagonist
   summary: Node.js wrapper for the API Blueprint parser
