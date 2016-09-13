@@ -262,3 +262,7 @@
   url: https://github.com/XVincentX/vscode-apielements
   tags:
     - editors
+- name: apiaryio
+  summary: Node.JS CLI tool for publishing API Blueprint to apiary.
+  url: https://www.npmjs.com/package/apiaryio
+  tags: []
