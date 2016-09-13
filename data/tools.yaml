@@ -352,3 +352,7 @@
   summary: Validate requests and responses against API Blueprint specifications for Ruby.
   url: https://github.com/funbox/esplanade
   tags: []
+- name: apiaryio
+  summary: Node.JS CLI tool for publishing API Blueprint to apiary.
+  url: https://www.npmjs.com/package/apiaryio
+  tags: []
