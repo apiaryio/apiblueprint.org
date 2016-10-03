@@ -34,10 +34,11 @@
   url: https://github.com/playround/rspec_api_blueprint
   tags:
     - testing
-- name: Iglo
-  summary: Generate static HTML documentation from API Blueprint.
-  url: https://github.com/subosito/iglo
+- name: Snowboard
+  summary: Render HTML documentation from API blueprint. Support custom templates. Executable and Golang library.
+  url: https://github.com/subosito/snowboard
   tags:
+    - parsers
     - renderers
 - name: Sublime Text plugin
   summary: API Blueprint & MSON syntax highlighting, live validation and parsing in
