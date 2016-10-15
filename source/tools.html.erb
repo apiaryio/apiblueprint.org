@@ -11,7 +11,7 @@ title: API Blueprint Tools
     <ul class="nav nav-pills">
         <li class="active" data-id="all"><a href="#">Tools</a></li>
         <% tool_tags.each do |tag| %>
-            <li data-id="<%= tag.gsub(' ','-') %>"><a href="#"><%= tag.capitalize %></a></li>
+            <li data-id="<%= tag.gsub(' ','-') %>"><a href="#<%= tag %>"><%= tag.capitalize %></a></li>
         <% end %>
     </ul>
 </div>
@@ -47,9 +47,7 @@ title: API Blueprint Tools
 </div>
 
 <script>
-$("#filters li").click(function(e) {
-    var tag = $(this).attr("data-id");
-
+function filterTag(tag) {
     if (tag == "all") {
         $("#tools .row").show();
     } else {
@@ -59,6 +57,11 @@ $("#filters li").click(function(e) {
     }
 
     $("#filters li").removeClass("active");
+}
+
+$("#filters li").click(function(e) {
+    var tag = $(this).attr("data-id");
+    filterTag(tag);
     $(this).addClass("active");
 });
 
@@ -85,6 +88,12 @@ $('#tools-search input').on('input', function() {
 });
 
 $(function() {
-  $("#tools-search input").focus()
+    if (window.location.hash) {
+        var tag = window.location.hash.replace("#", "");
+        filterTag(tag);
+        $('li[data-id="' + tag + '"]').addClass("active");
+    } else {
+        $("#tools-search input").focus();
+    }
 });
 </script>
