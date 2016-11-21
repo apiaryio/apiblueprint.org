@@ -283,3 +283,8 @@
   url: https://github.com/swathysubhash/docprint
   tags:
     - renderers
+- name: SwiftAPI
+  summary: Convert an API Blueprint into executable Swift code.
+  url: https://github.com/drinking/SwiftAPI
+  tags:
+    - converters
