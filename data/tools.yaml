@@ -292,3 +292,8 @@
   summary: API Blueprint from python docstring.
   url: https://github.com/HackerWilson/pyabp
   tags: []
+- name: apib2json
+  summary: A command-line utility to convert API Blueprint to JSON Schema.
+  url: https://github.com/o5/apib2json
+  tags:
+      - converters
