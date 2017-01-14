@@ -298,7 +298,7 @@
   tags:
       - converters
 - name: Blueprint-agreement
-  summary: A ruby Minitest API Documentation Matcher, based on ApiBluePrint schema.
+  summary: A ruby minitest API documentation matcher based on Api Blueprint schema.
   url: https://github.com/charly-palencia/blueprint-agreement
   tags:
     - testing
