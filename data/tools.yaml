@@ -297,3 +297,8 @@
   url: https://github.com/o5/apib2json
   tags:
       - converters
+- name: Blueprint-agreement
+  summary: A ruby minitest API documentation matcher based on Api Blueprint schema.
+  url: https://github.com/charly-palencia/blueprint-agreement
+  tags:
+    - testing
