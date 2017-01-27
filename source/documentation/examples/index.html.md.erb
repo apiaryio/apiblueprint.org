@@ -1,0 +1,13 @@
+---
+title: Examples
+priority: 100
+---
+
+You can find a collection of API Blueprint examples below:
+
+<ul>
+<% examples = current_page.children.sort { |a,b| a.metadata[:locals][:title] <=> b.metadata[:locals][:title] } %>
+<% examples.each do |r| %>
+  <li><%= link_to r.metadata[:locals][:title], r.url %></li>
+<% end %>
+</ul>

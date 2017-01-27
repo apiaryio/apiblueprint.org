@@ -26,6 +26,33 @@ set :markdown_engine, :redcarpet
 activate :rouge_syntax
 activate :gfm_ids
 
+Dir['api-blueprint/examples/*.md']
+  .map do |path|
+    path = Pathname.new(path)
+
+    title = path.basename.sub_ext('').to_s
+    slug = title.gsub('.', '').gsub(' ', '-').downcase
+
+    {
+      title: title,
+      slug: slug,
+      path: path,
+      content: path.read
+        .split("\n")
+        .reject do |line|
+          # Remove the interlinking
+          line == '## API Blueprint' || line.start_with?('+ [Previous:') || line.start_with?('+ [This:') || line.start_with?('+ [Next:')
+        end
+        .join("\n"),
+    }
+  end
+  .reject { |example| example[:title] == 'README' }
+  .each do |example|
+    proxy "/documentation/examples/#{example[:slug]}.html", "/documentation/examples/example.html", :locals => example
+  end
+
+ignore '/documentation/examples/example.html'
+
 helpers do
   def include(path)
     IO.read(path).sub(/^#[ \w].+$/, '')
