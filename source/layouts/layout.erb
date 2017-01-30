@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><%= "#{current_page.data.title} | API Blueprint" || 'API Blueprint' %></title>
+    <title><%= "#{current_page.metadata[:locals][:title] || current_page.data.title} | API Blueprint" || 'API Blueprint' %></title>
 
     <link href="/images/favicon.png" rel="icon" type="image/png" />
     <%= stylesheet_link_tag font_awesome_css, bootstrap_css, 'all', 'highlight' %>
@@ -51,7 +51,9 @@
       <div class="row content">
         <div id="sidebar" class="col-md-3" role="complementary">
             <ul class="nav">
-            <% res = sitemap.resources.find_all { |r| r.path.include? "documentation"}
+            <% docs = sitemap.find_resource_by_path('/documentation/index.html')
+               res = docs.children
+               res += sitemap.resources.find_all { |r| r.path.include? 'mson' }
                res.sort! {|a,b| a.data.priority <=> b.data.priority}
                for r in res do
             %>
@@ -61,7 +63,7 @@
             </ul>
         </div>
         <div class="col-md-9 text" role="main">
-            <h2><%= current_page.data.title || 'API Blueprint' %></h2>
+            <h2><%= current_page.metadata[:locals][:title] || current_page.data.title || 'API Blueprint' %></h2>
             <%= yield %>
         </div>
       </div>
