@@ -296,9 +296,14 @@
   summary: A command-line utility to convert API Blueprint to JSON Schema.
   url: https://github.com/o5/apib2json
   tags:
-      - converters
+    - converters
 - name: Blueprint-agreement
   summary: A ruby minitest API documentation matcher based on Api Blueprint schema.
   url: https://github.com/charly-palencia/blueprint-agreement
+  tags:
+    - testing
+- name: test2doc.js
+  summary: test2doc.js helps you generate API documentation from your tests/specs.
+  url: https://github.com/stackia/test2doc.js
   tags:
     - testing
