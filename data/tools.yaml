@@ -307,3 +307,8 @@
   url: https://github.com/stackia/test2doc.js
   tags:
     - testing
+- name: pmtoapib
+  summary: A simple tool to convert Postman collection exports (v2) to Api Blueprint.
+  url: https://github.com/PhillippOhlandt/pmtoapib
+  tags:
+    - converters
