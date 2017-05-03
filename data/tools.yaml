@@ -67,11 +67,6 @@
   url: https://github.com/danielgtaylor/aglio
   tags:
     - renderers
-- name: Matter Compiler
-  summary: Matter Compiler is an API Blueprint AST to API Blueprint conversion tool.
-    It composes an API blueprint from its serialized AST media-type.
-  url: https://github.com/apiaryio/matter_compiler
-  tags: []
 - name: API-Mock
   summary: Generate a simple, fast mock server from an API Blueprint.
   url: https://github.com/localmed/api-mock
