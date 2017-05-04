@@ -312,3 +312,8 @@
   url: https://github.com/PhillippOhlandt/pmtoapib
   tags:
     - converters
+- name: Draughtsman
+  summary: API Blueprint Parser for Python 3
+  url: https://github.com/kylef/draughtsman
+  tags:
+    - parsers
