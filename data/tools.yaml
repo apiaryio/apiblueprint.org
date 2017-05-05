@@ -312,3 +312,8 @@
   url: https://github.com/kylef/draughtsman
   tags:
     - parsers
+- name: fitting
+  summary: RSpec matchers to validate Rails controller responses against API Blueprint document during controller tests.
+  url: https://github.com/funbox/fitting
+  tags:
+    - testing
