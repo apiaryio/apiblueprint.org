@@ -313,9 +313,7 @@
   tags:
     - parsers
 - name: fitting
-  summary: This gem will help to make your RSpec tests according to the documentation
-    for the API. When writing tests, you can be sure that the implement API in
-    accordance with documentation on API Blueprint.
+  summary: RSpec matchers to validate Rails controller responses against the API Blueprint.
   url: https://github.com/funbox/fitting
   tags:
     - testing
