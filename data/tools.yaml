@@ -67,11 +67,6 @@
   url: https://github.com/danielgtaylor/aglio
   tags:
     - renderers
-- name: Matter Compiler
-  summary: Matter Compiler is an API Blueprint AST to API Blueprint conversion tool.
-    It composes an API blueprint from its serialized AST media-type.
-  url: https://github.com/apiaryio/matter_compiler
-  tags: []
 - name: API-Mock
   summary: Generate a simple, fast mock server from an API Blueprint.
   url: https://github.com/localmed/api-mock
@@ -312,6 +307,11 @@
   url: https://github.com/PhillippOhlandt/pmtoapib
   tags:
     - converters
+- name: Draughtsman
+  summary: API Blueprint Parser for Python 3
+  url: https://github.com/kylef/draughtsman
+  tags:
+    - parsers
 - name: fitting
   summary: This gem will help to make your RSpec tests according to the documentation
     for the API. When writing tests, you can be sure that the implement API in
