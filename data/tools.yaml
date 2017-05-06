@@ -317,3 +317,8 @@
   url: https://github.com/funbox/fitting
   tags:
     - testing
+- name: mson-to-schemas
+  summary: Generate JSON schema from your MSON data structures
+  url: https://github.com/madewithlove/mson-to-schemas
+  tags:
+    - parsers
