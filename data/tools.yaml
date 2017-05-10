@@ -322,3 +322,13 @@
   url: https://github.com/madewithlove/mson-to-schemas
   tags:
     - parsers
+- name: pygments-apiblueprint
+  summary: API Blueprint Lexer for Python (Pygments)
+  url: https://github.com/kylef/pygments-apiblueprint
+  tags:
+    - lexers
+- name: rouge
+  summary: API Blueprint Lexer for Ruby
+  url: http://rouge.jneen.net
+  tags:
+    - lexers
