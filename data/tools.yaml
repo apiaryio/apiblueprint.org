@@ -322,3 +322,8 @@
   url: https://github.com/madewithlove/mson-to-schemas
   tags:
     - parsers
+- name: blueprint-sdk-maker
+  summary: Create SDK client in PHP from API blueprint apib file
+  url: https://github.com/vitormattos/blueprint-sdk-maker
+  tags:
+    - converters
