@@ -323,7 +323,7 @@
   tags:
     - parsers
 - name: blueprint-sdk-maker
-  summary: Create SDK client in PHP from API blueprint apib file
+  summary: Create SDK client in PHP from API Blueprint
   url: https://github.com/vitormattos/blueprint-sdk-maker
   tags:
     - converters
