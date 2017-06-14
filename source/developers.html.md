@@ -2,7 +2,7 @@
 title: Developing tools for API Blueprint
 ---
 
-API Blueprint can be consumed via an API Blueprint parser which outputs an [API Description](https://github.com/refractproject/refract-spec/blob/master/namespaces/api-description-namespace.md) which can be processed.
+API Blueprint can be consumed via an API Blueprint parser which outputs [API Elements](http://api-elements.readthedocs.org/) which can be processed.
 
 - [Command line tool](#using-the-command-line-tool)
 - [Parsing service](#using-the-api-blueprint-parsing-service)
@@ -10,11 +10,10 @@ API Blueprint can be consumed via an API Blueprint parser which outputs an [API 
 - [JavaScript parser](#using-drafterjs-pure-javascript-parser)
 - [Native Parser](#using-the-native-parser-interface-cc)
 
-Regardless of the parsing method, the parsing output is [Refract](https://github.com/refractproject/refract-spec).
-
 ## API Elements
 
-The [API Elements](http://api-elements.readthedocs.org/) is the recommended format to consume API Blueprint, it supersedes the now deprecated API Blueprint AST. 
+The [API Elements](http://api-elements.readthedocs.org/) is format use recommended format to consume API Blueprint, it supersedes the now deprecated API Blueprint AST. 
+
 
 For example, an HTTP Response can be expressed in API Elements using the following:
 
