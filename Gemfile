@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'middleman', '~> 3.4'
-gem 'middleman-rouge'
+gem 'middleman'
 gem 'middleman-livereload'
-gem 'middleman-deploy'
+gem 'middleman-syntax'
+gem 'middleman-deploy', '2.0.0.pre.alpha'
 
-gem 'rouge'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'bh', '~> 1.3'
+gem 'redcarpet'

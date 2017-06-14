@@ -1,7 +1,7 @@
 require 'lib/gfm_ids.rb'
 
 activate :deploy do |deploy|
-  deploy.method = :git
+  deploy.deploy_method = :git
 end
 
 activate :bh
@@ -23,7 +23,7 @@ end
 
 set :markdown, { fenced_code_blocks: true, with_toc_data: true }
 set :markdown_engine, :redcarpet
-activate :rouge_syntax
+activate :syntax
 activate :gfm_ids
 
 Dir['api-blueprint/examples/*.md']
