@@ -332,3 +332,8 @@
   url: http://rouge.jneen.net
   tags:
     - lexers
+- name: blueprint-sdk-maker
+  summary: Create SDK client in PHP from API Blueprint
+  url: https://github.com/vitormattos/blueprint-sdk-maker
+  tags:
+    - converters
