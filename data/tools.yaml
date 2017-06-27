@@ -337,3 +337,8 @@
   url: https://github.com/vitormattos/blueprint-sdk-maker
   tags:
     - converters
+- name: BlueBird
+  summary: Generate API Blueprint from tests with Phoenix Framework.
+  url: https://github.com/KittyHeaven/blue_bird
+  tags:
+    - testing
