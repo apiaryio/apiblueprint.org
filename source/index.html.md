@@ -80,9 +80,9 @@ Then, use and reuse the data in your API endpoints.
 API Blueprint is all about the design-first philosophy. Similar to tests in
 test-driven development, API Blueprint represents a contract for an API.
 Discussing your API and settling on the contract before it is developed tends to
- lead to better API designs.
+lead to better API designs.
 
-Once your API Blueprint is in the place everybody can [test][dredd] whether the
+Once your API Blueprint is in place everybody can [test][dredd] whether the
 implementation is living up to the expectations set in the contract.
 
 ### Awesome Tools
@@ -101,7 +101,7 @@ To get started with API Blueprint you will need a plain-text editor. For the
 best editing experience switch the syntax-highlighting to Markdown or
 directly to API Blueprint (if [supported][editors] by your editor).
 
-With editor ready follow the [API Blueprint tutorial][tutorial].
+With editor ready, follow the [API Blueprint tutorial][tutorial].
 
 Once you have written your first API Blueprint you can discuss the API design
 with friends and use the [tools for API Blueprint][tools]. For example,
