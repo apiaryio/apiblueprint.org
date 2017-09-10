@@ -356,3 +356,8 @@
   summary: Node.JS CLI tool for publishing API Blueprint to apiary.
   url: https://www.npmjs.com/package/apiaryio
   tags: []
+- name: Laravel Blueprint Docs
+  summary: API Blueprint Renderer for Laravel, themeable via Blade templates.
+  url: https://github.com/M165437/laravel-blueprint-docs
+  tags:
+    - renderers
