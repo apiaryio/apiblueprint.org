@@ -342,3 +342,9 @@
   url: https://github.com/KittyHeaven/blue_bird
   tags:
     - testing
+- name: Dox
+  summary: Generate API Blueprint from RSpec tests in a Rails application.
+  url: https://github.com/infinum/dox
+  tags:
+    - testing
+    - tools
