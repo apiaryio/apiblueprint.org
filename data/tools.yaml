@@ -342,3 +342,6 @@
   url: https://github.com/KittyHeaven/blue_bird
   tags:
     - testing
+- name: esplanade
+  summary: Validate requests and responses against API Blueprint specifications.
+  url: https://github.com/funbox/esplanade
