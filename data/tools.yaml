@@ -267,6 +267,11 @@
   url: https://github.com/SMillerDev/phpdraft/
   tags:
     - renderers
+- name: Laravel Blueprint Docs
+  summary: API Blueprint Renderer for Laravel, themeable via Blade templates.
+  url: https://github.com/M165437/laravel-blueprint-docs
+  tags:
+    - renderers
 - name: MSONGenerator
   summary: Generate MSON from JSON. (Site may be first time long responds)
   url: https://msongenerator.herokuapp.com/
