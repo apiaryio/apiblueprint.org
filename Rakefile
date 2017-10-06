@@ -5,8 +5,44 @@ end
 
 desc 'Validate the tools section'
 task 'validate-tools' do
+  require 'bundler/setup'
   require 'yaml'
-  YAML.load_file('data/tools.yaml')
+  require 'json-schema'
+
+  tools = YAML.load_file('data/tools.yaml')
+
+  schema = {
+    type: 'array',
+    items: {
+      type: 'object',
+      properties: {
+        name: {
+          type: 'string',
+        },
+        summary: {
+          type: 'string',
+        },
+        url: {
+          type: 'string',
+          format: 'uri',
+        },
+        tags: {
+          type: 'array',
+          items: {
+            type: 'string'
+          }
+        },
+      },
+      required: [
+        'name',
+        'summary',
+        'url',
+        'tags',
+      ]
+    }
+  }
+
+  JSON::Validator.validate!(schema, tools)
 end
 
 task :default => :serve
