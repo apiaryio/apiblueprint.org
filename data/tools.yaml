@@ -360,3 +360,8 @@
   url: https://github.com/M165437/laravel-blueprint-docs
   tags:
     - renderers
+- name: django-apiblueprint-view
+  summary: Render API Blueprints on-the-fly using Django templates
+  url: https://github.com/chris48s/django-apiblueprint-view
+  tags:
+    - renderers
