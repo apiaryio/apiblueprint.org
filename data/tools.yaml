@@ -14,6 +14,14 @@
   url: https://github.com/apiaryio/drafter
   tags:
     - parsers
+- name: GLAD
+  summary: This library will enable automation of Apiary documentation based on Swagger Json 2.0 or Swagger YAML 1.2.
+  url: https://github.com/gchernyak/glad
+  tags:
+    - Apiary
+    - Swagger
+    - YAML
+    - Documentaion
 - name: Protagonist
   summary: Node.js wrapper for the API Blueprint parser
   url: https://github.com/apiaryio/protagonist
