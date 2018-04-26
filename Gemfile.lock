@@ -136,6 +136,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
+    rake (12.3.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -162,6 +163,7 @@ DEPENDENCIES
   middleman-deploy (= 2.0.0.pre.alpha)
   middleman-livereload
   middleman-syntax
+  rake
   redcarpet
 
 BUNDLED WITH
