@@ -15,7 +15,7 @@ Using middleman, you can run a development server which will live-build the API
 Blueprint website.
 
 ```shell
-$ rake serve
+$ bundle exec rake
 ```
 
 ### Adding a new tool
