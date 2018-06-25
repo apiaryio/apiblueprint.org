@@ -1,0 +1,60 @@
+version: 2
+
+workflows:
+  version: 2
+
+  build:
+    jobs:
+      - test:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+      - publish:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - master
+
+jobs:
+  test:
+    docker:
+      - image: ruby:2.5.1
+    steps:
+      - checkout
+      - run: git submodule update --init --recursive
+      - run:
+          name: Install dependencies
+          command: bundle install --path=gems
+      - run:
+          name: Validate tools YAML
+          command: rake validate-tools
+      - run:
+          name: Build website
+          command: |
+            export LC_ALL=C.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8
+            rake build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - gems
+            - build
+
+  publish:
+    docker:
+      - image: ruby:2.5.1
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Install dependencies
+          command: bundle install --path=gems
+      - run: git config --global user.name "Apiary Bot"
+      - run: git config --global user.email "support@apiary.io"
+      - run: git remote set-url origin "https://${GITHUB_TOKEN}@github.com/apiaryio/apiblueprint.org"
+      - run:
+          name: Deploy website
+          command: rake deploy

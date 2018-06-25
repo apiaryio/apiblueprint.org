@@ -3,6 +3,14 @@ task :serve do
   sh 'bundle exec middleman server'
 end
 
+task :build do
+  sh 'bundle exec middleman build'
+end
+
+task :deploy do
+  sh 'bundle exec middleman deploy'
+end
+
 desc 'Validate the tools section'
 task 'validate-tools' do
   require 'yaml'
