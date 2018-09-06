@@ -83,6 +83,12 @@
   url: http://git.io/blueman
   tags:
     - converters
+
+- name: postman2apiary
+  summary: Tool for generating Blueprint API markup or the Apiary API from a Postman collection. 
+  url: https://github.com/p8ul/postman2apiary
+  tags:
+     - converters
 - name: apiary2postman
   summary: Convert an API Blueprint into a Postman collection, supports fetching from
     Apiary API and reading from files or stdin.
