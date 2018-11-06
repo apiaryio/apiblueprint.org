@@ -376,3 +376,8 @@
   url: https://github.com/bukalapak/vanadia
   tags:
     - converters
+- name: IntelliJ IDEA plugin
+  summary: A plugin for Android studio or any other IntelliJ IDEA based IDE.
+  url: https://plugins.jetbrains.com/plugin/7713-apiary-blueprint-manager
+  tags:
+    - editors
