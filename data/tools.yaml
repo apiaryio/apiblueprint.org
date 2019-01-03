@@ -36,7 +36,7 @@
     - testing
 - name: Snowboard
   summary: Render HTML documentation from API blueprint. Support custom templates. Executable and Golang library.
-  url: https://github.com/subosito/snowboard
+  url: https://github.com/bukalapak/snowboard
   tags:
     - parsers
     - renderers
