@@ -48,8 +48,7 @@ Every Refract element may have 4 attributes, the element name, Refract specific 
 1. Get Drafter command line tool
 
     ```sh
-    $ brew install --HEAD \
-        https://raw.github.com/apiaryio/drafter/master/tools/homebrew/drafter.rb
+    $ brew install drafter
     ```
 
     Build notes for [Linux](https://github.com/apiaryio/drafter#drafter-command-line-tool) and [Windows](https://github.com/apiaryio/drafter/wiki/Building-on-Windows).
