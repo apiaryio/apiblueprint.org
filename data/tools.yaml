@@ -376,3 +376,8 @@
   url: https://github.com/bukalapak/vanadia
   tags:
     - converters
+- name: postman2apiary
+  summary: Parse Postman collection to blueprint documentation
+  url: https://github.com/Dmitiry1921/postman2apiary
+  tags:
+    - parsers
