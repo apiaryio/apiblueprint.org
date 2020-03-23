@@ -155,12 +155,14 @@ $ curl -X POST
       "\n"
       "      Hello World!\n";
 
-    drafter_options options;
-    options.format = DRAFTER_SERIALIZE_JSON;
-    options.sourcemap = true;
+    drafter_parse_options* pOpts = drafter_init_parse_options();
+    drafter_set_name_required(pOpts);
+
+    drafter_serialize_options* sOpts = drafter_init_serialize_options();
+    drafter_set_format(sOpts, DRAFTER_SERIALIZE_JSON);
 
     char *result = NULL;
-    if (drafter_parse_blueprint_to(blueprint, &result, options) == 0) {
+    if (DRAFTER_OK == drafter_parse_blueprint_to(blueprint, &result, pOpts, sOpts)) {
         printf("%s\n", result);
         free(result);
     }
