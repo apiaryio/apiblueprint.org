@@ -35,7 +35,7 @@
   tags:
     - testing
 - name: Snowboard
-  summary: Render HTML documentation from API blueprint. Support custom templates. Executable and Golang library.
+  summary: Render HTML documentation from API blueprint. Support custom templates.
   url: https://github.com/bukalapak/snowboard
   tags:
     - parsers
@@ -214,12 +214,6 @@
   url: https://apitransformer.com/
   tags:
     - converters
-- name: Apib::MockServer
-  summary: Create a mock server for your Ruby tests based on API Blueprints.
-  url: https://github.com/karnov/apib-mock_server
-  tags:
-    - testing
-    - mock servers
 - name: Blueprint API Validator
   summary: Ensure your Blueprint API files conform to a standard. This plugin validates
     the format, JSON bodies and Schema in your Blueprint spec files.
@@ -381,3 +375,8 @@
   url: https://github.com/Dmitiry1921/postman2apiary
   tags:
     - converters
+- name: Blueprint Dash
+  summary: An API Blueprint playground for new people to experiment on
+  url: https://blueprint-dash.surge.sh/
+  tags:
+    - editors

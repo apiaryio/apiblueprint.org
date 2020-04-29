@@ -45,13 +45,13 @@ Every Refract element may have 4 attributes, the element name, Refract specific 
 
 ### Using the command line tool
 
-1. Get Drafter command line tool
+1. Get Drafter command line tool, for macOS using [Homebrew](https://brew.sh/):
 
     ```sh
     $ brew install drafter
     ```
 
-    Build notes for [Linux](https://github.com/apiaryio/drafter#drafter-command-line-tool) and [Windows](https://github.com/apiaryio/drafter/wiki/Building-on-Windows).
+    See our [installation instructions for other platforms](https://github.com/apiaryio/drafter#installation)
 
 2. Parse API Blueprint into the Refract API Description namespace:
 
@@ -142,15 +142,7 @@ $ curl -X POST
 
 ### Using the native parser interface (C/C++)
 
-1. Build [Drafter](https://github.com/apiaryio/drafter)
-
-    ```sh
-    $ ./configure
-    $ make
-    ```
-
-    See full [build instructions](https://github.com/apiaryio/drafter#build)
-
+1. Install [Drafter](https://github.com/apiaryio/drafter)
 2. Parse your API Blueprint
 
     ```c
@@ -163,12 +155,14 @@ $ curl -X POST
       "\n"
       "      Hello World!\n";
 
-    drafter_options options;
-    options.format = DRAFTER_SERIALIZE_JSON;
-    options.sourcemap = true;
+    drafter_parse_options* pOpts = drafter_init_parse_options();
+    drafter_set_name_required(pOpts);
+
+    drafter_serialize_options* sOpts = drafter_init_serialize_options();
+    drafter_set_format(sOpts, DRAFTER_SERIALIZE_JSON);
 
     char *result = NULL;
-    if (drafter_parse_blueprint_to(blueprint, &result, options) == 0) {
+    if (DRAFTER_OK == drafter_parse_blueprint_to(blueprint, &result, pOpts, sOpts)) {
         printf("%s\n", result);
         free(result);
     }
