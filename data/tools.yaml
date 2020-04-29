@@ -380,4 +380,4 @@
   summary: Parse Postman collection to blueprint documentation
   url: https://github.com/Dmitiry1921/postman2apiary
   tags:
-    - parsers
+    - converters
