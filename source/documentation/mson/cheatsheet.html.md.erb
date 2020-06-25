@@ -1,0 +1,182 @@
+---
+title: MSON Cheatsheet
+priority: 60
+---
+
+This cheatsheet is an example orientated document showing some MSON features in
+the context of API Blueprint. Refer to the [MSON
+Specification](/documentation/mson/specification.html) for detailed
+documentation on MSON.
+
+## Core Syntax
+
+Declaring an [API Blueprint
+Action](/documentation/specification.html#def-action-section) describing how
+`GET` requests to `/files` may look in an API. The API Blueprint describes that
+the API may return a 200 response using JSON (with the `application/json`
+content type). It may return an array which can only contain objects which must
+have the key `path`.
+
+```apib
+# GET /files
+
++ Response 200 (application/json)
+    + Attributes (array, fixed-type)
+        + (object)
+            + path: `/files` (required)
+```
+
+### Declaring Types
+
+MSON allows declaring types to allow reusable structures and to keep API
+Blueprint's short and simple. Reusable data structures sit under the `Data
+Structures` heading.
+
+```apib
+# My API
+
+## GET /files
+
++ Response 200 (application/json)
+    + Attributes (array[File], fixed-type)
+
+## Data Structures
+
+### File (object)
+
++ name: `index.html`
++ size: 5012 (number)
++ `created_at`: `2007-04-05T24:00` (string)
++ permissions (Permission)
+
+### Permission (enum)
+
++ r (default) - Read only
++ rw - Read-write
+```
+
+**NOTE**: *It's important to note, that if a key or value contains reserved
+characters such as `:`, `(`,`)`, `<`, `>`, `{`, `}`, `[`, `]`, `_`,
+<code>&ast;</code>, `-`, `+`, `` ` `` then the value must be wrapped in a
+code-block using back-ticks.*
+
+## Types
+
+### Objects
+
+Objects consist of key-value pairs. Properties are optional by default. Values
+of properties are string by default.
+
+```apib
++ name: API Blueprint (required)
+```
+
+An object consisting of a date property which must be present, but may be `null`:
+
+```apib
++ date (required, nullable)
+```
+
+The fixed keyword can be used to declare that the value must be present with
+as-is, for example the following declares a member `type` which if present must
+have the value `admin`.
+
+```apib
++ type: admin (fixed)
+```
+
+#### One Of
+
+`One Of` can be used to describe mutually exclusive sets of members. For example,
+User type must contain the `name` property, and must contain either an `id`, or a
+`username` property.
+
+```apib
+## User (object)
+
++ name: Kyle (required)
++ One Of
+    + username: kylef (required)
+    + id: 1 (number, required)
+```
+
+See the [enum type](#enumerations) for declaring a mutally exclusive set of
+types or values.
+
+### Arrays
+
+Declaring an array which may only contain strings or numbers (array of a `fixed-type`, `string` or `number`):
+
+```apib
++ Attributes (array[string, number], fixed-type)
+```
+
+With example values, and descriptions:
+
+```apib
++ Attributes (array, fixed-type)
+    + 10 GBP
+    + 20 GBP
+    + 12.99 (number)
+```
+
+Declaring an array which may only contain the specified object which requires a
+`name` property:
+
+```apib
++ Attributes (array, fixed-type)
+    + (object)
+        + name (required)
+```
+
+### Enumerations
+
+The `enum` type can be used to describe an exclusive list of possible values or types.
+
+Declaring an enumeration which may only contain one of the permitted values
+(`north`, `east`, `south`, `west`):
+
+```apib
+## Direction (enum)
+
++ north
++ east
++ south
++ west
+```
+
+Declaring an enumeration where any value is permitted providing the value is a
+`string` or a `number`:
+
+```apib
+## Data Structures
+
+### StringOrNumber (enum[string, number])
+
+## GET /products
+
++ Response 200 (application/json)
+    + Attributes (array, fixed-type)
+        + (object)
+            + name: API Blueprint
+            + price: 2.99 (StringOrNumber) - Price to purchase the product, as a string or a number
+            + state (enum)
+                + `in stock` (default)
+                + `sold-out`
+```
+
+### Primitive Types
+
+The primitive types `string`, `number`, and `boolean` may be used.
+
+```apib
+## Example Object
+
++ name (string)
++ `is_admin` (boolean)
++ age (number)
++ extra (array)
+    + hello world
+    + 2 (number)
+    + true (boolean)
+```
