@@ -15,6 +15,10 @@ configure :build do
   activate :minify_css
   activate :minify_javascript
   activate :asset_hash  # Cache Buster
+  # Asset pipeline
+  activate :sprockets do |c|
+    c.expose_middleman_helpers = true
+  end
 end
 
 configure :development do
@@ -55,7 +59,10 @@ ignore '/documentation/examples/example.html'
 
 helpers do
   def include(path)
-    IO.read(path).sub(/^#[ \w].+$/, '')
+    if path.include? ".rb"
+      print("[debug] " + path)
+      IO.read(path).sub(/^#[ \w].+$/, '')
+    end
   end
 
   # Returns all of the available tool tags
