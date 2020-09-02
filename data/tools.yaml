@@ -370,6 +370,11 @@
   url: https://github.com/bukalapak/vanadia
   tags:
     - converters
+- name: postman2apiary
+  summary: Parse Postman collection to blueprint documentation
+  url: https://github.com/Dmitiry1921/postman2apiary
+  tags:
+    - converters
 - name: Blueprint Dash
   summary: An API Blueprint playground for new people to experiment on
   url: https://blueprint-dash.surge.sh/
