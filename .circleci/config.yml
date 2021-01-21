@@ -30,7 +30,7 @@ jobs:
           command: gem install bundler
       - run:
           name: Install dependencies
-          command: bundle install --path=gems
+          command: bundle config set --local path 'gems' && bundle
       - run:
           name: Validate tools YAML
           command: rake validate-tools
