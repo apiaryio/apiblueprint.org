@@ -4,11 +4,6 @@ title: Support
 
 ## Getting Help
 
-### Slack
-
-We run our own [API Blueprint Slack channel](https://apiblueprint-slack.herokuapp.com/)
-where you can ask questions and discuss the language.
-
 ### Stack Overflow
 
 Stack Overflow is a great way to ask questions, you can use the
