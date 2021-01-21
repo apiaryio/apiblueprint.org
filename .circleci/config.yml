@@ -54,7 +54,7 @@ jobs:
           at: .
       - run:
           name: Install dependencies
-          command: bundle install --path=gems
+          command: bundle config set --local path 'gems' && bundle
       - run: git config --global user.name "Apiary Bot"
       - run: git config --global user.email "support@apiary.io"
       - run: git remote set-url origin "https://${GITHUB_TOKEN}@github.com/apiaryio/apiblueprint.org"

@@ -10,6 +10,8 @@ set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'
 
+config[:sass_assets_paths] << Bootstrap.stylesheets_path
+
 # Build-specific configuration
 configure :build do
   activate :minify_css
