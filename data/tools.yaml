@@ -380,3 +380,8 @@
   url: https://blueprintstack.io
   tags:
     - editors
+- name: APIDocumenter
+  summary: A simple and more manageable approach to create & share documents for your APIs using MSON (API Blueprint)
+  url: https://apidocumenter.com/
+  tags:
+    - editors
