@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'middleman'
+gem 'middleman', '~> 4.3.11'
 gem 'middleman-livereload'
 gem 'middleman-syntax'
 gem 'middleman-deploy', '2.0.0.pre.alpha'
