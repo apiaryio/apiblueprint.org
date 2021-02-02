@@ -61,10 +61,8 @@ ignore '/documentation/examples/example.html'
 
 helpers do
   def include(path)
-    if path.include? ".rb"
       print("[debug] " + path)
       IO.read(path).sub(/^#[ \w].+$/, '')
-    end
   end
 
   # Returns all of the available tool tags
