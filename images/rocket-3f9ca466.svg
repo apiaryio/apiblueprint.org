@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="29px" viewBox="0 0 32 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>rocket</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path id="path-1" d="M19.8820353,25.2871891 C20.7368163,23.0325821 21.2047275,20.5876472 21.2047275,18.0334259 C21.2047275,10.4581778 17.0890621,3.84419476 10.9718101,0.305555556 L10.9718101,0.305555556 C4.85455815,3.84419476 0.738892834,10.4581778 0.738892834,18.0334259 C0.738892834,20.5997733 1.21125731,23.0557941 2.0737853,25.3192873 L2.0737853,25.3192873 L1.70530257e-13,26.8259806 L2.04811284,33.1294237 L7.38567377,33.1294254 C8.47862621,34.1304729 9.68063159,35.0143898 10.9718101,35.7612962 C12.2629887,35.0143898 13.4649941,34.1304729 14.5579465,33.1294254 L19.9518872,33.1294237 L22,26.8259806 L19.8820353,25.2871891 L19.8820353,25.2871891 L19.8820353,25.2871891 Z"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop-HD-Copy" sketch:type="MSArtboardGroup" transform="translate(-269.000000, -335.000000)">
+            <g id="rocket" sketch:type="MSLayerGroup" transform="translate(283.703688, 346.983021) rotate(-53.000000) translate(-283.703688, -346.983021) translate(272.203688, 328.983021)">
+                <mask id="mask-2" sketch:name="Mask" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#5D6D82" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                <rect id="Rectangle-29" fill="#6E8097" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="10.9254316" y="-17.843066" width="20" height="57"></rect>
+                <path d="M11,22.9302384 C13.9892148,22.9302384 16.4124521,20.5070011 16.4124521,17.5177863 C16.4124521,14.5285715 13.9892148,12.1053342 11,12.1053342 C8.01078523,12.1053342 5.58754787,14.5285715 5.58754787,17.5177863 C5.58754787,20.5070011 8.01078523,22.9302384 11,22.9302384 L11,22.9302384 L11,22.9302384 Z" id="Path" stroke="#43556C" stroke-width="2" fill="#5E9CFC" sketch:type="MSShapeGroup" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

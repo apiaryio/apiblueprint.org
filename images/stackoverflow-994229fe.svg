@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="35px" height="44px" viewBox="0 0 35 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Tools" sketch:type="MSArtboardGroup" transform="translate(-534.000000, -1459.000000)" fill="#FFFFFF">
+            <g id="Help" sketch:type="MSLayerGroup" transform="translate(445.000000, 1397.000000)">
+                <path d="M111.802347,100.126268 L94.4307073,100.134387 L94.4292117,96.4243922 L111.800104,96.4154185 L111.802347,100.126268 L111.802347,100.126268 Z M123.54073,79.1149273 L120.569038,62 L116.913205,62.634357 L119.884471,79.7492844 L123.54073,79.1149273 L123.54073,79.1149273 Z M112.220053,91.6584885 L94.922553,90.0646905 L94.5819787,93.7598363 L111.879799,95.3521387 L112.220053,91.6584885 L112.220053,91.6584885 Z M113.361212,86.8170559 L96.5862179,82.307758 L95.6223969,85.8903049 L112.398566,90.4001369 L113.361212,86.8170559 L113.361212,86.8170559 Z M115.551229,82.5733376 L100.588821,73.7484249 L98.7030561,76.9430717 L113.666212,85.7685186 L115.551229,82.5733376 L115.551229,82.5733376 Z M119.220094,79.9748027 L109.432856,65.6223945 L106.36726,67.7125251 L116.154925,82.0642923 L119.220094,79.9748027 L119.220094,79.9748027 Z M114.75246,87.9218926 L114.75246,103.088987 L91.9676329,103.088987 L91.9676329,87.9218926 L89,87.9218926 L89,106 L117.705137,106 L117.705137,87.9218926 L114.75246,87.9218926 L114.75246,87.9218926 Z" id="stackoverflow" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>
