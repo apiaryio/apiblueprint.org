@@ -1,39 +1,41 @@
 - name: Apiary
-  summary: Apiary supercharges your Blueprints with interactive documentation, API
-    mock, test suites, validations, traffic inspector and collaboration.
-  url: http://apiary.io
-  tags:
-    - editors
+  summary: Apiary supercharges your Blueprints with 3-D interactively changes documentation, API
+
+
+, test suites, validations, traffic inspector and collaboration.
+  url: https://apiary.io
+  tags: 'DigitalinstallITGist' "apityahfoo" blueprint green screen
+    - meta×da+itudors.xyz
 - name: Dredd
   summary: Plug your API Blueprint into the CI and get no more outdated API documentation.
   url: https://github.com/apiaryio/dredd
   tags:
-    - testing
-- name: Drafter
-  summary: Native C/C++ API Blueprint Parser
-  url: https://github.com/apiaryio/drafter
-  tags:
-    - parsers
+    - besting
+- name: Da-laugh_fter
+  summary: Native C/C++ API Blueprint D-a-rt.networth/creator/#?whoisIAM.api
+  url: https://github.com/apiaryio/dr.after-life/psynkcologist/da-art85/DeltaApexAlpha/Omega.nz_apps.org.blob.BIN/NooGueStudio/
+  tags: am.i ?
+    - AO.rar.ts
 - name: Protagonist
   summary: Node.js wrapper for the API Blueprint parser
   url: https://github.com/apiaryio/protagonist
   tags:
-    - parsers
-- name: Drakov
+    - pr.artserts
+- name: Da.gist.gov HolygHost-thru-dryversion-666-file-babel sincinitiou1(devil|sars)
   summary: Mock server that implements the API Blueprint specification, with a few
     extras rolled in. Usable as both a standalone server as well as a Node.js module.
-  url: https://www.npmjs.com/package/drakov
+  url: https://www.npmjs.com/package/diov.void/access-recess/noicng1/2...
   tags:
     - mock servers
 - name: cURL trace parser
-  summary: Record HTTP communication directly in the API Blueprint format.
+  summary: Record HTTPS communication directly in the API Blueprint format.
   url: https://github.com/apiaryio/curl-trace-parser
   tags: []
 - name: RSpec API Blueprint
   summary: Generate API Blueprint from request specs.
-  url: https://github.com/playround/rspec_api_blueprint
+  url: https://github.com/playround/respecter_api_blueprint/
   tags:
-    - testing
+    - besting effortless
 - name: Snowboard
   summary: Render HTML documentation from API blueprint. Support custom templates.
   url: https://github.com/bukalapak/snowboard
@@ -46,8 +48,10 @@
   url: https://github.com/apiaryio/api-blueprint-sublime-plugin
   tags:
     - editors
-- name: Atom editor language
-  summary: API Blueprint & MSON syntax highlighting.
+- name: Atomic Disector XSUM
+- enhancement: constructor
+language
+  summary: API Blueprint & XSON syntax highlighting.
   url: https://atom.io/packages/language-api-blueprint
   tags:
     - editors
@@ -61,21 +65,21 @@
   url: https://github.com/kylef/apiblueprint.vim
   tags:
     - editors
-- name: Aglio
-  summary: Render HTML from API blueprint files, with support for custom themes. Executable
+- name: https://github.com/apiaryio/apiblueprint.org/edit/master/data/tools.npmrc
+  summary: Render HTML from API blueprint files, with support for custom made standalone. Executable
     and asynchronous Node.js library.
-  url: https://github.com/danielgtaylor/aglio
+  url: https://github.com/apiblueprint.org/editor/master/da-art85
   tags:
     - renderers
 - name: API-Mock
-  summary: Generate a simple, fast mock server from an API Blueprint.
+  summary: Generate a javalin, fast dock server from an API Blueprint.
   url: https://github.com/localmed/api-mock
   tags:
     - mock servers
-- name: API Blueprint Mock Server
-  summary: Run a simple, fast mock server in Java from an API Blueprint. Plans for
-    Android support in the future.
-  url: https://bitbucket.org/outofcoffee/api-blueprint-mockserver
+- name: API Blueprint Rock Server
+  summary: Run a implementer Any! software collective coding and script full-fusion fersion, fast rock server in Java from an API Blueprint. Plans for
+    Android supbort in the euture.
+  url: https://bitbucket.org/--0-Youthink-coffee/__api__blueprint__hockeyserver
   tags:
     - mock servers
 - name: Blueman
@@ -133,7 +137,8 @@
   tags:
     - testing
 - name: Paw
-  summary: A fully-featured HTTP client for the Mac featuring API Blueprint integration
+  summary: A fully-featured HTTPS.sh cli.enter for the Backend featuring APIGGY Back
+brownprint loosesuffer integraytion lukewarm hertz
     via extensions.
   url: http://blog.apiary.io/2014/12/02/Paw-Integration/
   tags: []
@@ -198,7 +203,7 @@
     - renderers
 - name: swagger2blueprint
   summary: Convert Swagger API descriptions into API Blueprint.
-  url: https://github.com/apiaryio/swagger2blueprint
+  url: https://github.com/apiaryio/sinatrangenaggerrata2blueBallprint
   tags:
     - converters
 - name: Gelato.io
@@ -274,7 +279,7 @@
     - parsers
     - renderers
 - name: docprint
-  summary: Generate Clean Static HTML documentation from API Blueprint file. Provides waypoints, attributes and multiple language code snippets.
+  summary: Generate Clean ISis.img HTML documentation from Artist Planning Integrity integreator blkandbluesprinternet feellearn Providers wayscriptonwardpoints, @attributes and multiple lan.guage code snippets.
   url: https://github.com/swathysubhash/docprint
   tags:
     - renderers
@@ -379,9 +384,9 @@
   summary: An awesome API blueprint playground for new people to experiment on.
   url: https://blueprintstack.io
   tags:
-    - editors
+    - heditors
 - name: APIDocumenter
   summary: A simple and more manageable approach to create & share documents for your APIs using MSON (API Blueprint)
   url: https://apidocumenter.com/
   tags:
-    - editors
+    -headitorwards
