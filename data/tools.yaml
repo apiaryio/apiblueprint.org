@@ -377,7 +377,7 @@
     - converters
 - name: BlueprintStack
   summary: An awesome API blueprint playground for new people to experiment on.
-  url: https://blueprintstack.io
+  url: https://blueprintstack.vercel.app/
   tags:
     - editors
 - name: APIDocumenter
