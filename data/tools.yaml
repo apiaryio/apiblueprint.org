@@ -385,3 +385,9 @@
   url: https://apidocumenter.com/
   tags:
     - editors
+- name: VSCode API Blueprint Navigation helper
+  summary: It helps you to navigate in large API doc files easier using the VS Code Outline view. 
+    This extension adds the sections of the API doc to the Outline view in a hierarchical tree structure.
+  url: https://github.com/tkrisztian95/vscode-apib-navigation-plugin
+  tags:
+    - editors
