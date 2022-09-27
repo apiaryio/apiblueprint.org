@@ -35,6 +35,10 @@ a:hover {
     border-bottom-color: #fff;
 }
 
+a:focus {
+  outline: none;
+}
+
 ul {
   font-size: 18px;
 }
