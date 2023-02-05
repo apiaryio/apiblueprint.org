@@ -391,3 +391,23 @@
   url: https://github.com/tkrisztian95/vscode-apib-navigation-plugin
   tags:
     - editors
+- name: Crafter
+  summary: API Blueprint parser written in pure JavaScript
+  url: https://github.com/funbox/crafter
+  tags:
+    - parsers
+- name: Blueprinter
+  summary: API Blueprint renderer to output documentation as an HTML page
+  url: https://github.com/funbox/blueprinter
+  tags:
+    - renderers
+- name: vscode-apib-ls
+  summary: VSCode extension that brings Language Server support for API Blueprint
+  url: https://github.com/funbox/vscode-apib-ls
+  tags:
+    - editors
+- name: API Validator
+  summary: A frontend tool to validate server response against API Blueprint documentation
+  url: https://github.com/funbox/api-validator
+  tags:
+    - testing
