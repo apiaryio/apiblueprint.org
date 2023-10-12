@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>03. Named Resource and Actions | API Blueprint</title>
+
+    <link href="/images/favicon-10b3ff24.png" rel="icon" type="image/png" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" /><link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /><link href="/stylesheets/all.css" rel="stylesheet" /><link href="/stylesheets/highlight.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+  </head>
+
+  <body class="documentation documentation_examples documentation_examples_03-named-resource-and-actions">
+    <header>
+      <div class="container">
+        <div class="pull-right">
+          <a href="https://twitter.com/apiblueprint" class="twitter-follow-button" data-show-count="false">Follow @apiblueprint</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <iframe src="https://ghbtns.com/github-btn.html?user=apiaryio&repo=api-blueprint&type=star&count=true" frameborder="0" scrolling="0" width="105px" height="20px"></iframe>
+        </div>
+
+        <hr />
+
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">API Blueprint</a>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container page-content">
+      <div class="row content">
+        <div id="sidebar" class="col-md-3" role="complementary">
+            <ul class="nav">
+                  <li>
+                  <a href="/documentation/tutorial.html">Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/advanced-tutorial.html">Advanced Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/specification.html">Specification</a></li>
+                  <li>
+                  <a href="/documentation/glossary.html">Glossary of Terms</a></li>
+                  <li>
+                  <a href="/documentation/mson/cheatsheet.html">MSON Cheatsheet</a></li>
+                  <li>
+                  <a href="/documentation/mson/tutorial.html">MSON</a></li>
+                  <li>
+                  <a href="/documentation/mson/specification.html">MSON Specification</a></li>
+                  <li>
+                  <a href="/documentation/examples/">Examples</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 text" role="main">
+            <h2>03. Named Resource and Actions</h2>
+            <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div class="highlight"><pre class="highlight apiblueprint"><code><span class="nv">FORMAT</span><span class="p">: </span><span class="s">1A</span>
+
+<span class="gh"># Named Resource and Actions API</span>
+This API example demonstrates how to name a resource and its actions, to give
+the reader a better idea about what the resource is used for.<span class="sb">
+
+
+</span><span class="p">#</span><span class="gh"> My Message </span><span class="s">[/message]</span>
+OK, <span class="sb">`My Message`</span> probably isn't the best name for our resource but it will do
+for now. Note the URI <span class="sb">`/message`</span> is enclosed in square brackets.
+
+<span class="p">##</span><span class="gh"> Retrieve a Message </span><span class="s">[GET]</span>
+Now this is informative! No extra explanation needed here. This action clearly
+retrieves the message.
+<span class="p">
++</span> Response 200 (text/plain)<span class="sb">
+
+        Hello World!
+
+</span><span class="p">##</span><span class="gh"> Update a Message </span><span class="s">[PUT]</span>
+<span class="sb">`Update a message`</span> - nice and simple naming is the best way to go.
+<span class="p">
++</span> Request (text/plain)<span class="sb">
+
+        All your base are belong to us.
+
+</span><span class="p">+ </span><span class="k">Response</span><span class="m"> 204</span>
+</code></pre></div></body></html>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div>
+          <ul class="social">
+              <li>
+                <a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">
+                  <img src="/images/stackoverflow-994229fe.svg" />
+                  <span class="relation">FAQ</span>
+                  <span class="service">Stack Overflow</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/apiaryio/api-blueprint/issues">
+                  <img src="/images/github-893a5b9a.svg" />
+                  <span class="relation">Issues</span>
+                  <span class="service">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/apiblueprint">
+                  <img src="/images/twitter-2ade0f64.svg" />
+                  <span class="relation">Twitter</span>
+                  <span class="service">@apiblueprint</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="info row">
+          <div class="brand-block col-md-6">
+              <img src="/images/apiblueprint-footer-81a6c64c.svg" alt="API Blueprint Logo" width=38 height=36 />
+              <div class="brand-info">
+                <span class="brand">API Blueprint</span>
+                <span>&copy; 2013—2023</span>
+              </div>
+            </ul>
+          </div>
+          <ul class="nav nav-pills col-md-6 text-md-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></div>
+      </div>
+    </footer>
+
+    <div class="rocket"></div>
+    <div class="moon"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

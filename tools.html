@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>API Blueprint Tools | API Blueprint</title>
+
+    <link href="/images/favicon-10b3ff24.png" rel="icon" type="image/png" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" /><link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /><link href="/stylesheets/all.css" rel="stylesheet" /><link href="/stylesheets/highlight.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+  </head>
+
+  <body class="tools">
+    <header>
+      <div class="container">
+        <div class="pull-right">
+          <a href="https://twitter.com/apiblueprint" class="twitter-follow-button" data-show-count="false">Follow @apiblueprint</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <iframe src="https://ghbtns.com/github-btn.html?user=apiaryio&repo=api-blueprint&type=star&count=true" frameborder="0" scrolling="0" width="105px" height="20px"></iframe>
+        </div>
+
+        <hr />
+
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">API Blueprint</a>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container page-content">
+      
+<div id="tools-search" class="row search-form">
+    <input type="search" placeholder="Search Tooling" />
+</div>
+
+<div id="filters" class="row">
+    <ul class="nav nav-pills">
+        <li class="active" data-id="all"><a href="#">Tools</a></li>
+            <li data-id="editors"><a href="#editors">Editors</a></li>
+            <li data-id="testing"><a href="#testing">Testing</a></li>
+            <li data-id="parsers"><a href="#parsers">Parsers</a></li>
+            <li data-id="mock-servers"><a href="#mock servers">Mock servers</a></li>
+            <li data-id="renderers"><a href="#renderers">Renderers</a></li>
+            <li data-id="converters"><a href="#converters">Converters</a></li>
+            <li data-id="lexers"><a href="#lexers">Lexers</a></li>
+    </ul>
+</div>
+
+<div role="main">
+    <div id="tools">
+            <div class="row tool tool-editors">
+                <div class="col-md-5">
+                    <h3><a href="http://apiary.io">Apiary</a></h3>
+
+                        <span class="label label-default">editors</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Apiary supercharges your Blueprints with interactive documentation, API mock, test suites, validations, traffic inspector and collaboration.</p>
+                </div>
+            </div>
+            <div class="row tool tool-testing">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/apiaryio/dredd">Dredd</a></h3>
+
+                        <span class="label label-default">testing</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Plug your API Blueprint into the CI and get no more outdated API documentation.</p>
+                </div>
+            </div>
+            <div class="row tool tool-parsers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/apiaryio/drafter">Drafter</a></h3>
+
+                        <span class="label label-default">parsers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Native C/C++ API Blueprint Parser</p>
+                </div>
+            </div>
+            <div class="row tool tool-parsers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/apiaryio/protagonist">Protagonist</a></h3>
+
+                        <span class="label label-default">parsers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Node.js wrapper for the API Blueprint parser</p>
+                </div>
+            </div>
+            <div class="row tool tool-mock-servers">
+                <div class="col-md-5">
+                    <h3><a href="https://www.npmjs.com/package/drakov">Drakov</a></h3>
+
+                        <span class="label label-default">mock servers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Mock server that implements the API Blueprint specification, with a few extras rolled in. Usable as both a standalone server as well as a Node.js module.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/apiaryio/curl-trace-parser">cURL trace parser</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Record HTTP communication directly in the API Blueprint format.</p>
+                </div>
+            </div>
+            <div class="row tool tool-testing">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/playround/rspec_api_blueprint">RSpec API Blueprint</a></h3>
+
+                        <span class="label label-default">testing</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Generate API Blueprint from request specs.</p>
+                </div>
+            </div>
+            <div class="row tool tool-parsers tool-renderers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/bukalapak/snowboard">Snowboard</a></h3>
+
+                        <span class="label label-default">parsers</span>
+                        <span class="label label-default">renderers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Render HTML documentation from API blueprint. Support custom templates.</p>
+                </div>
+            </div>
+            <div class="row tool tool-editors">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/apiaryio/api-blueprint-sublime-plugin">Sublime Text plugin</a></h3>
+
+                        <span class="label label-default">editors</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>API Blueprint & MSON syntax highlighting, live validation and parsing in your favorite text editor.</p>
+                </div>
+            </div>
+            <div class="row tool tool-editors">
+                <div class="col-md-5">
+                    <h3><a href="https://atom.io/packages/language-api-blueprint">Atom editor language</a></h3>
+
+                        <span class="label label-default">editors</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>API Blueprint & MSON syntax highlighting.</p>
+                </div>
+            </div>
+            <div class="row tool tool-editors">
+                <div class="col-md-5">
+                    <h3><a href="https://atom.io/packages/api-blueprint-preview">Atom editor preview</a></h3>
+
+                        <span class="label label-default">editors</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Preview HTML Blueprint in the editor.</p>
+                </div>
+            </div>
+            <div class="row tool tool-editors">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/kylef/apiblueprint.vim">Vim editor plugin</a></h3>
+
+                        <span class="label label-default">editors</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>API Blueprint syntax highlighting and integration with Vim.</p>
+                </div>
+            </div>
+            <div class="row tool tool-renderers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/danielgtaylor/aglio">Aglio</a></h3>
+
+                        <span class="label label-default">renderers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Render HTML from API blueprint files, with support for custom themes. Executable and asynchronous Node.js library.</p>
+                </div>
+            </div>
+            <div class="row tool tool-mock-servers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/localmed/api-mock">API-Mock</a></h3>
+
+                        <span class="label label-default">mock servers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Generate a simple, fast mock server from an API Blueprint.</p>
+                </div>
+            </div>
+            <div class="row tool tool-mock-servers">
+                <div class="col-md-5">
+                    <h3><a href="https://bitbucket.org/outofcoffee/api-blueprint-mockserver">API Blueprint Mock Server</a></h3>
+
+                        <span class="label label-default">mock servers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Run a simple, fast mock server in Java from an API Blueprint. Plans for Android support in the future.</p>
+                </div>
+            </div>
+            <div class="row tool tool-converters">
+                <div class="col-md-5">
+                    <h3><a href="http://git.io/blueman">Blueman</a></h3>
+
+                        <span class="label label-default">converters</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Convert an API Blueprint into a Postman collection.</p>
+                </div>
+            </div>
+            <div class="row tool tool-converters">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/p8ul/postman2apiary">postman2apiary</a></h3>
+
+                        <span class="label label-default">converters</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Tool for generating Blueprint API markup or the Apiary API from a Postman collection.</p>
+                </div>
+            </div>
+            <div class="row tool tool-converters">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/thecopy/apiary2postman">apiary2postman</a></h3>
+
+                        <span class="label label-default">converters</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Convert an API Blueprint into a Postman collection, supports fetching from Apiary API and reading from files or stdin.</p>
+                </div>
+            </div>
+            <div class="row tool tool-renderers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/renewablefunding/blueprint-docify">Blueprint docify</a></h3>
+
+                        <span class="label label-default">renderers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Add your API spec in the root of your repo and push! It will make great API docs for each branch, which are available at http://org.github.io/repo/branch</p>
+                </div>
+            </div>
+            <div class="row tool tool-testing">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/cocodelabs/CCLRequestReplay">CCLRequestReplay</a></h3>
+
+                        <span class="label label-default">testing</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Write your iOS and OS X tests directly to your API specification without writing any extra code.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://smartbear.com/products/qa-tools/web-service-testing-tool/free-soapui-trial/">API Blueprint Plugin for SoapUI Pro</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>This plugin is available for SoapUI Pro versions 5.1 and above. The plugin allows you import API Blueprint files into SoapUI Pro for testing and mocking, as well as generate an API Blueprint file for any REST API defined in SoapUI Pro. You can get the plugin by downloading a version of SoapUI Pro.</p>
+                </div>
+            </div>
+            <div class="row tool tool-testing">
+                <div class="col-md-5">
+                    <h3><a href="http://vrest.io/">vREST.io</a></h3>
+
+                        <span class="label label-default">testing</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>This tool allows you to record, specify, mock and test your web APIs. You can import existing API Blueprints into this tool.</p>
+                </div>
+            </div>
+            <div class="row tool tool-testing">
+                <div class="col-md-5">
+                    <h3><a href="https://getsandbox.com">Sandbox</a></h3>
+
+                        <span class="label label-default">testing</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Simplify your testing. Quick and easy web API mocks, generated from API Blueprint, instant deploy, collaborative build, and debugging tools for API integration.</p>
+                </div>
+            </div>
+            <div class="row tool tool-testing">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/nogates/vigia">Vigia</a></h3>
+
+                        <span class="label label-default">testing</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Flexible and scalable tool to provide RSpec integration tests using definition files such as API Blueprint</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="http://blog.apiary.io/2014/12/02/Paw-Integration/">Paw</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>A fully-featured HTTP client for the Mac featuring API Blueprint integration via extensions.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://apimatic.io/">APIMATIC</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Generates SDKs in various programming languages using API descriptions, such as API Blueprint. Also offers a Code-generation-as-a-Service API for CI integration.</p>
+                </div>
+            </div>
+            <div class="row tool tool-mock-servers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/BishoyDemian/api-blueprint-aspnet-host">ASP.net Blueprint Mock Server</a></h3>
+
+                        <span class="label label-default">mock servers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Host your API Blueprints inside your ASP.net solution using this built-in mock server inside an encapsulated HTTP module.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/connexio-labs/grape-apiary">grape-apiary</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Generate API blueprints automatically from your already defined Grape api endpoints.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/dac09/grunt-apiary-blueprint">grunt-apiary-blueprint</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Generate your full API blueprint APIB by concatenation from smaller sections.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/ransico/generator-apiblueprint">generator-apiblueprint</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Yeoman generator to create a new apiblueprint project with a Grunfile allowing generation of HTML (via aglio), a connect HTTP server and live-reload.</p>
+                </div>
+            </div>
+            <div class="row tool tool-testing">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/gonzalo-bulnes/dredd-rack">Dredd::Rack</a></h3>
+
+                        <span class="label label-default">testing</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>A configurable Dredd runner and a clonable Rake task to automate the testing of your Rack (Rails, Sinatra, Grape...) applications API against their blueprints, with Dredd, in Ruby.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/the-hypermedia-project/Hyperdrive">Hyperdrive</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Hyperdrive allows you to build Swift applications that can evolve at run-time powered by API Blueprint.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/Tuxilero/ABM">API Blueprint Manager</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Check your implementation state, and generate entities and request based on API Blueprint.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/jamesramsay/hercule">Hercule</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Ideal for working with multiple API blueprint files.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/zfcampus/zf-apigility-documentation-apiblueprint">Apigility</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Beautiful and powerful documentation for your API created with Apigility.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/saamo/api-blueprint-focus-booster">Focus Booster</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Gulp tasks for writing large API Blueprints efficiently</p>
+                </div>
+            </div>
+            <div class="row tool tool-renderers">
+                <div class="col-md-5">
+                    <h3><a href="https://bluepaste.herokuapp.com">Bluepaste</a></h3>
+
+                        <span class="label label-default">renderers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>API Blueprint pastebin service.</p>
+                </div>
+            </div>
+            <div class="row tool tool-converters">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/apiaryio/swagger2blueprint">swagger2blueprint</a></h3>
+
+                        <span class="label label-default">converters</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Convert Swagger API descriptions into API Blueprint.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://gelato.io">Gelato.io</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Import your API Blueprint and get hosted documentation, with an API Explorer, Developer Registration, proper Search and more!</p>
+                </div>
+            </div>
+            <div class="row tool tool-converters">
+                <div class="col-md-5">
+                    <h3><a href="https://apitransformer.com/">API Transformer</a></h3>
+
+                        <span class="label label-default">converters</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Transforms API descriptions from/to various formats. You can covert all famous API description formats to API Blueprint with MSON. It also performs validation to detect several types of errors that may exist in our API descritpion. Minor errors are automatically fixed through a linting process.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://www.npmjs.com/package/grunt-blueprint-validator">Blueprint API Validator</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Ensure your Blueprint API files conform to a standard. This plugin validates the format, JSON bodies and Schema in your Blueprint spec files.</p>
+                </div>
+            </div>
+            <div class="row tool tool-editors">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/zdne/linter-api-blueprint">API Blueprint Linter</a></h3>
+
+                        <span class="label label-default">editors</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Linter plugin providing API Blueprint validation and access to the parser output.</p>
+                </div>
+            </div>
+            <div class="row tool tool-parsers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/vmarkovtsev/plueprint">plueprint</a></h3>
+
+                        <span class="label label-default">parsers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>API Blueprint Python parser</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/adams-sarah/test2doc">test2doc</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Generate API documentation from your tests: a simple addition to Go's testing pkg</p>
+                </div>
+            </div>
+            <div class="row tool tool-testing tool-mock-servers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/JackuB/apish">apish</a></h3>
+
+                        <span class="label label-default">testing</span>
+                        <span class="label label-default">mock servers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Mock APIs and Services from API Blueprint in JS tests</p>
+                </div>
+            </div>
+            <div class="row tool tool-editors">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/w-vi/apib-mode">apib-mode</a></h3>
+
+                        <span class="label label-default">editors</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Emacs major mode for API Blueprint.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/ribot/bluth">Bluth</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Node.js library to validate payloads against a specified JSON Schema within your API Blueprint.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/philipbrown/api-blueprint-s3">api-blueprint-s3</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>A complete workflow for converting API Blueprint to hosted documentation on S3.</p>
+                </div>
+            </div>
+            <div class="row tool tool-editors">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/XVincentX/vscode-apielements">vscode-apielements</a></h3>
+
+                        <span class="label label-default">editors</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Visual Studio Code extension for API Blueprint</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/sandeep89/doc-proxy">doc-proxy</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Node server to generate documentation.md file for all the endpoints supported by your server</p>
+                </div>
+            </div>
+            <div class="row tool tool-renderers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/SMillerDev/phpdraft/">PHPDraft</a></h3>
+
+                        <span class="label label-default">renderers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Generate static HTML documentation from API Blueprint.</p>
+                </div>
+            </div>
+            <div class="row tool tool-parsers tool-renderers">
+                <div class="col-md-5">
+                    <h3><a href="https://msongenerator.herokuapp.com/">MSONGenerator</a></h3>
+
+                        <span class="label label-default">parsers</span>
+                        <span class="label label-default">renderers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Generate MSON from JSON. (Site may be first time long responds)</p>
+                </div>
+            </div>
+            <div class="row tool tool-renderers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/swathysubhash/docprint">docprint</a></h3>
+
+                        <span class="label label-default">renderers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Generate Clean Static HTML documentation from API Blueprint file. Provides waypoints, attributes and multiple language code snippets.</p>
+                </div>
+            </div>
+            <div class="row tool tool-converters">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/drinking/SwiftAPI">SwiftAPI</a></h3>
+
+                        <span class="label label-default">converters</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Convert an API Blueprint into executable Swift code.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/HackerWilson/pyabp">pyabp</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>API Blueprint from python docstring.</p>
+                </div>
+            </div>
+            <div class="row tool tool-converters">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/o5/apib2json">apib2json</a></h3>
+
+                        <span class="label label-default">converters</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>A command-line utility to convert API Blueprint to JSON Schema.</p>
+                </div>
+            </div>
+            <div class="row tool tool-testing">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/charly-palencia/blueprint-agreement">Blueprint-agreement</a></h3>
+
+                        <span class="label label-default">testing</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>A ruby minitest API documentation matcher based on Api Blueprint schema.</p>
+                </div>
+            </div>
+            <div class="row tool tool-testing">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/stackia/test2doc.js">test2doc.js</a></h3>
+
+                        <span class="label label-default">testing</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>test2doc.js helps you generate API documentation from your tests/specs.</p>
+                </div>
+            </div>
+            <div class="row tool tool-converters">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/PhillippOhlandt/pmtoapib">pmtoapib</a></h3>
+
+                        <span class="label label-default">converters</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>A simple tool to convert Postman collection exports (v2) to Api Blueprint.</p>
+                </div>
+            </div>
+            <div class="row tool tool-parsers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/kylef/draughtsman">Draughtsman</a></h3>
+
+                        <span class="label label-default">parsers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>API Blueprint Parser for Python 3</p>
+                </div>
+            </div>
+            <div class="row tool tool-testing">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/matchtechnologies/fitting">fitting</a></h3>
+
+                        <span class="label label-default">testing</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Library add improve test log for RSpec and WebMock, validate its according to API Blueprint and Open API, show the documentation coverage with log.</p>
+                </div>
+            </div>
+            <div class="row tool tool-parsers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/madewithlove/mson-to-schemas">mson-to-schemas</a></h3>
+
+                        <span class="label label-default">parsers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Generate JSON schema from your MSON data structures</p>
+                </div>
+            </div>
+            <div class="row tool tool-lexers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/kylef/pygments-apiblueprint">pygments-apiblueprint</a></h3>
+
+                        <span class="label label-default">lexers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>API Blueprint Lexer for Python (Pygments)</p>
+                </div>
+            </div>
+            <div class="row tool tool-lexers">
+                <div class="col-md-5">
+                    <h3><a href="http://rouge.jneen.net">rouge</a></h3>
+
+                        <span class="label label-default">lexers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>API Blueprint Lexer for Ruby</p>
+                </div>
+            </div>
+            <div class="row tool tool-converters">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/vitormattos/blueprint-sdk-maker">blueprint-sdk-maker</a></h3>
+
+                        <span class="label label-default">converters</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Create SDK client in PHP from API Blueprint</p>
+                </div>
+            </div>
+            <div class="row tool tool-testing">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/KittyHeaven/blue_bird">BlueBird</a></h3>
+
+                        <span class="label label-default">testing</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Generate API Blueprint from tests with Phoenix Framework.</p>
+                </div>
+            </div>
+            <div class="row tool tool-testing">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/infinum/dox">Dox</a></h3>
+
+                        <span class="label label-default">testing</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Generate API Blueprint from RSpec tests in a Rails application.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/matchtechnologies/esplanade">esplanade</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Validate requests and responses against API Blueprint specifications for Ruby.</p>
+                </div>
+            </div>
+            <div class="row tool ">
+                <div class="col-md-5">
+                    <h3><a href="https://www.npmjs.com/package/apiaryio">apiaryio</a></h3>
+
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Node.JS CLI tool for publishing API Blueprint to apiary.</p>
+                </div>
+            </div>
+            <div class="row tool tool-renderers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/M165437/laravel-blueprint-docs">Laravel Blueprint Docs</a></h3>
+
+                        <span class="label label-default">renderers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>API Blueprint Renderer for Laravel, themeable via Blade templates.</p>
+                </div>
+            </div>
+            <div class="row tool tool-renderers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/chris48s/django-apiblueprint-view">django-apiblueprint-view</a></h3>
+
+                        <span class="label label-default">renderers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Render API Blueprints on-the-fly using Django templates</p>
+                </div>
+            </div>
+            <div class="row tool tool-converters">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/bukalapak/vanadia">Vanadia</a></h3>
+
+                        <span class="label label-default">converters</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Convert API Blueprint file into a Postman latest collection format.</p>
+                </div>
+            </div>
+            <div class="row tool tool-converters">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/Dmitiry1921/postman2apiary">postman2apiary</a></h3>
+
+                        <span class="label label-default">converters</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>Parse Postman collection to blueprint documentation</p>
+                </div>
+            </div>
+            <div class="row tool tool-editors">
+                <div class="col-md-5">
+                    <h3><a href="https://blueprintstack.io">BlueprintStack</a></h3>
+
+                        <span class="label label-default">editors</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>An awesome API blueprint playground for new people to experiment on.</p>
+                </div>
+            </div>
+            <div class="row tool tool-editors">
+                <div class="col-md-5">
+                    <h3><a href="https://apidocumenter.com/">APIDocumenter</a></h3>
+
+                        <span class="label label-default">editors</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>A simple and more manageable approach to create & share documents for your APIs using MSON (API Blueprint)</p>
+                </div>
+            </div>
+            <div class="row tool tool-editors">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/tkrisztian95/vscode-apib-navigation-plugin">VSCode API Blueprint Navigation helper</a></h3>
+
+                        <span class="label label-default">editors</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>It helps you to navigate in large API doc files easier using the VS Code Outline view. This extension adds the sections of the API doc to the Outline view in a hierarchical tree structure.</p>
+                </div>
+            </div>
+            <div class="row tool tool-parsers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/funbox/crafter">Crafter</a></h3>
+
+                        <span class="label label-default">parsers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>API Blueprint parser written in pure JavaScript</p>
+                </div>
+            </div>
+            <div class="row tool tool-renderers">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/funbox/blueprinter">Blueprinter</a></h3>
+
+                        <span class="label label-default">renderers</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>API Blueprint renderer to output documentation as an HTML page</p>
+                </div>
+            </div>
+            <div class="row tool tool-editors">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/funbox/vscode-apib-ls">vscode-apib-ls</a></h3>
+
+                        <span class="label label-default">editors</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>VSCode extension that brings Language Server support for API Blueprint</p>
+                </div>
+            </div>
+            <div class="row tool tool-testing">
+                <div class="col-md-5">
+                    <h3><a href="https://github.com/funbox/api-validator">API Validator</a></h3>
+
+                        <span class="label label-default">testing</span>
+                </div>
+
+                <div class="col-md-7 summary">
+                    <p>A frontend tool to validate server response against API Blueprint documentation</p>
+                </div>
+            </div>
+
+        <div class="row tool add-tool">
+            <div class="col-md-5">
+                <h3><a href="https://github.com/apiaryio/apiblueprint.org/blob/master/data/tools.yaml">Add your own tool</a></h3>
+            </div>
+
+            <div class="col-md-7 summary">
+                <p>Written your own API Blueprint tool? Add it to the list.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function filterTag(tag) {
+    if (tag == "all") {
+        $("#tools .row").show();
+    } else {
+        $("#tools .row").hide();
+        $("#tools .tool-" + tag).show();
+        $("#tools .add-tool").show();
+    }
+
+    $("#filters li").removeClass("active");
+}
+
+$("#filters li").click(function(e) {
+    var tag = $(this).attr("data-id");
+    filterTag(tag);
+    $(this).addClass("active");
+});
+
+$('#tools-search input').on('input', function() {
+  var query = $(this).val().toLowerCase();
+
+  if (query.length == 0) {
+      $("#tools .row").show();
+      $("#filters").show();
+  } else {
+      $("#tools .row").hide();
+      $("#filters").hide();
+
+      $("#tools .row").each(function (e) {
+          var title = $("h3", this).text().toLowerCase();
+          var summary = $(".summary", this).text().toLowerCase();
+
+          // TODO Poor implementation of search
+          if (title.indexOf(query) != -1 || summary.indexOf(query) != -1) {
+              $(this).show();
+          }
+      });
+  }
+});
+
+$(function() {
+    if (window.location.hash) {
+        var tag = window.location.hash.replace("#", "");
+        filterTag(tag);
+        $('li[data-id="' + tag + '"]').addClass("active");
+    } else {
+        $("#tools-search input").focus();
+    }
+});
+</script>
+
+    </div>
+
+    <footer>
+      <div class="container">
+        <div>
+          <ul class="social">
+              <li>
+                <a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">
+                  <img src="/images/stackoverflow-994229fe.svg" />
+                  <span class="relation">FAQ</span>
+                  <span class="service">Stack Overflow</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/apiaryio/api-blueprint/issues">
+                  <img src="/images/github-893a5b9a.svg" />
+                  <span class="relation">Issues</span>
+                  <span class="service">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/apiblueprint">
+                  <img src="/images/twitter-2ade0f64.svg" />
+                  <span class="relation">Twitter</span>
+                  <span class="service">@apiblueprint</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="info row">
+          <div class="brand-block col-md-6">
+              <img src="/images/apiblueprint-footer-81a6c64c.svg" alt="API Blueprint Logo" width=38 height=36 />
+              <div class="brand-info">
+                <span class="brand">API Blueprint</span>
+                <span>&copy; 2013—2023</span>
+              </div>
+            </ul>
+          </div>
+          <ul class="nav nav-pills col-md-6 text-md-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></div>
+      </div>
+    </footer>
+
+    <div class="rocket"></div>
+    <div class="moon"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

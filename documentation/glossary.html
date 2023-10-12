@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Glossary of Terms | API Blueprint</title>
+
+    <link href="/images/favicon-10b3ff24.png" rel="icon" type="image/png" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" /><link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /><link href="/stylesheets/all.css" rel="stylesheet" /><link href="/stylesheets/highlight.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+  </head>
+
+  <body class="documentation documentation_glossary">
+    <header>
+      <div class="container">
+        <div class="pull-right">
+          <a href="https://twitter.com/apiblueprint" class="twitter-follow-button" data-show-count="false">Follow @apiblueprint</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <iframe src="https://ghbtns.com/github-btn.html?user=apiaryio&repo=api-blueprint&type=star&count=true" frameborder="0" scrolling="0" width="105px" height="20px"></iframe>
+        </div>
+
+        <hr />
+
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">API Blueprint</a>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container page-content">
+      <div class="row content">
+        <div id="sidebar" class="col-md-3" role="complementary">
+            <ul class="nav">
+                  <li>
+                  <a href="/documentation/tutorial.html">Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/advanced-tutorial.html">Advanced Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/specification.html">Specification</a></li>
+                  <li class="active">
+                  <a href="/documentation/glossary.html">Glossary of Terms</a></li>
+                  <li>
+                  <a href="/documentation/mson/cheatsheet.html">MSON Cheatsheet</a></li>
+                  <li>
+                  <a href="/documentation/mson/tutorial.html">MSON</a></li>
+                  <li>
+                  <a href="/documentation/mson/specification.html">MSON Specification</a></li>
+                  <li>
+                  <a href="/documentation/examples/">Examples</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 text" role="main">
+            <h2>Glossary of Terms</h2>
+            <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p>A brief list of terms as used in the <a href="http://apiblueprint.org">API Blueprint</a> context.</p>
+
+<h2 id="glossary">Glossary</h2>
+
+<p><a name="def-action"></a></p>
+
+<h3 id="action">Action</h3>
+
+<p>An <strong>HTTP transaction</strong> (a request-response transaction).</p>
+
+<p>Actions are specified by an <a href="#def-method">HTTP request method</a> within a <a href="#def-resource">resource</a>.</p>
+
+<p><a name="def-api"></a></p>
+
+<h3 id="api">API</h3>
+
+<p>An <strong>HTTP Application programming interface</strong>. Might refer to an API
+description. See <a href="#def-api-blueprint"><strong>API Blueprint</strong></a>.</p>
+
+<p><a name="def-api-blueprint"></a></p>
+
+<h3 id="api-blueprint">API Blueprint</h3>
+
+<p>The <strong>API Blueprint language</strong>. A format used to describe API in an API blueprint file.</p>
+
+<p><a name="def-asset"></a></p>
+
+<h3 id="asset">Asset</h3>
+
+<p><strong>Atomic data</strong>. Most often representing one resource representation in the form of message-body or its validation schema.</p>
+
+<p><a name="def-attribute"></a></p>
+
+<h3 id="attribute">Attribute</h3>
+
+<p>Based on the context, attribute (property) of a message-body data structure, or
+attribute of a resource, or an input attribute of a transition –
+<a href="#def-action">Action</a>.</p>
+
+<p><a name="def-blueprint"></a></p>
+
+<h3 id="blueprint">Blueprint</h3>
+
+<p>An <strong>API description</strong>. A <strong>blueprint file</strong> (or a set of files) that describes an API using the API Blueprint language.</p>
+
+<p><a name="def-data-structure"></a></p>
+
+<h3 id="data-structure">Data Structure</h3>
+
+<p>A particular data organization, or a description of it. In API Blueprint, data
+structures and their <a href="#def-attribute">Attributes</a> are described using the
+Markdown Syntax for Object Notation – <a href="https://github.com/apiaryio/mson">MSON</a>.</p>
+
+<p><a name="def-entity"></a></p>
+
+<h3 id="entity">Entity</h3>
+
+<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html"><strong>Entity</strong></a> being transferred in a <a href="#def-payload">payload</a>.</p>
+
+<p><a name="def-header"></a></p>
+
+<h3 id="header">Header</h3>
+
+<p>A <a href="#def-message-header"><strong>message-header</strong></a>.</p>
+
+<p><a name="def-method"></a></p>
+
+<h3 id="method">Method</h3>
+
+<p>An <a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods"><strong>HTTP Request Method</strong></a>.</p>
+
+<p><a name="def-message"></a></p>
+
+<h3 id="message">Message</h3>
+
+<p>An <strong>HTTP transaction message</strong>.</p>
+
+<p><a name="def-message-body"></a></p>
+
+<h3 id="message-body">Message body</h3>
+
+<p>An <a href="#def-asset"><strong>asset</strong></a> representing <a href="http://en.wikipedia.org/wiki/HTTP_body_data"><strong>HTTP transaction message body</strong></a>.</p>
+
+<p><a name="def-message-header"></a></p>
+
+<h3 id="message-header">Message header</h3>
+
+<p>An <a href="#def-asset"><strong>asset</strong></a> representing <a href="http://en.wikipedia.org/wiki/List_of_HTTP_header_fields"><strong>HTTP transaction message header</strong></a>.
+<a name="def-parameter"></a></p>
+
+<h3 id="parameter">Parameter</h3>
+
+<p>An <a href="#def-uri-template"><strong>URI template</strong></a> <strong>variable</strong>.</p>
+
+<p><a name="def-payload"></a></p>
+
+<h3 id="payload">Payload</h3>
+
+<p>An <strong>HTTP transaction message</strong> including its <strong>discussion</strong> and any additional <a href="#def-asset"><strong>assets</strong></a> such as entity-body validation schema.</p>
+
+<p>A payload may have an <strong>identifier</strong> – a string for a <a href="#def-request">request</a>
+payload or an 
+<a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</a> for a
+<a href="#def-response">response</a> payload.</p>
+
+<p><a name="def-property"></a></p>
+
+<h3 id="property">Property</h3>
+
+<p>An <a href="#def-entity">entity</a> field (attribute).</p>
+
+<p><a name="def-request"></a></p>
+
+<h3 id="request">Request</h3>
+
+<p>A <a href="#def-payload"><strong>payload</strong></a> containing one specific <a href="http://www.w3.org/TR/di-gloss/#def-http-request">HTTP Request</a>.</p>
+
+<p><a name="def-response"></a></p>
+
+<h3 id="response">Response</h3>
+
+<p>A <a href="#def-payload"><strong>payload</strong></a> containing one specific <a href="http://www.w3.org/TR/di-gloss/#def-http-response">HTTP Response</a>.</p>
+
+<p><a name="def-resource"></a></p>
+
+<h3 id="resource">Resource</h3>
+
+<p>An API <a href="http://www.w3.org/TR/di-gloss/#def-resource"><strong>resource</strong></a> specified by
+its <em>URI</em>. It can also refer to a <a href="#def-resource"><strong>set of resources</strong></a>
+matching one <a href="#def-uri-template"><strong>URI template</strong></a>.</p>
+
+<p><a name="def-resource-model"></a></p>
+
+<h3 id="resource-model">Resource Model</h3>
+
+<p>One <a href="http://www.w3.org/TR/di-gloss/#def-resource-manifestation"><strong>manifestation of a resource</strong></a> in the
+form of a <a href="#def-payload">payload</a>. A resource model is an example
+representation of its resource. Can be referenced later in the place of a
+<a href="#def-payload">payload</a>.</p>
+
+<p><a name="def-resource-set"></a></p>
+
+<h3 id="resource-set">Resource Set</h3>
+
+<p>A set of API <a href="http://www.w3.org/TR/di-gloss/#def-resource"><strong>resources</strong></a>. Its
+<em>URI</em> matches one specific <a href="#def-uri-template"><strong>URI template</strong></a>.</p>
+
+<p><a name="def-trait"></a></p>
+
+<h3 id="trait">Trait</h3>
+
+<p>A quality or characteristic of an API Blueprint SECTION.</p>
+
+<p><a name="def-schema"></a></p>
+
+<h3 id="schema">Schema</h3>
+
+<p>A <strong>validation schema</strong> in a form of an <a href="#def-asset"><strong>asset</strong></a> used to validate (or describe) a <a href="#def-message-body"><strong>message-body</strong></a>.</p>
+
+<p><a name="def-uri-template"></a></p>
+
+<h3 id="uri-template">URI template</h3>
+
+<p>A compact sequence of characters for describing a range of <strong>Uniform Resource Identifiers</strong> through <strong>variable</strong> expansion, see <a href="http://tools.ietf.org/html/rfc6570"><strong>RFC 6570</strong></a>.</p>
+
+<h2 id="additional-resources">Additional resources</h2>
+
+<ul>
+<li><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec1.html#sec1.3">HTTP/1.1 Terminology</a></li>
+<li><a href="http://www.w3.org/TR/di-gloss">W3C Glossary of Terms for Device Independence</a></li>
+<li><a href="https://github.com/for-GET/know-your-http-well">Know your HTTP well</a></li>
+<li><a href="https://github.com/apiaryio/mson">Markdown Syntax for Object Notation</a></li>
+</ul>
+</body></html>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div>
+          <ul class="social">
+              <li>
+                <a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">
+                  <img src="/images/stackoverflow-994229fe.svg" />
+                  <span class="relation">FAQ</span>
+                  <span class="service">Stack Overflow</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/apiaryio/api-blueprint/issues">
+                  <img src="/images/github-893a5b9a.svg" />
+                  <span class="relation">Issues</span>
+                  <span class="service">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/apiblueprint">
+                  <img src="/images/twitter-2ade0f64.svg" />
+                  <span class="relation">Twitter</span>
+                  <span class="service">@apiblueprint</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="info row">
+          <div class="brand-block col-md-6">
+              <img src="/images/apiblueprint-footer-81a6c64c.svg" alt="API Blueprint Logo" width=38 height=36 />
+              <div class="brand-info">
+                <span class="brand">API Blueprint</span>
+                <span>&copy; 2013—2023</span>
+              </div>
+            </ul>
+          </div>
+          <ul class="nav nav-pills col-md-6 text-md-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></div>
+      </div>
+    </footer>
+
+    <div class="rocket"></div>
+    <div class="moon"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

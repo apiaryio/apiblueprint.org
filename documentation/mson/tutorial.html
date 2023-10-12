@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MSON Tutorial | API Blueprint</title>
+
+    <link href="/images/favicon-10b3ff24.png" rel="icon" type="image/png" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" /><link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /><link href="/stylesheets/all.css" rel="stylesheet" /><link href="/stylesheets/highlight.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+  </head>
+
+  <body class="documentation documentation_mson documentation_mson_tutorial">
+    <header>
+      <div class="container">
+        <div class="pull-right">
+          <a href="https://twitter.com/apiblueprint" class="twitter-follow-button" data-show-count="false">Follow @apiblueprint</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <iframe src="https://ghbtns.com/github-btn.html?user=apiaryio&repo=api-blueprint&type=star&count=true" frameborder="0" scrolling="0" width="105px" height="20px"></iframe>
+        </div>
+
+        <hr />
+
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">API Blueprint</a>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container page-content">
+      <div class="row content">
+        <div id="sidebar" class="col-md-3" role="complementary">
+            <ul class="nav">
+                  <li>
+                  <a href="/documentation/tutorial.html">Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/advanced-tutorial.html">Advanced Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/specification.html">Specification</a></li>
+                  <li>
+                  <a href="/documentation/glossary.html">Glossary of Terms</a></li>
+                  <li>
+                  <a href="/documentation/mson/cheatsheet.html">MSON Cheatsheet</a></li>
+                  <li class="active">
+                  <a href="/documentation/mson/tutorial.html">MSON</a></li>
+                  <li>
+                  <a href="/documentation/mson/specification.html">MSON Specification</a></li>
+                  <li>
+                  <a href="/documentation/examples/">Examples</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 text" role="main">
+            <h2>MSON Tutorial</h2>
+            <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p>MSON is short for Markdown Syntax for Object Notation, and it's a way to represent data structures in a human readable plain text form. This tutorial will take you though the basics of MSON and how you can use MSON to describe a data structure.</p>
+
+<blockquote>
+<p><strong>NOTE:</strong> <strong>Additional MSON Resources</strong></p>
+
+<ul>
+<li><a href="https://github.com/apiaryio/mson/blob/master/MSON%20Specification.md">MSON Specification</a></li>
+<li><a href="https://github.com/apiaryio/mson#notational-conventions">Examples</a></li>
+</ul>
+</blockquote>
+
+<h2 id="data-structures-in-mson">Data structures in MSON</h2>
+
+<p>To get started, we're going to create a data structure in MSON to represent a Person which has a name.</p>
+
+<p>A data structure to store a Person could be represented in MSON using the following:</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="gh"># Person</span>
+<span class="p">
++</span> name
+</code></pre></div>
+<p>Here we've declared our own named type called "Person". A heading is one or more <code>#</code> symbols followed by a string representing the name of our data structure. By default, named types like <code>Person</code> are object types.</p>
+
+<p>An object is constructed with properties, and in this case we've listed them below the heading in a list. Lists are created by putting each list item on its own line and preceding each line with either a <code>+</code>, <code>*</code> or <code>-</code>.</p>
+
+<p>In our <code>Person</code> data structure, we have a single property called <code>name</code>. Similarly to our Person definition, we can declare the type that our property is, with round brackets. For example, we can declare that our name is a string using <code>+ name (string)</code>. By default, properties on objects are string's unless specified to another type, as in our above example we have omitted the string type definition.</p>
+
+<p>We can attach a description for our name property by following the type definition with a dash (<code>-</code>) followed by the description.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">+</span> name (string) - The Person's name
+</code></pre></div>
+<p>We may also specify a sample value for the person's name by preceding the property name by a colon (<code>:</code>) and then the value.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">+</span> name: Kyle (string) - The Person's name
+</code></pre></div>
+<p><strong>NOTE</strong>: <em>It's important to note, that if a sample value contains reserved characters such as <code>:</code>, <code>(</code>,<code>)</code>, <code>&lt;</code>, <code>&gt;</code>, <code>{</code>, <code>}</code>, <code>[</code>, <code>]</code>, <code>_</code>, <code>&amp;ast;</code>, <code>-</code>, <code>+</code>, <code>`</code> then the sample value must be wrapped in a code-block using back-ticks:</em></p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">+</span> name: <span class="sb">`Spencer-Churchill`</span> (string) - The Person's name
+</code></pre></div>
+<p>So far we have used the <code>object</code> and <code>string</code> types. MSON includes a total of 6 base types. Three of these base types are primitive types such as <code>boolean</code>, <code>string</code> and <code>number</code>. There are also three structure types called <code>array</code>, <code>enum</code> and <code>object</code>. Let's use some of these new types to create another data structure.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="gh"># Company</span>
+<span class="p">
++</span> name: Apiary
+<span class="p">+</span> founder (Person)
+<span class="p">+</span> founded: 2011 (number) - The year in which the company was founded
+</code></pre></div>
+<h3 id="inheritance">Inheritance</h3>
+
+<p>When declaring a named type, you may also inherit from another type. For example, we could declare a data structure called "Administrator" which inherits from the <code>Person</code> type.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="gh"># Administrator (Person)</span>
+<span class="p">
++</span> role (string) - The administrators role
+</code></pre></div>
+<p>When inheriting from another data structure, all of the parents properties will be inherited. For example, our <code>Administrator</code> structure will contain the <code>name</code> property from our previous definition.</p>
+
+<h4 id="nesting">Nesting</h4>
+
+<p>It's also possible to nest other data structures directly without a data structure instead of referencing another type as we have done above between our <code>Company</code> and <code>Person</code>.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="gh"># Company</span>
+<span class="p">
++</span> name: Apiary
+<span class="p">+</span> founder (Person)
+<span class="p">+</span> founded: 2011 (number) - The year in which the company was founded
+<span class="p">+</span> address
+<span class="p">    +</span> street: 235 Ninth Street
+<span class="p">    +</span> city: San Francisco
+<span class="p">    +</span> state: California
+</code></pre></div>
+<p>In this example, we've declared a property called <code>address</code> which is a nested structure within our <code>Company</code>.</p>
+
+<p><strong>NOTE</strong>: <em>In this case, since we have inline properties within our address property, the default type for the address is object instead of string.</em></p>
+
+<h2 id="additional-learning">Additional Learning</h2>
+
+<p>You can find more <a href="https://github.com/apiaryio/mson#example-1">examples</a> of MSON, along with additional information from the <a href="https://github.com/apiaryio/mson/blob/master/MSON%20Specification.md">MSON Specification</a>.</p>
+</body></html>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div>
+          <ul class="social">
+              <li>
+                <a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">
+                  <img src="/images/stackoverflow-994229fe.svg" />
+                  <span class="relation">FAQ</span>
+                  <span class="service">Stack Overflow</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/apiaryio/api-blueprint/issues">
+                  <img src="/images/github-893a5b9a.svg" />
+                  <span class="relation">Issues</span>
+                  <span class="service">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/apiblueprint">
+                  <img src="/images/twitter-2ade0f64.svg" />
+                  <span class="relation">Twitter</span>
+                  <span class="service">@apiblueprint</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="info row">
+          <div class="brand-block col-md-6">
+              <img src="/images/apiblueprint-footer-81a6c64c.svg" alt="API Blueprint Logo" width=38 height=36 />
+              <div class="brand-info">
+                <span class="brand">API Blueprint</span>
+                <span>&copy; 2013—2023</span>
+              </div>
+            </ul>
+          </div>
+          <ul class="nav nav-pills col-md-6 text-md-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></div>
+      </div>
+    </footer>
+
+    <div class="rocket"></div>
+    <div class="moon"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

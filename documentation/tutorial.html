@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>API Blueprint Tutorial | API Blueprint</title>
+
+    <link href="/images/favicon-10b3ff24.png" rel="icon" type="image/png" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" /><link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /><link href="/stylesheets/all.css" rel="stylesheet" /><link href="/stylesheets/highlight.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+  </head>
+
+  <body class="documentation documentation_tutorial">
+    <header>
+      <div class="container">
+        <div class="pull-right">
+          <a href="https://twitter.com/apiblueprint" class="twitter-follow-button" data-show-count="false">Follow @apiblueprint</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <iframe src="https://ghbtns.com/github-btn.html?user=apiaryio&repo=api-blueprint&type=star&count=true" frameborder="0" scrolling="0" width="105px" height="20px"></iframe>
+        </div>
+
+        <hr />
+
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">API Blueprint</a>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container page-content">
+      <div class="row content">
+        <div id="sidebar" class="col-md-3" role="complementary">
+            <ul class="nav">
+                  <li class="active">
+                  <a href="/documentation/tutorial.html">Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/advanced-tutorial.html">Advanced Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/specification.html">Specification</a></li>
+                  <li>
+                  <a href="/documentation/glossary.html">Glossary of Terms</a></li>
+                  <li>
+                  <a href="/documentation/mson/cheatsheet.html">MSON Cheatsheet</a></li>
+                  <li>
+                  <a href="/documentation/mson/tutorial.html">MSON</a></li>
+                  <li>
+                  <a href="/documentation/mson/specification.html">MSON Specification</a></li>
+                  <li>
+                  <a href="/documentation/examples/">Examples</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 text" role="main">
+            <h2>API Blueprint Tutorial</h2>
+            <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p>Welcome to an API Blueprint Tutorial! This tutorial will take you through the
+basics of the API Blueprint language. We’re going to build an API blueprint
+step by step for a service called Polls – a simple API allowing consumers to
+view polls and vote in them. You can take a look at the 
+<a href="https://raw.github.com/apiaryio/api-blueprint/master/examples/Polls%20API.md">full version</a> of the blueprint used in this tutorial for
+reference.</p>
+
+<blockquote>
+<p><strong>Note:</strong> <strong>Additional API Blueprint Resources</strong></p>
+
+<ul>
+<li><a href="https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md">Language Specification</a></li>
+<li><a href="https://github.com/apiaryio/api-blueprint/tree/master/examples">Examples</a></li>
+<li><a href="https://github.com/apiaryio/api-blueprint/blob/master/Glossary%20of%20Terms.md">Glossary of Terms</a></li>
+<li><a href="https://github.com/apiaryio/api-blueprint/wiki/API-Blueprint-Map">API Blueprint Map</a></li>
+<li><a href="http://apiblueprint.org/tools.html">Tools for API Blueprint</a></li>
+</ul>
+</blockquote>
+
+<h2 id="api-blueprint">API Blueprint</h2>
+
+<p>The first step for creating a blueprint is to specify the API Name and
+metadata. This step looks as follows:</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="nv">FORMAT</span><span class="p">: </span><span class="s">1A</span>
+
+<span class="gh"># Polls</span>
+
+Polls is a simple API allowing consumers to view polls and vote in them.
+</code></pre></div>
+<h2 id="metadata">Metadata</h2>
+
+<p>The blueprint starts with a metadata section. In this case we have specified
+that <code>FORMAT</code> has the value of <code>1A</code>. The format keyword denotes the version of
+the API Blueprint.</p>
+
+<h2 id="api-name--description">API Name &amp; Description</h2>
+
+<p>The first heading in the blueprint serves as the name of your API, which in
+this case is "Polls". Headings start with one or more <code>#</code> symbols followed by a
+title. The API Name here uses one hash to distinguish it as the first level.
+The number of <code>#</code> you use will determine the level of the heading.</p>
+
+<p>Following the heading is a description of the API. You may use further headings
+to break up the description section.</p>
+
+<h2 id="resource-groups">Resource Groups</h2>
+
+<p>Now it's time to start documenting the API resources. Using the <code>Group</code> keyword
+at the start of a heading, we've created a group of related resources.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">#</span><span class="k"> Group </span><span class="gh">Questions</span>
+
+Resources related to questions in the API.
+</code></pre></div>
+<h2 id="resource">Resource</h2>
+
+<p>Within the questions resource group, we have a resource called "Question
+Collection". This resource allows you to view a list of questions. The heading
+specifies the URI used to access the resource inside of square brackets at the
+end of the heading.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">##</span><span class="gh"> Question Collection </span><span class="s">[/questions]</span>
+</code></pre></div>
+<h3 id="actions">Actions</h3>
+
+<p>API Blueprint allows you to specify each action you may make on a resource. An
+action is specified with a sub-heading inside of a resource with the name of
+the action followed by the HTTP method.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">###</span><span class="gh"> List All Questions </span><span class="s">[GET]</span>
+</code></pre></div>
+<p>An action should include at least one response from the server which must
+include a status code and may contain a body. A response is defined as a list
+item within an action. Lists are created by preceding list items with either a
+<code>+</code>, <code>*</code> or <code>-</code>.</p>
+
+<p>This action returns a <code>200</code> status code along with a JSON body.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">+ </span><span class="k">Response</span><span class="m"> 200</span><span class="s"> (application/json)</span><span class="sb">
+
+        [
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2014-11-11T08:40:51.620Z",
+                "url": "/questions/1",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "url": "/questions/1/choices/1",
+                        "votes": 2048
+                    }, {
+                        "choice": "Python",
+                        "url": "/questions/1/choices/2",
+                        "votes": 1024
+                    }, {
+                        "choice": "Objective-C",
+                        "url": "/questions/1/choices/3",
+                        "votes": 512
+                    }, {
+                        "choice": "Ruby",
+                        "url": "/questions/1/choices/4",
+                        "votes": 256
+                    }
+                ]
+            }
+        ]
+</span></code></pre></div>
+<blockquote>
+<p><strong>Note:</strong> Specifying the media type after the response status code generates
+a <code>Content-Type</code> HTTP header. You do not have to explicitly specify the
+<code>Content-Type</code> header.</p>
+</blockquote>
+
+<p>The polls resource has a second action which allows you to create a new
+question. This action includes a description showing the structure you would
+send to the server to perform this action.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">###</span><span class="gh"> Create a New Question </span><span class="s">[POST]</span>
+
+You may create your own question using this action. It takes a JSON object
+containing a question and a collection of answers in the form of choices.
+<span class="p">
++</span> question (string) - The question
+<span class="p">+</span> choices (array[string]) - A collection of choices.
+</code></pre></div>
+<p>This action takes a JSON payload as part of the request as follows:</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">+ </span><span class="k">Request</span><span class="s"> (application/json)</span><span class="sb">
+
+            {
+                "question": "Favourite programming language?",
+                "choices": [
+                    "Swift",
+                    "Python",
+                    "Objective-C",
+                    "Ruby"
+                ]
+            }
+</span></code></pre></div>
+<p>This example returns a <code>201</code> status code, along with HTTP headers and a body.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">+ </span><span class="k">Response</span><span class="m"> 201</span><span class="s"> (application/json)</span><span class="sb">
+
+    + Headers
+
+            Location: /questions/1
+
+    + Body
+
+                {
+                    "question": "Favourite programming language?",
+                    "published_at": "2014-11-11T08:40:51.620Z",
+                    "url": "/questions/1",
+                    "choices": [
+                        {
+                            "choice": "Swift",
+                            "url": "/questions/1/choices/1",
+                            "votes": 0
+                        }, {
+                            "choice": "Python",
+                            "url": "/questions/1/choices/2",
+                            "votes": 0
+                        }, {
+                            "choice": "Objective-C",
+                            "url": "/questions/1/choices/3",
+                            "votes": 0
+                        }, {
+                            "choice": "Ruby",
+                            "url": "/questions/1/choices/4",
+                            "votes": 0
+                        }
+                    ]
+                }
+</span></code></pre></div>
+<p>The next resource is “Question”, which represents a single question.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">##</span><span class="gh"> Question </span><span class="s">[/questions/{question_id}]</span>
+</code></pre></div>
+<h3 id="uri-template">URI Template</h3>
+
+<p>The URI for the “Question” resource uses a variable component, expressed by
+<a href="https://github.com/apiaryio/api-blueprint/blob/master/Glossary%20of%20Terms.md#uri-template">URI Template</a>. In this case, there is an ID variable called <code>question_id</code>,
+represented in the URI template as <code>{question_id}</code>.</p>
+
+<p><a id="uri-parameters"></a></p>
+
+<h3 id="uri-parameters">URI Parameters</h3>
+
+<p>URI parameters should describe the URI using a list of Parameters. For
+“Question” it would be as follows:</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">+</span> Parameters
+<span class="p">    +</span> question_id (number) - ID of the Question in the form of an integer
+</code></pre></div>
+<p>The <code>question_id</code> variable of the URI template is a parameter for every action
+on this resource. It's defined here using an arbitrary type <code>number</code>, followed
+by a description for the parameter.</p>
+
+<blockquote>
+<p>Refer to API Blueprint Specification's <a href="https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md#def-uriparameters-section">URI Parameters Section</a> for more
+examples.</p>
+</blockquote>
+
+<h3 id="actions">Actions</h3>
+
+<p>This resource has an action to retrieve the question's detail.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">###</span><span class="gh"> View a Questions Detail </span><span class="s">[GET]</span>
+<span class="p">
++</span> Response 200 (application/json)<span class="sb">
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2014-11-11T08:40:51.620Z",
+                "url": "/questions/1",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "url": "/questions/1/choices/1",
+                        "votes": 2048
+                    }, {
+                        "choice": "Python",
+                        "url": "/questions/1/choices/2",
+                        "votes": 1024
+                    }, {
+                        "choice": "Objective-C",
+                        "url": "/questions/1/choices/3",
+                        "votes": 512
+                    }, {
+                        "choice": "Ruby",
+                        "url": "/questions/1/choices/4",
+                        "votes": 256
+                    }
+                ]
+            }
+</span></code></pre></div>
+<h4 id="response-without-a-body">Response Without a Body</h4>
+
+<p>This resource has a delete action. The server will return a 204 response
+without a body.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">###</span><span class="gh"> Delete </span><span class="s">[DELETE]</span>
+<span class="p">
++</span> Response 204
+</code></pre></div>
+<h2 id="complete-blueprint">Complete Blueprint</h2>
+
+<p>You can find an <a href="http://github.com/apiaryio/polls-api">implementation</a> of this
+API at http://polls.apiblueprint.org/ along with the complete 
+<a href="https://raw.github.com/apiaryio/api-blueprint/master/examples/Polls%20API.md">Poll API Blueprint</a> in the <a href="https://github.com/apiaryio/api-blueprint/tree/master/examples">API Blueprint Examples</a> repository. You can
+also enjoy it <a href="http://docs.pollsapi.apiary.io">rendered on Apiary</a>.</p>
+
+<blockquote>
+<p><strong>Note:</strong> Take a look at the <a href="https://github.com/apiaryio/api-blueprint/blob/master/Glossary%20of%20Terms.md">API Blueprint Glossary of Terms</a> if you need
+clarification of some of the terms used though this document.</p>
+</blockquote>
+
+<h2 id="api-blueprint-tools">API Blueprint Tools</h2>
+
+<p>Visit the <a href="http://apiblueprint.org/tools.html">Tooling Section</a> of <a href="http://apiblueprint.org">apiblueprint.org</a> to find tools to use with
+API Blueprints.</p>
+</body></html>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div>
+          <ul class="social">
+              <li>
+                <a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">
+                  <img src="/images/stackoverflow-994229fe.svg" />
+                  <span class="relation">FAQ</span>
+                  <span class="service">Stack Overflow</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/apiaryio/api-blueprint/issues">
+                  <img src="/images/github-893a5b9a.svg" />
+                  <span class="relation">Issues</span>
+                  <span class="service">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/apiblueprint">
+                  <img src="/images/twitter-2ade0f64.svg" />
+                  <span class="relation">Twitter</span>
+                  <span class="service">@apiblueprint</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="info row">
+          <div class="brand-block col-md-6">
+              <img src="/images/apiblueprint-footer-81a6c64c.svg" alt="API Blueprint Logo" width=38 height=36 />
+              <div class="brand-info">
+                <span class="brand">API Blueprint</span>
+                <span>&copy; 2013—2023</span>
+              </div>
+            </ul>
+          </div>
+          <ul class="nav nav-pills col-md-6 text-md-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></div>
+      </div>
+    </footer>
+
+    <div class="rocket"></div>
+    <div class="moon"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

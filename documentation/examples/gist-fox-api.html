@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Gist Fox API | API Blueprint</title>
+
+    <link href="/images/favicon-10b3ff24.png" rel="icon" type="image/png" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" /><link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /><link href="/stylesheets/all.css" rel="stylesheet" /><link href="/stylesheets/highlight.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+  </head>
+
+  <body class="documentation documentation_examples documentation_examples_gist-fox-api">
+    <header>
+      <div class="container">
+        <div class="pull-right">
+          <a href="https://twitter.com/apiblueprint" class="twitter-follow-button" data-show-count="false">Follow @apiblueprint</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <iframe src="https://ghbtns.com/github-btn.html?user=apiaryio&repo=api-blueprint&type=star&count=true" frameborder="0" scrolling="0" width="105px" height="20px"></iframe>
+        </div>
+
+        <hr />
+
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">API Blueprint</a>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container page-content">
+      <div class="row content">
+        <div id="sidebar" class="col-md-3" role="complementary">
+            <ul class="nav">
+                  <li>
+                  <a href="/documentation/tutorial.html">Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/advanced-tutorial.html">Advanced Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/specification.html">Specification</a></li>
+                  <li>
+                  <a href="/documentation/glossary.html">Glossary of Terms</a></li>
+                  <li>
+                  <a href="/documentation/mson/cheatsheet.html">MSON Cheatsheet</a></li>
+                  <li>
+                  <a href="/documentation/mson/tutorial.html">MSON</a></li>
+                  <li>
+                  <a href="/documentation/mson/specification.html">MSON Specification</a></li>
+                  <li>
+                  <a href="/documentation/examples/">Examples</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 text" role="main">
+            <h2>Gist Fox API</h2>
+            <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div class="highlight"><pre class="highlight apiblueprint"><code><span class="nv">FORMAT</span><span class="p">: </span><span class="s">1A</span>
+
+<span class="gh"># Gist Fox API</span>
+Gist Fox API is a <span class="gs">**pastes service**</span> similar to <span class="p">[</span><span class="nv">GitHub's Gist</span><span class="p">](</span><span class="sx">http://gist.github.com</span><span class="p">)</span>.
+
+<span class="gu">## Authentication</span>
+Currently the Gist Fox API does not provide authenticated access.
+
+<span class="gu">## Media Types</span>
+Where applicable this API uses the <span class="nv">[HAL+JSON](https</span><span class="p">:</span><span class="s">//github.com/mikekelly/hal_specification/blob/master/hal_specification.md) media-type to represent resources states and affordances.</span>
+
+Requests with a message-body are using plain JSON to set or update resource states.
+
+<span class="gu">## Error States</span>
+The common <span class="p">[</span><span class="nv">HTTP Response Status Codes</span><span class="p">](</span><span class="sx">https://github.com/for-GET/know-your-http-well/blob/master/status-codes.md</span><span class="p">)</span> are used.
+
+<span class="p">#</span><span class="gh"> Gist Fox API Root </span><span class="s">[/]</span>
+Gist Fox API entry point.
+
+This resource does not have any attributes. Instead it offers the initial API affordances in the form of the HTTP Link header and
+HAL links.
+
+<span class="p">##</span><span class="gh"> Retrieve the Entry Point </span><span class="s">[GET]</span>
+<span class="p">
++</span> Response 200 (application/hal+json)
+<span class="p">    +</span> Headers<span class="sb">
+
+            Link: &lt;http:/api.gistfox.com/&gt;;rel="self",&lt;http:/api.gistfox.com/gists&gt;;rel="gists"
+
+    + Body
+
+            {
+                "_links": {
+                    "self": { "href": "/" },
+                    "gists": { "href": "/gists?{since}", "templated": true }
+                }
+            }
+
+</span><span class="p">#</span><span class="k"> Group </span><span class="gh">Gist</span>
+Gist-related resources of <span class="ge">*Gist Fox API*</span>.
+
+<span class="p">##</span><span class="gh"> Gist </span><span class="s">[/gists/{id}]</span>
+A single Gist object. The Gist resource is the central resource in the Gist Fox API. It represents one paste - a single text note.
+
+The Gist resource has the following attributes:
+<span class="p">
++</span> id
+<span class="p">+</span> created_at
+<span class="p">+</span> description
+<span class="p">+</span> content
+
+The states <span class="ge">*id*</span> and <span class="ge">*created_at*</span> are assigned by the Gist Fox API at the moment of creation.<span class="sb">
+
+
+</span><span class="p">+</span> Parameters
+<span class="p">    +</span> id (string) - ID of the Gist in the form of a hash.
+<span class="p">
++</span> Model (application/hal+json)<span class="sb">
+
+    HAL+JSON representation of Gist Resource. In addition to representing its state in the JSON form it offers affordances in the form of the HTTP Link header and HAL links.
+
+    + Headers
+
+            Link: &lt;http:/api.gistfox.com/gists/42&gt;;rel="self", &lt;http:/api.gistfox.com/gists/42/star&gt;;rel="star"
+
+    + Body
+
+            {
+                "_links": {
+                    "self": { "href": "/gists/42" },
+                    "star": { "href": "/gists/42/star" }
+                },
+                "id": "42",
+                "created_at": "2014-04-14T02:15:15Z",
+                "description": "Description of Gist",
+                "content": "String contents"
+            }
+
+</span><span class="p">###</span><span class="gh"> Retrieve a Single Gist </span><span class="s">[GET]</span>
+<span class="p">+ </span><span class="k">Response</span><span class="m"> 200</span><span class="sb">
+
+    [Gist][]
+
+</span><span class="p">###</span><span class="gh"> Edit a Gist </span><span class="s">[PATCH]</span>
+To update a Gist send a JSON with updated value for one or more of the Gist resource attributes. All attributes values (states) from the previous version of this Gist are carried over by default if not included in the hash.
+<span class="p">
++</span> Request (application/json)<span class="sb">
+
+        {
+            "content": "Updated file contents"
+        }
+
+</span><span class="p">+ </span><span class="k">Response</span><span class="m"> 200</span><span class="sb">
+
+    [Gist][]
+
+</span><span class="p">###</span><span class="gh"> Delete a Gist </span><span class="s">[DELETE]</span>
+<span class="p">+ </span><span class="k">Response</span><span class="m"> 204</span>
+
+<span class="p">##</span><span class="gh"> Gists Collection </span><span class="s">[/gists{?since}]</span>
+Collection of all Gists.
+
+The Gist Collection resource has the following attribute:
+<span class="p">
++</span> total
+
+In addition it <span class="gs">**embeds**</span> <span class="ge">*Gist Resources*</span> in the Gist Fox API.<span class="sb">
+
+
+</span><span class="p">+</span> Model (application/hal+json)<span class="sb">
+
+    HAL+JSON representation of Gist Collection Resource. The Gist resources in collections are embedded. Note the embedded Gists resource are incomplete representations of the Gist in question. Use the respective Gist link to retrieve its full representation.
+
+    + Headers
+
+            Link: &lt;http:/api.gistfox.com/gists&gt;;rel="self"
+
+    + Body
+
+            {
+                "_links": {
+                    "self": { "href": "/gists" }
+                },
+                "_embedded": {
+                    "gists": [
+                        {
+                            "_links" : {
+                                "self": { "href": "/gists/42" }
+                            },
+                            "id": "42",
+                            "created_at": "2014-04-14T02:15:15Z",
+                            "description": "Description of Gist"
+                        }
+                    ]
+                },
+                "total": 1
+            }
+
+</span><span class="p">###</span><span class="gh"> List All Gists </span><span class="s">[GET]</span>
+<span class="p">+</span> Parameters
+<span class="p">    +</span> since (string, optional) - Timestamp in ISO 8601 format: <span class="nv">`YYYY-MM-DDTHH:MM</span><span class="p">:</span><span class="s">SSZ` Only gists updated at or after this time are returned.</span>
+<span class="p">
++</span> Response 200<span class="sb">
+
+    [Gists Collection][]
+
+</span><span class="p">###</span><span class="gh"> Create a Gist </span><span class="s">[POST]</span>
+To create a new Gist simply provide a JSON hash of the <span class="ge">*description*</span> and <span class="ge">*content*</span> attributes for the new Gist.
+<span class="p">
++</span> Request (application/json)<span class="sb">
+
+        {
+            "description": "Description of Gist",
+            "content": "String content"
+        }
+
+</span><span class="p">+ </span><span class="k">Response</span><span class="m"> 201</span><span class="sb">
+
+    [Gist][]
+
+</span><span class="p">##</span><span class="gh"> Star </span><span class="s">[/gists/{id}/star]</span>
+Star resource represents a Gist starred status.
+
+The Star resource has the following attribute:
+<span class="p">
++</span> starred<span class="sb">
+
+
+</span><span class="p">+</span> Parameters<span class="sb">
+
+    + id (string) - ID of the gist in the form of a hash
+
+</span><span class="p">+</span> Model (application/hal+json)<span class="sb">
+
+    HAL+JSON representation of Star Resource.
+
+    + Headers
+
+            Link: &lt;http:/api.gistfox.com/gists/42/star&gt;;rel="self"
+
+    + Body
+
+            {
+                "_links": {
+                    "self": { "href": "/gists/42/star" }
+                },
+                "starred": true
+            }
+
+</span><span class="p">###</span><span class="gh"> Star a Gist </span><span class="s">[PUT]</span>
+<span class="p">+ </span><span class="k">Response</span><span class="m"> 204</span>
+
+<span class="p">###</span><span class="gh"> Unstar a Gist </span><span class="s">[DELETE]</span>
+<span class="p">+ </span><span class="k">Response</span><span class="m"> 204</span>
+
+<span class="p">###</span><span class="gh"> Check if a Gist is Starred </span><span class="s">[GET]</span>
+<span class="p">+ </span><span class="k">Response</span><span class="m"> 200</span><span class="sb">
+
+    [Star][]
+</span></code></pre></div></body></html>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div>
+          <ul class="social">
+              <li>
+                <a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">
+                  <img src="/images/stackoverflow-994229fe.svg" />
+                  <span class="relation">FAQ</span>
+                  <span class="service">Stack Overflow</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/apiaryio/api-blueprint/issues">
+                  <img src="/images/github-893a5b9a.svg" />
+                  <span class="relation">Issues</span>
+                  <span class="service">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/apiblueprint">
+                  <img src="/images/twitter-2ade0f64.svg" />
+                  <span class="relation">Twitter</span>
+                  <span class="service">@apiblueprint</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="info row">
+          <div class="brand-block col-md-6">
+              <img src="/images/apiblueprint-footer-81a6c64c.svg" alt="API Blueprint Logo" width=38 height=36 />
+              <div class="brand-info">
+                <span class="brand">API Blueprint</span>
+                <span>&copy; 2013—2023</span>
+              </div>
+            </ul>
+          </div>
+          <ul class="nav nav-pills col-md-6 text-md-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></div>
+      </div>
+    </footer>
+
+    <div class="rocket"></div>
+    <div class="moon"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

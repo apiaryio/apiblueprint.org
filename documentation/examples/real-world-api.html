@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Real World API | API Blueprint</title>
+
+    <link href="/images/favicon-10b3ff24.png" rel="icon" type="image/png" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" /><link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /><link href="/stylesheets/all.css" rel="stylesheet" /><link href="/stylesheets/highlight.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+  </head>
+
+  <body class="documentation documentation_examples documentation_examples_real-world-api">
+    <header>
+      <div class="container">
+        <div class="pull-right">
+          <a href="https://twitter.com/apiblueprint" class="twitter-follow-button" data-show-count="false">Follow @apiblueprint</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <iframe src="https://ghbtns.com/github-btn.html?user=apiaryio&repo=api-blueprint&type=star&count=true" frameborder="0" scrolling="0" width="105px" height="20px"></iframe>
+        </div>
+
+        <hr />
+
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">API Blueprint</a>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container page-content">
+      <div class="row content">
+        <div id="sidebar" class="col-md-3" role="complementary">
+            <ul class="nav">
+                  <li>
+                  <a href="/documentation/tutorial.html">Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/advanced-tutorial.html">Advanced Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/specification.html">Specification</a></li>
+                  <li>
+                  <a href="/documentation/glossary.html">Glossary of Terms</a></li>
+                  <li>
+                  <a href="/documentation/mson/cheatsheet.html">MSON Cheatsheet</a></li>
+                  <li>
+                  <a href="/documentation/mson/tutorial.html">MSON</a></li>
+                  <li>
+                  <a href="/documentation/mson/specification.html">MSON Specification</a></li>
+                  <li>
+                  <a href="/documentation/examples/">Examples</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 text" role="main">
+            <h2>Real World API</h2>
+            <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div class="highlight"><pre class="highlight apiblueprint"><code><span class="nv">FORMAT</span><span class="p">: </span><span class="s">1A</span>
+<span class="nv">HOST</span><span class="p">: </span><span class="s">https://alpha-api.app.net</span>
+
+<span class="gh"># Real World API</span>
+This API Blueprint demonstrates a real world example documenting a portion of
+<span class="p">[</span><span class="nv">App.net API</span><span class="p">](</span><span class="sx">http://developers.app.net</span><span class="p">)</span>.
+
+<span class="nv">NOTE</span><span class="p">: </span><span class="s">This document is a **work in progress**.</span>
+
+<span class="p">#</span><span class="k"> Group </span><span class="gh">Posts</span>
+This section groups App.net post resources.
+
+<span class="p">##</span><span class="gh"> Post </span><span class="s">[/stream/0/posts/{post_id}]</span>
+A Post is the other central object utilized by the App.net Stream API. It has
+rich text and annotations which comprise all of the content a users sees in
+their feed. Posts are closely tied to the follow graph...
+<span class="p">
++ </span><span class="k">Parameters</span>
+<span class="p">    +</span> post_id: <span class="sb">`1`</span> (string) - The id of the Post.
+<span class="p">
++</span> Model (application/json)<span class="sb">
+
+    ```js
+    {
+        "data": {
+            "id": "1", // note this is a string
+            "user": {
+                ...
+            },
+            "created_at": "2012-07-16T17:25:47Z",
+            "text": "@berg FIRST post on this new site #newsocialnetwork",
+            "html": "&lt;span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\"&gt;@berg&lt;/span&gt; FIRST post on &lt;a href=\"https://join.app.net\" rel=\"nofollow\"&gt;this new site&lt;/a&gt; &lt;span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\"&gt;#newsocialnetwork&lt;/span&gt;.",
+            "source": {
+                "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
+                "name": "Clientastic for iOS",
+                "link": "http://app.net"
+            },
+            "machine_only": false,
+            "reply_to": null,
+            "thread_id": "1",
+            "num_replies": 3,
+            "num_reposts": 0,
+            "num_stars": 0,
+            "entities": {
+                "mentions": [{
+                    "name": "berg",
+                    "id": "2",
+                    "pos": 0,
+                    "len": 5
+                }],
+                "hashtags": [{
+                    "name": "newsocialnetwork",
+                    "pos": 34,
+                    "len": 17
+                }],
+                "links": [{
+                    "text": "this new site",
+                    "url": "https://join.app.net"
+                    "pos": 20,
+                    "len": 13
+                }]
+            },
+            "you_reposted": false,
+            "you_starred": false
+        },
+        "meta": {
+            "code": 200,
+        }
+    }
+    ```
+
+</span><span class="p">###</span><span class="gh"> Retrieve a Post </span><span class="s">[GET]</span>
+Returns a specific Post.
+<span class="p">
++</span> Response 200<span class="sb">
+
+    [Post][]
+
+</span><span class="p">###</span><span class="gh"> Delete a Post </span><span class="s">[DELETE]</span>
+Delete a Post. The current user must be the same user who created the Post. It
+returns the deleted Post on success.
+<span class="p">
++</span> Response 204
+
+<span class="p">##</span><span class="gh"> Posts Collection </span><span class="s">[/stream/0/posts]</span>
+A Collection of posts.
+<span class="p">
++</span> Model (application/json)<span class="sb">
+
+    ```js
+    {
+        "data": [
+            {
+                "id": "1", // note this is a string
+                ...
+            },
+            {
+                "id": "2",
+                ...
+            },
+            {
+                "id": "3",
+                ...
+            },
+        ],
+        "meta": {
+            "code": 200,
+        }
+    }
+    ```
+
+</span><span class="p">###</span><span class="gh"> Create a Post </span><span class="s">[POST]</span>
+Create a new Post object. Mentions and hashtags will be parsed out of the post
+text, as will bare URLs...
+<span class="p">
++</span> Request<span class="sb">
+
+    [Post][]
+
+</span><span class="p">+ </span><span class="k">Response</span><span class="m"> 201</span><span class="sb">
+
+    [Post][]
+
+</span><span class="p">###</span><span class="gh"> Retrieve all Posts </span><span class="s">[GET]</span>
+Retrieves all posts.
+<span class="p">
++</span> Response 200<span class="sb">
+
+    [Posts Collection][]
+
+</span><span class="p">##</span><span class="gh"> Stars </span><span class="s">[/stream/0/posts/{post_id}/star]</span>
+A User’s stars are visible to others, but they are not automatically added to
+your followers’ streams.
+<span class="p">
++ </span><span class="k">Parameters</span>
+<span class="p">    +</span> post_id: <span class="sb">`1`</span> (string) - The id of the Post.
+
+<span class="p">###</span><span class="gh"> Star a Post </span><span class="s">[POST]</span>
+Save a given Post to the current User’s stars. This is just a “save” action,
+not a sharing action.
+
+<span class="nv">*Note</span><span class="p">: </span><span class="s">A repost cannot be starred. Please star the parent Post.*</span>
+<span class="p">
++</span> Response 200<span class="sb">
+
+    [Post][]
+
+</span><span class="p">###</span><span class="gh"> Unstar a Post </span><span class="s">[DELETE]</span>
+Remove a Star from a Post.
+<span class="p">
++</span> Response 200<span class="sb">
+
+    [Post][]
+</span></code></pre></div></body></html>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div>
+          <ul class="social">
+              <li>
+                <a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">
+                  <img src="/images/stackoverflow-994229fe.svg" />
+                  <span class="relation">FAQ</span>
+                  <span class="service">Stack Overflow</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/apiaryio/api-blueprint/issues">
+                  <img src="/images/github-893a5b9a.svg" />
+                  <span class="relation">Issues</span>
+                  <span class="service">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/apiblueprint">
+                  <img src="/images/twitter-2ade0f64.svg" />
+                  <span class="relation">Twitter</span>
+                  <span class="service">@apiblueprint</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="info row">
+          <div class="brand-block col-md-6">
+              <img src="/images/apiblueprint-footer-81a6c64c.svg" alt="API Blueprint Logo" width=38 height=36 />
+              <div class="brand-info">
+                <span class="brand">API Blueprint</span>
+                <span>&copy; 2013—2023</span>
+              </div>
+            </ul>
+          </div>
+          <ul class="nav nav-pills col-md-6 text-md-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></div>
+      </div>
+    </footer>
+
+    <div class="rocket"></div>
+    <div class="moon"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

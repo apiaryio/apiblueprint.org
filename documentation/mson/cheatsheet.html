@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MSON Cheatsheet | API Blueprint</title>
+
+    <link href="/images/favicon-10b3ff24.png" rel="icon" type="image/png" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" /><link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /><link href="/stylesheets/all.css" rel="stylesheet" /><link href="/stylesheets/highlight.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+  </head>
+
+  <body class="documentation documentation_mson documentation_mson_cheatsheet">
+    <header>
+      <div class="container">
+        <div class="pull-right">
+          <a href="https://twitter.com/apiblueprint" class="twitter-follow-button" data-show-count="false">Follow @apiblueprint</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <iframe src="https://ghbtns.com/github-btn.html?user=apiaryio&repo=api-blueprint&type=star&count=true" frameborder="0" scrolling="0" width="105px" height="20px"></iframe>
+        </div>
+
+        <hr />
+
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">API Blueprint</a>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container page-content">
+      <div class="row content">
+        <div id="sidebar" class="col-md-3" role="complementary">
+            <ul class="nav">
+                  <li>
+                  <a href="/documentation/tutorial.html">Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/advanced-tutorial.html">Advanced Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/specification.html">Specification</a></li>
+                  <li>
+                  <a href="/documentation/glossary.html">Glossary of Terms</a></li>
+                  <li class="active">
+                  <a href="/documentation/mson/cheatsheet.html">MSON Cheatsheet</a></li>
+                  <li>
+                  <a href="/documentation/mson/tutorial.html">MSON</a></li>
+                  <li>
+                  <a href="/documentation/mson/specification.html">MSON Specification</a></li>
+                  <li>
+                  <a href="/documentation/examples/">Examples</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 text" role="main">
+            <h2>MSON Cheatsheet</h2>
+            <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p>This cheatsheet is an example orientated document showing some MSON features in
+the context of API Blueprint. Refer to the <a href="/documentation/mson/specification.html">MSON
+Specification</a> for detailed
+documentation on MSON.</p>
+
+<h2 id="core-syntax">Core Syntax</h2>
+
+<p>Declaring an <a href="/documentation/specification.html#def-action-section">API Blueprint
+Action</a> describing how
+<code>GET</code> requests to <code>/files</code> may look in an API. The API Blueprint describes that
+the API may return a 200 response using JSON (with the <code>application/json</code>
+content type). It may return an array which can only contain objects which must
+have the key <code>path</code>.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="gh"># GET /files</span>
+<span class="p">
++</span> Response 200 (application/json)
+<span class="p">    + </span><span class="k">Attributes</span><span class="s"> (array, fixed-type)</span>
+<span class="p">        +</span> (object)
+<span class="p">            +</span> path: <span class="sb">`/files`</span> (required)
+</code></pre></div>
+<h3 id="declaring-types">Declaring Types</h3>
+
+<p>MSON allows declaring types to allow reusable structures and to keep API
+Blueprint's short and simple. Reusable data structures sit under the <code>Data
+Structures</code> heading.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="gh"># My API</span>
+
+<span class="gu">## GET /files</span>
+<span class="p">
++</span> Response 200 (application/json)
+<span class="p">    + </span><span class="k">Attributes</span><span class="s"> (array[File], fixed-type)</span>
+
+<span class="gu">## Data Structures</span>
+
+<span class="gu">### File (object)</span>
+<span class="p">
++</span> name: <span class="sb">`index.html`</span>
+<span class="p">+</span> size: 5012 (number)
+<span class="p">+</span> <span class="nv">`created_at`</span><span class="p">: </span><span class="s">`2007-04-05T24:00` (string)</span>
+<span class="p">+</span> permissions (Permission)
+
+<span class="gu">### Permission (enum)</span>
+<span class="p">
++</span> r (default) - Read only
+<span class="p">+</span> rw - Read-write
+</code></pre></div>
+<p><strong>NOTE</strong>: <em>It's important to note, that if a key or value contains reserved
+characters such as <code>:</code>, <code>(</code>,<code>)</code>, <code>&lt;</code>, <code>&gt;</code>, <code>{</code>, <code>}</code>, <code>[</code>, <code>]</code>, <code>_</code>,
+<code>&amp;ast;</code>, <code>-</code>, <code>+</code>, <code>`</code> then the value must be wrapped in a
+code-block using back-ticks.</em></p>
+
+<h2 id="types">Types</h2>
+
+<h3 id="objects">Objects</h3>
+
+<p>Objects consist of key-value pairs. Properties are optional by default. Values
+of properties are string by default.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">+</span> name: API Blueprint (required)
+</code></pre></div>
+<p>An object consisting of a date property which must be present, but may be <code>null</code>:</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">+</span> date (required, nullable)
+</code></pre></div>
+<p>The fixed keyword can be used to declare that the value must be present with
+as-is, for example the following declares a member <code>type</code> which if present must
+have the value <code>admin</code>.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">+</span> type: admin (fixed)
+</code></pre></div>
+<h4 id="one-of">One Of</h4>
+
+<p><code>One Of</code> can be used to describe mutually exclusive sets of members. For example,
+User type must contain the <code>name</code> property, and must contain either an <code>id</code>, or a
+<code>username</code> property.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="gu">## User (object)</span>
+<span class="p">
++</span> name: Kyle (required)
+<span class="p">+</span> One Of
+<span class="p">    +</span> username: kylef (required)
+<span class="p">    +</span> id: 1 (number, required)
+</code></pre></div>
+<p>See the <a href="#enumerations">enum type</a> for declaring a mutally exclusive set of
+types or values.</p>
+
+<h3 id="arrays">Arrays</h3>
+
+<p>Declaring an array which may only contain strings or numbers (array of a <code>fixed-type</code>, <code>string</code> or <code>number</code>):</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">+</span> Attributes (array[string, number], fixed-type)
+</code></pre></div>
+<p>With example values, and descriptions:</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">+</span> Attributes (array, fixed-type)
+<span class="p">    +</span> 10 GBP
+<span class="p">    +</span> 20 GBP
+<span class="p">    +</span> 12.99 (number)
+</code></pre></div>
+<p>Declaring an array which may only contain the specified object which requires a
+<code>name</code> property:</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">+</span> Attributes (array, fixed-type)
+<span class="p">    +</span> (object)
+<span class="p">        +</span> name (required)
+</code></pre></div>
+<h3 id="enumerations">Enumerations</h3>
+
+<p>The <code>enum</code> type can be used to describe an exclusive list of possible values or types.</p>
+
+<p>Declaring an enumeration which may only contain one of the permitted values
+(<code>north</code>, <code>east</code>, <code>south</code>, <code>west</code>):</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="gu">## Direction (enum)</span>
+<span class="p">
++</span> north
+<span class="p">+</span> east
+<span class="p">+</span> south
+<span class="p">+</span> west
+</code></pre></div>
+<p>Declaring an enumeration where any value is permitted providing the value is a
+<code>string</code> or a <code>number</code>:</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="gu">## Data Structures</span>
+
+<span class="gu">### StringOrNumber (enum[string, number])</span>
+
+<span class="gu">## GET /products</span>
+<span class="p">
++</span> Response 200 (application/json)
+<span class="p">    + </span><span class="k">Attributes</span><span class="s"> (array, fixed-type)</span>
+<span class="p">        +</span> (object)
+<span class="p">            +</span> name: API Blueprint
+<span class="p">            +</span> price: 2.99 (StringOrNumber) - Price to purchase the product, as a string or a number
+<span class="p">            +</span> state (enum)
+<span class="p">                +</span> <span class="sb">`in stock`</span> (default)
+<span class="p">                +</span> <span class="sb">`sold-out`</span>
+</code></pre></div>
+<h3 id="primitive-types">Primitive Types</h3>
+
+<p>The primitive types <code>string</code>, <code>number</code>, and <code>boolean</code> may be used.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="gu">## Example Object</span>
+<span class="p">
++</span> name (string)
+<span class="p">+</span> <span class="sb">`is_admin`</span> (boolean)
+<span class="p">+</span> age (number)
+<span class="p">+</span> extra (array)
+<span class="p">    +</span> hello world
+<span class="p">    +</span> 2 (number)
+<span class="p">    +</span> true (boolean)
+</code></pre></div>
+</body></html>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div>
+          <ul class="social">
+              <li>
+                <a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">
+                  <img src="/images/stackoverflow-994229fe.svg" />
+                  <span class="relation">FAQ</span>
+                  <span class="service">Stack Overflow</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/apiaryio/api-blueprint/issues">
+                  <img src="/images/github-893a5b9a.svg" />
+                  <span class="relation">Issues</span>
+                  <span class="service">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/apiblueprint">
+                  <img src="/images/twitter-2ade0f64.svg" />
+                  <span class="relation">Twitter</span>
+                  <span class="service">@apiblueprint</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="info row">
+          <div class="brand-block col-md-6">
+              <img src="/images/apiblueprint-footer-81a6c64c.svg" alt="API Blueprint Logo" width=38 height=36 />
+              <div class="brand-info">
+                <span class="brand">API Blueprint</span>
+                <span>&copy; 2013—2023</span>
+              </div>
+            </ul>
+          </div>
+          <ul class="nav nav-pills col-md-6 text-md-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></div>
+      </div>
+    </footer>
+
+    <div class="rocket"></div>
+    <div class="moon"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

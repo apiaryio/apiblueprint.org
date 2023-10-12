@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>07. Parameters | API Blueprint</title>
+
+    <link href="/images/favicon-10b3ff24.png" rel="icon" type="image/png" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" /><link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /><link href="/stylesheets/all.css" rel="stylesheet" /><link href="/stylesheets/highlight.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+  </head>
+
+  <body class="documentation documentation_examples documentation_examples_07-parameters">
+    <header>
+      <div class="container">
+        <div class="pull-right">
+          <a href="https://twitter.com/apiblueprint" class="twitter-follow-button" data-show-count="false">Follow @apiblueprint</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <iframe src="https://ghbtns.com/github-btn.html?user=apiaryio&repo=api-blueprint&type=star&count=true" frameborder="0" scrolling="0" width="105px" height="20px"></iframe>
+        </div>
+
+        <hr />
+
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">API Blueprint</a>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container page-content">
+      <div class="row content">
+        <div id="sidebar" class="col-md-3" role="complementary">
+            <ul class="nav">
+                  <li>
+                  <a href="/documentation/tutorial.html">Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/advanced-tutorial.html">Advanced Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/specification.html">Specification</a></li>
+                  <li>
+                  <a href="/documentation/glossary.html">Glossary of Terms</a></li>
+                  <li>
+                  <a href="/documentation/mson/cheatsheet.html">MSON Cheatsheet</a></li>
+                  <li>
+                  <a href="/documentation/mson/tutorial.html">MSON</a></li>
+                  <li>
+                  <a href="/documentation/mson/specification.html">MSON Specification</a></li>
+                  <li>
+                  <a href="/documentation/examples/">Examples</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 text" role="main">
+            <h2>07. Parameters</h2>
+            <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div class="highlight"><pre class="highlight apiblueprint"><code><span class="nv">FORMAT</span><span class="p">: </span><span class="s">1A</span>
+
+<span class="gh"># Parameters API</span>
+In this installment of the API Blueprint course we will discuss how to describe URI parameters.
+
+But first let's add more messages to our system. For that we would need
+introduce an message identifier – id. This id will be our parameter when
+communicating with our API about messages.<span class="sb">
+
+
+</span><span class="p">#</span><span class="k"> Group </span><span class="gh">Messages</span>
+Group of all messages-related resources.
+
+<span class="p">##</span><span class="gh"> My Message </span><span class="s">[/message/{id}]</span>
+Here we have added the message <span class="sb">`id`</span> parameter as an 
+<span class="p">[</span><span class="nv">URI Template variable</span><span class="p">](</span><span class="sx">http://tools.ietf.org/html/rfc6570</span><span class="p">)</span> in the Message
+resource's URI. Note the parameter name <span class="sb">`id`</span> is enclosed in curly brackets. We
+will discuss this parameter in the <span class="sb">`Parameters`</span> section below, where we will
+also set its example value to <span class="sb">`1`</span> and declare it of an arbitrary 'number' type.
+<span class="p">
++ </span><span class="k">Parameters</span><span class="sb">
+
+    + id: 1 (number) - An unique identifier of the message.
+
+</span><span class="p">###</span><span class="gh"> Retrieve a Message </span><span class="s">[GET]</span>
+<span class="p">
++</span> Request Plain Text Message<span class="sb">
+
+    + Headers
+
+            Accept: text/plain
+
+</span><span class="p">+ </span><span class="k">Response</span><span class="m"> 200</span><span class="s"> (text/plain)</span><span class="sb">
+
+    + Headers
+
+            X-My-Message-Header: 42
+
+    + Body
+
+            Hello World!
+
+</span><span class="p">+ </span><span class="k">Request</span><span class="s"> JSON Message</span><span class="sb">
+
+    + Headers
+
+            Accept: application/json
+
+</span><span class="p">+ </span><span class="k">Response</span><span class="m"> 200</span><span class="s"> (application/json)</span><span class="sb">
+
+    + Headers
+
+            X-My-Message-Header: 42
+
+    + Body
+
+            {
+              "id": 1,
+              "message": "Hello World!"
+            }
+
+</span><span class="p">###</span><span class="gh"> Update a Message </span><span class="s">[PUT]</span>
+<span class="p">
++</span> Request Update Plain Text Message (text/plain)<span class="sb">
+
+        All your base are belong to us.
+
+</span><span class="p">+ </span><span class="k">Request</span><span class="s"> Update JSON Message (application/json)</span><span class="sb">
+
+        { "message": "All your base are belong to us." }
+
+</span><span class="p">+ </span><span class="k">Response</span><span class="m"> 204</span>
+
+<span class="p">##</span><span class="gh"> All My Messages </span><span class="s">[/messages{?limit}]</span>
+A resource representing all of my messages in the system.
+
+We have added the query URI template parameter - <span class="sb">`limit`</span>. This parameter is
+used for limiting the number of results returned by some actions on this
+resource. It does not affect every possible action of this resource, therefore
+we will discuss it only at the particular action level below.
+
+<span class="p">###</span><span class="gh"> Retrieve all Messages </span><span class="s">[GET]</span>
+<span class="p">
++ </span><span class="k">Parameters</span><span class="sb">
+
+    + limit (number, optional) - The maximum number of results to return.
+        + Default: `20`
+
+</span><span class="p">+ </span><span class="k">Response</span><span class="m"> 200</span><span class="s"> (application/json)</span><span class="sb">
+
+        [
+          {
+            "id": 1,
+            "message": "Hello World!"
+          },
+          {
+            "id": 2,
+            "message": "Time is an illusion. Lunchtime doubly so."
+          },
+          {
+            "id": 3,
+            "message": "So long, and thanks for all the fish."
+          }
+        ]
+</span></code></pre></div></body></html>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div>
+          <ul class="social">
+              <li>
+                <a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">
+                  <img src="/images/stackoverflow-994229fe.svg" />
+                  <span class="relation">FAQ</span>
+                  <span class="service">Stack Overflow</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/apiaryio/api-blueprint/issues">
+                  <img src="/images/github-893a5b9a.svg" />
+                  <span class="relation">Issues</span>
+                  <span class="service">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/apiblueprint">
+                  <img src="/images/twitter-2ade0f64.svg" />
+                  <span class="relation">Twitter</span>
+                  <span class="service">@apiblueprint</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="info row">
+          <div class="brand-block col-md-6">
+              <img src="/images/apiblueprint-footer-81a6c64c.svg" alt="API Blueprint Logo" width=38 height=36 />
+              <div class="brand-info">
+                <span class="brand">API Blueprint</span>
+                <span>&copy; 2013—2023</span>
+              </div>
+            </ul>
+          </div>
+          <ul class="nav nav-pills col-md-6 text-md-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></div>
+      </div>
+    </footer>
+
+    <div class="rocket"></div>
+    <div class="moon"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

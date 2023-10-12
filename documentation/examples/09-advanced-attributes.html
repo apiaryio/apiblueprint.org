@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>09. Advanced Attributes | API Blueprint</title>
+
+    <link href="/images/favicon-10b3ff24.png" rel="icon" type="image/png" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" /><link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /><link href="/stylesheets/all.css" rel="stylesheet" /><link href="/stylesheets/highlight.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+  </head>
+
+  <body class="documentation documentation_examples documentation_examples_09-advanced-attributes">
+    <header>
+      <div class="container">
+        <div class="pull-right">
+          <a href="https://twitter.com/apiblueprint" class="twitter-follow-button" data-show-count="false">Follow @apiblueprint</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <iframe src="https://ghbtns.com/github-btn.html?user=apiaryio&repo=api-blueprint&type=star&count=true" frameborder="0" scrolling="0" width="105px" height="20px"></iframe>
+        </div>
+
+        <hr />
+
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">API Blueprint</a>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container page-content">
+      <div class="row content">
+        <div id="sidebar" class="col-md-3" role="complementary">
+            <ul class="nav">
+                  <li>
+                  <a href="/documentation/tutorial.html">Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/advanced-tutorial.html">Advanced Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/specification.html">Specification</a></li>
+                  <li>
+                  <a href="/documentation/glossary.html">Glossary of Terms</a></li>
+                  <li>
+                  <a href="/documentation/mson/cheatsheet.html">MSON Cheatsheet</a></li>
+                  <li>
+                  <a href="/documentation/mson/tutorial.html">MSON</a></li>
+                  <li>
+                  <a href="/documentation/mson/specification.html">MSON Specification</a></li>
+                  <li>
+                  <a href="/documentation/examples/">Examples</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 text" role="main">
+            <h2>09. Advanced Attributes</h2>
+            <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div class="highlight"><pre class="highlight apiblueprint"><code><span class="nv">FORMAT</span><span class="p">: </span><span class="s">1A</span>
+
+<span class="gh"># Advanced Attributes API</span>
+Improving the previous <span class="p">[</span><span class="nv">Attributes</span><span class="p">](</span><span class="sx">08.%20Attributes.md</span><span class="p">)</span> description example,
+this API example describes the <span class="sb">`Coupon`</span> resource attributes (data structure)
+regardless of the serialization format. These attributes can be later
+referenced using the resource name.
+
+These attributes are then reused in the <span class="sb">`Retrieve a Coupon`</span> action. Since they
+describe the complete message, no explicit JSON body example is needed.
+
+Moving forward, the <span class="sb">`Coupon`</span> resource data structure is then reused when
+defining the attributes of the coupons collection resource – <span class="sb">`Coupons`</span>.
+
+The <span class="sb">`Create a Coupon`</span> action also demonstrate the description of request
+attributes – once defined, these attributes are implied on every <span class="sb">`Create a
+Coupon`</span> request unless the request specifies otherwise. Apparently, the
+description of action attributes is somewhat duplicate to the definition of
+<span class="sb">`Coupon`</span> resource attributes. We will address this in the next 
+<span class="p">[</span><span class="nv">Data Structures</span><span class="p">](</span><span class="sx">10.%20Data%20Structures.md</span><span class="p">)</span> example.<span class="sb">
+
+
+</span><span class="p">#</span><span class="k"> Group </span><span class="gh">Coupons</span>
+
+<span class="p">##</span><span class="gh"> Coupon </span><span class="s">[/coupons/{id}]</span>
+A coupon contains information about a percent-off or amount-off discount you
+might want to apply to a customer.
+<span class="p">
++ </span><span class="k">Parameters</span>
+<span class="p">    +</span> id (string)<span class="sb">
+
+        The ID of the desired coupon.
+
+</span><span class="p">+</span> Attributes (object)
+<span class="p">    +</span> id: 250FF (string, required)
+<span class="p">    +</span> created: 1415203908 (number) - Time stamp
+<span class="p">    +</span> percent_off: 25 (number)<span class="sb">
+
+        A positive integer between 1 and 100 that represents the discount the coupon will apply.
+
+    + redeem_by (number) - Date after which the coupon can no longer be redeemed
+
+</span><span class="p">###</span><span class="gh"> Retrieve a Coupon </span><span class="s">[GET]</span>
+Retrieves the coupon with the given ID.
+<span class="p">
++</span> Response 200 (application/json)
+<span class="p">    + </span><span class="k">Attributes</span><span class="s"> (Coupon)</span>
+
+<span class="p">##</span><span class="gh"> Coupons </span><span class="s">[/coupons{?limit}]</span>
+<span class="p">
++ </span><span class="k">Attributes</span><span class="s"> (array[Coupon])</span>
+
+<span class="p">###</span><span class="gh"> List all Coupons </span><span class="s">[GET]</span>
+Returns a list of your coupons.
+<span class="p">
++ </span><span class="k">Parameters</span>
+<span class="p">    +</span> limit (number, optional)<span class="sb">
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+
+        + Default: `10`
+
+</span><span class="p">+ </span><span class="k">Response</span><span class="m"> 200</span><span class="s"> (application/json)</span>
+<span class="p">    + </span><span class="k">Attributes</span><span class="s"> (Coupons)</span>
+
+<span class="p">###</span><span class="gh"> Create a Coupon </span><span class="s">[POST]</span>
+Creates a new Coupon.
+<span class="p">
++ </span><span class="k">Attributes</span><span class="s"> (object)</span>
+<span class="p">    +</span> percent_off: 25 (number)
+<span class="p">    +</span> redeem_by (number)
+<span class="p">
++</span> Request (application/json)
+<span class="p">
++</span> Response 200 (application/json)
+<span class="p">    + </span><span class="k">Attributes</span><span class="s"> (Coupon)</span>
+</code></pre></div></body></html>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div>
+          <ul class="social">
+              <li>
+                <a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">
+                  <img src="/images/stackoverflow-994229fe.svg" />
+                  <span class="relation">FAQ</span>
+                  <span class="service">Stack Overflow</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/apiaryio/api-blueprint/issues">
+                  <img src="/images/github-893a5b9a.svg" />
+                  <span class="relation">Issues</span>
+                  <span class="service">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/apiblueprint">
+                  <img src="/images/twitter-2ade0f64.svg" />
+                  <span class="relation">Twitter</span>
+                  <span class="service">@apiblueprint</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="info row">
+          <div class="brand-block col-md-6">
+              <img src="/images/apiblueprint-footer-81a6c64c.svg" alt="API Blueprint Logo" width=38 height=36 />
+              <div class="brand-info">
+                <span class="brand">API Blueprint</span>
+                <span>&copy; 2013—2023</span>
+              </div>
+            </ul>
+          </div>
+          <ul class="nav nav-pills col-md-6 text-md-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></div>
+      </div>
+    </footer>
+
+    <div class="rocket"></div>
+    <div class="moon"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

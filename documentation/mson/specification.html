@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MSON Specification | API Blueprint</title>
+
+    <link href="/images/favicon-10b3ff24.png" rel="icon" type="image/png" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" /><link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /><link href="/stylesheets/all.css" rel="stylesheet" /><link href="/stylesheets/highlight.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+  </head>
+
+  <body class="documentation documentation_mson documentation_mson_specification">
+    <header>
+      <div class="container">
+        <div class="pull-right">
+          <a href="https://twitter.com/apiblueprint" class="twitter-follow-button" data-show-count="false">Follow @apiblueprint</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <iframe src="https://ghbtns.com/github-btn.html?user=apiaryio&repo=api-blueprint&type=star&count=true" frameborder="0" scrolling="0" width="105px" height="20px"></iframe>
+        </div>
+
+        <hr />
+
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">API Blueprint</a>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container page-content">
+      <div class="row content">
+        <div id="sidebar" class="col-md-3" role="complementary">
+            <ul class="nav">
+                  <li>
+                  <a href="/documentation/tutorial.html">Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/advanced-tutorial.html">Advanced Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/specification.html">Specification</a></li>
+                  <li>
+                  <a href="/documentation/glossary.html">Glossary of Terms</a></li>
+                  <li>
+                  <a href="/documentation/mson/cheatsheet.html">MSON Cheatsheet</a></li>
+                  <li>
+                  <a href="/documentation/mson/tutorial.html">MSON</a></li>
+                  <li class="active">
+                  <a href="/documentation/mson/specification.html">MSON Specification</a></li>
+                  <li>
+                  <a href="/documentation/examples/">Examples</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 text" role="main">
+            <h2>MSON Specification</h2>
+            <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p>Markdown Syntax for Object Notation (MSON) is a plain-text syntax for the description and validation of data structures.</p>
+
+<h2 id="quick-links">Quick Links</h2>
+
+<ul>
+<li>1 <a href="#1-how-to-read-the-grammar">How to Read the Grammar</a>
+
+<ul>
+<li>1.1 <a href="#11-markdown-syntax">Markdown Syntax</a>
+</li>
+<li>1.2 <a href="#12-notational-conventions">Notational Conventions</a>
+</li>
+<li>1.3 <a href="#13-promises">Promises</a>
+</li>
+</ul>
+</li>
+<li>2 <a href="#2-types">Types</a>
+
+<ul>
+<li>2.1 <a href="#21-base-types">Base Types</a>
+
+<ul>
+<li>2.1.1 <a href="#211-primitive-types">Primitive Types</a>
+</li>
+<li>2.1.2 <a href="#212-structure-types">Structure Types</a>
+</li>
+</ul>
+</li>
+<li>2.2 <a href="#22-named-types">Named Types</a>
+</li>
+<li>2.3 <a href="#23-member-types">Member Types</a>
+
+<ul>
+<li>2.3.1 <a href="#231-property-member-types">Property Member Types</a>
+</li>
+<li>2.3.2 <a href="#232-value-member-types">Value Member Types</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>3 <a href="#3-type-declaration">Type Declaration</a>
+
+<ul>
+<li>3.1 <a href="#31-named-declaration">Named Declaration</a>
+
+<ul>
+<li>3.1.1 <a href="#311-generic-named-declaration">Generic Named Declaration</a>
+</li>
+</ul>
+</li>
+<li>3.2 <a href="#32-property-member-declaration">Property Member Declaration</a>
+
+<ul>
+<li>3.2.1 <a href="#321-property-name">Property Name</a>
+</li>
+<li>3.2.2 <a href="#322-variable-property-name">Variable Property Name</a>
+</li>
+</ul>
+</li>
+<li>3.3 <a href="#33-value-member-declaration">Value Member Declaration</a>
+</li>
+<li>3.4 <a href="#34-value-definition">Value Definition</a>
+
+<ul>
+<li>3.4.1 <a href="#341-value">Value</a>
+</li>
+<li>3.4.2 <a href="#342-literal-value">Literal Value</a>
+</li>
+<li>3.4.3 <a href="#343-variable-value">Variable Value</a>
+</li>
+</ul>
+</li>
+<li>3.5 <a href="#35-type-definition">Type Definition</a>
+
+<ul>
+<li>3.5.1 <a href="#351-type-specification">Type Specification</a>
+
+<ul>
+<li>3.5.1.1 <a href="#3511-variable-type-specification">Variable Type Specification</a>
+</li>
+</ul>
+</li>
+<li>3.5.2 <a href="#352-type-name">Type Name</a>
+
+<ul>
+<li>3.5.2.1 <a href="#3521-variable-type-name">Variable Type Name</a>
+</li>
+<li>3.5.2.2 <a href="#3522-wildcard-type-name">Wildcard Type Name</a>
+</li>
+</ul>
+</li>
+<li>3.5.3 <a href="#353-type-attribute">Type Attribute</a>
+</li>
+</ul>
+</li>
+<li>3.6 <a href="#36-description">Description</a>
+</li>
+</ul>
+</li>
+<li>4 <a href="#4-type-sections">Type Sections</a>
+
+<ul>
+<li>4.1 <a href="#41-block-description">Block Description</a>
+</li>
+<li>4.2 <a href="#42-member-type-group">Member Type Group</a>
+
+<ul>
+<li>4.2.1 <a href="#421-member-type-separator">Member Type Separator</a>
+</li>
+</ul>
+</li>
+<li>4.3 <a href="#43-nested-member-types">Nested Member Type</a>
+</li>
+<li>4.4 <a href="#44-sample">Sample</a>
+</li>
+<li>4.5 <a href="#45-default">Default</a>
+</li>
+<li>4.6 <a href="#46-validations">Validations</a>
+</li>
+</ul>
+</li>
+<li>5 <a href="#5-type-inheritance">Type Inheritance</a>
+
+<ul>
+<li>5.1 <a href="#51-mixin-type">Mixin Type</a>
+</li>
+<li>5.2 <a href="#52-one-of-type">One Of Type</a>
+</li>
+<li>5.3 <a href="#53-generic-named-type">Generic Named Type</a>
+</li>
+<li>5.4 <a href="#54-member-type-precedence">Member Type Precedence</a>
+</li>
+</ul>
+</li>
+<li>6 <a href="#6-reserved-characters--keywords">Reserved Characters &amp; Keywords</a>
+
+<ul>
+<li>6.1 <a href="#61-characters">Characters</a>
+</li>
+<li>6.2 <a href="#62-keywords">Keywords</a>
+</li>
+<li>6.3 <a href="#63-additional-keywords">Additional Keywords</a>
+</li>
+</ul>
+</li>
+</ul>
+
+<h2 id="1-how-to-read-the-grammar">1 How to Read the Grammar</h2>
+
+<ul>
+<li>An arrow (→) mark grammar productions that can be read as "is defined by|is defined by a(n)"</li>
+<li>A double arrow (⇒) marks grammar productions that can be read as "contains|contains a(n)"</li>
+<li>
+<em>Italic</em> text indicates syntactic categories</li>
+<li>A <code>code span</code> indicates literal characters, words and punctuations</li>
+<li>A pipe character (|) separates alternative grammar productions</li>
+<li>A following <em>[opt]</em> indicates optional syntactic categories and literals</li>
+</ul>
+
+<h3 id="11-markdown-syntax">1.1 Markdown Syntax</h3>
+
+<p>Note this reference is using ATX-style headers (#) and hyphen-style lists (-) exclusively. However you MAY use
+Setext-style headers and/or asterisk (*) or plus (+) style lists if you prefer.</p>
+
+<h3 id="12-notational-conventions">1.2 Notational Conventions</h3>
+
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and
+"OPTIONAL" in this document are to be interpreted as described in <a href="https://www.ietf.org/rfc/rfc2119">RFC2119</a>.</p>
+
+<h3 id="13-promises">1.3 Promises</h3>
+
+<p>By default, MSON explicitly defines data structures and the meaning of their members without making any assertion to the
+exclusivity of structures or their members. Further, no assertion is made concerning the presence of defined
+structures or members. Rather, MSON describes structures that MAY be observed versus what MUST be observed.</p>
+
+<p>However, much like JSON Schema being able to restrict "additionalProperties", MSON allows annotating structures to
+indicate when they are strictly defined to preclude other structures and members and when they have strict ordering.</p>
+
+<h2 id="2-types">2 Types</h2>
+
+<p>In MSON, data structures are described by header-defined and/or list-defined <em>Types</em> and/or combinations thereof built
+from a limited set of <em><a href="#21-base-types">Base Types</a></em>. A particular <em>Type</em> is defined by its <em><a href="#3-type-declaration">Type Declaration</a></em> and combination of
+optional <em><a href="#4-type-sections">Type Sections</a></em>.</p>
+
+<p><em>Type</em> → <em><a href="#3-type-declaration">Type Declaration</a></em></p>
+
+<p><em>Type</em> ⇒ <em><a href="#4-type-sections">Type Sections</a></em> <em>[opt]</em></p>
+
+<p>More specifically:</p>
+
+<p><em>Type</em> → <em><a href="#3-type-declaration">Type Declaration</a></em></p>
+
+<p><em>Type</em> ⇒ <em><a href="#41-block-description">Block Description</a></em> <em>[opt]</em></p>
+
+<p><em>Type</em> ⇒ <em><a href="#42-member-type-group">Member Type Group</a></em> <em>[opt]</em> |  <em><a href="#43-nested-member-types">Nested Member Types</a></em> <em>[opt]</em></p>
+
+<p><em>Type</em> ⇒ <em><a href="#44-sample">Sample</a></em> <em>[opt]</em></p>
+
+<p><em>Type</em> ⇒ <em><a href="#46-validations">Validations</a></em> <em>[opt]</em></p>
+
+<ul>
+<li>
+<p>Header-defined <em><a href="#22-named-types">Named Type</a></em></p>
+<div class="highlight"><pre class="highlight plaintext"><code># Person (object)
+A person.
+
+## Properties
+- `first_name`
+- `last_name`
+- address
+    - city
+    - street
+</code></pre></div>
+</li>
+<li>
+<p>List-defined <em><a href="#23-member-types">Member Type</a></em></p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object) - A person
+    - `first_name`
+    - `last_name`
+    - address
+        - city
+        - street
+</code></pre></div>
+<p>or, equivalently:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (Person) - A person
+</code></pre></div>
+</li>
+</ul>
+
+<h3 id="21-base-types">2.1 Base Types</h3>
+
+<p>MSON defines a number of distinct base, case-insensitive <em><a href="#211-primitive-types">Primitive</a></em> and <em><a href="#212-structure-types">Structure Types</a></em> from which all data
+structures are built (sub-typed).</p>
+
+<h4 id="211-primitive-types">2.1.1 Primitive Types</h4>
+
+<p>Applies to basic data structure and type definitions. <em><a href="#2-types">Types</a></em> that are sub-typed from <em>Primitive Types</em> MUST NOT
+contain a <em><a href="#42-member-type-group">Member Type Group</a></em> or <em><a href="#43-nested-member-types">Nested Member Types</a></em>.</p>
+
+<ul>
+<li>
+<p><code>boolean</code></p>
+
+<p>Specifies a type with allowed values of <code>true</code> or <code>false</code>.</p>
+</li>
+<li>
+<p><code>string</code></p>
+
+<p>Specifies any string.</p>
+</li>
+<li>
+<p><code>number</code></p>
+
+<p>Specifies any number.</p>
+</li>
+</ul>
+
+<h4 id="212-structure-types">2.1.2 Structure Types</h4>
+
+<p>Applies to recursive, composite data structure and type definitions. <em><a href="#2-types">Types</a></em> that are sub-typed from
+<em>Structure Types</em> MAY contain a <em><a href="#42-member-type-group">Member Type Group</a></em> or <em><a href="#43-nested-member-types">Nested Member Types</a></em>.</p>
+
+<p>Structure Types may directly or indirectly contain recursive references to
+themselves.</p>
+
+<ul>
+<li>
+<p><code>array</code></p>
+
+<p>Specifies a list of items for values.</p>
+</li>
+<li>
+<p><code>enum</code></p>
+
+<p>Specifies an exclusive list of possible <em><a href="#341-value">Values</a></em> or <em><a href="#2-types">Types</a></em> for values.</p>
+</li>
+<li>
+<p><code>object</code></p>
+
+<p>Specifies a structure that contains properties as members.</p>
+</li>
+</ul>
+
+<h3 id="22-named-types">2.2 Named Types</h3>
+
+<p>Users may extend <em><a href="#21-base-types">Base Types</a></em> to define new header-defined <em>Named Types</em> that MAY be referenced to build other
+<em><a href="#2-types">Types</a></em>.</p>
+
+<p><em>Named Type</em> → <em><a href="#31-named-declaration">Named Declaration</a></em> | <em><a href="#311-generic-named-declaration">Generic Named Declaration</a></em></p>
+
+<p><em>Named Type</em> ⇒ <em><a href="#4-type-sections">Type Sections</a></em> <em>[opt]</em></p>
+<div class="highlight"><pre class="highlight plaintext"><code># Person (object)
+- first_name
+- last_name
+</code></pre></div>
+<h3 id="23-member-types">2.3 Member Types</h3>
+
+<p>Markdown lists specify MSON <em>Member Types</em>, which define the structure and types of individual
+members of <em><a href="#2-types">Types</a></em> built from <em><a href="#212-structure-types">Structure Types</a></em>. A <em><a href="#23-member-types">Member Type</a></em> that contains <em><a href="#43-nested-member-types">Nested Member Types</a></em>
+defines an inner, anonymous type that specifies the structure of values of that particular member.</p>
+
+<h4 id="231-property-member-types">2.3.1 Property Member Types</h4>
+
+<p>Define individual members of <code>object</code> type structures.</p>
+
+<p><em>Property Member Type</em> → <em><a href="#32-property-member-declaration">Property Member Declaration</a></em></p>
+
+<p><em>Property Member Type</em> ⇒ <em><a href="#4-type-sections">Type Sections</a></em> <em>[opt]</em></p>
+
+<p>Any list of <em><a href="#231-property-member-types">Property Member Types</a></em> collectively MAY define an implied parent <code>object</code> type structure.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object) - A person
+    - `first_name`
+    - `last_name`
+    - address
+- company (string)
+</code></pre></div>
+<p>Defines a <code>person</code> <em>Property Member Type</em> with a value that is an explicit <code>object</code> type structure with members
+<code>first_name</code>, <code>last_name</code>, and <code>address</code> and, at the same time, is a member together with <code>company</code> of another
+implied <code>object</code> structure.</p>
+
+<h4 id="232-value-member-types">2.3.2 Value Member Types</h4>
+
+<p>Define individual members of <code>array</code> or <code>enum</code> type structures.</p>
+
+<p><em>Value Member Type</em> → <em><a href="#33-value-member-declaration">Value Member Declaration</a></em></p>
+
+<p><em>Value Member Type</em> ⇒ <em><a href="#4-type-sections">Type Sections</a></em> <em>[opt]</em></p>
+<div class="highlight"><pre class="highlight plaintext"><code>- (array)
+    - red (string) - A sample value
+    - green (string)
+</code></pre></div>
+<h2 id="3-type-declaration">3 Type Declaration</h2>
+
+<p>Defines a particular MSON <em><a href="#2-types">Type</a></em>.</p>
+
+<p><em>Type Declaration</em> → <em><a href="#31-named-declaration">Named Declaration</a></em> | <em><a href="#311-generic-named-declaration">Generic Named Declaration</a></em> | <em><a href="#32-property-member-declaration">Property Member Declaration</a></em>  | <em><a href="#33-value-member-declaration">Value Member Declaration</a></em></p>
+
+<h3 id="31-named-declaration">3.1 Named Declaration</h3>
+
+<p>Defines a <em><a href="#22-named-types">Named Type</a></em>.</p>
+
+<p><em>Named Declaration</em> → <code>#</code> <em><a href="#352-type-name">Type Name</a></em><code></code><em><a href="#35-type-definition">Type Definition</a></em> <em>[opt]</em></p>
+<div class="highlight"><pre class="highlight plaintext"><code># Person (object)
+</code></pre></div>
+<h3 id="311-generic-named-declaration">3.1.1 Generic Named Declaration</h3>
+
+<p>Defines a <em><a href="#22-named-types">Named Type</a></em> that allows an italicized <em><a href="#3521-variable-type-name">Variable Type Name</a></em> to represent a <em><a href="#352-type-name">Type Name</a></em>
+at any location in the <em><a href="#351-type-specification">Type Specification</a></em> of a <em><a href="#3511-variable-type-specification">Variable Type Specification</a></em>.</p>
+
+<p><em>Generic Named Declaration</em> →  <code>#</code> <em><a href="#352-type-name">Type Name</a></em><code></code><em><a href="#3511-variable-type-specification">Variable Type Specification</a></em></p>
+<div class="highlight"><pre class="highlight plaintext"><code># One or Many (enum[*T*])
+</code></pre></div>
+<h3 id="32-property-member-declaration">3.2 Property Member Declaration</h3>
+
+<p>Defines a <em><a href="#231-property-member-types">Property Member Type</a></em>.</p>
+
+<p><em>Property Member Declaration</em> → <code>-</code> <em><a href="#321-property-name">Property Name</a></em> <code>:</code> <em>[opt]</em> <em><a href="#34-value-definition">Value Definition</a></em> <em>[opt]</em> <code>-</code> <em>[opt]</em> <em><a href="#36-description">Description</a></em> <em>[opt]</em></p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object) - A person
+</code></pre></div>
+<p>The optional <code>:</code> is only applicable in the case where a <em><a href="#34-value-definition">Value Definition</a></em> is present and includes a <em><a href="#341-value">Value</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- company: Apiary (string)
+</code></pre></div>
+<h4 id="321-property-name">3.2.1 Property Name</h4>
+
+<p>Defines the name of a property in an <code>object</code> type structure.</p>
+
+<p><em>Property Name</em> → <em><a href="#342-literal-value">Literal Value</a></em> | <em><a href="#322-variable-property-name">Variable Property Name</a></em></p>
+<div class="highlight"><pre class="highlight plaintext"><code>- customer (object)
+</code></pre></div>
+<p>Defines a <em><a href="#32-property-member-declaration">Property Member Declaration</a></em> with a <em>Property Name</em> "customer".</p>
+
+<h4 id="322-variable-property-name">3.2.2 Variable Property Name</h4>
+
+<p>Defines a <em><a href="#321-property-name">Property Name</a></em> that is associated with a specific <em><a href="#34-value-definition">Value Definition</a></em> in an <code>object</code> type structure
+that MAY be any arbitrary name in an actual implementation. The <em><a href="#341-value">Value</a></em> of the <em>Variable Property Name</em> serves as
+a sample.</p>
+
+<p><em>Variable Property Name</em> → <code>*</code><em><a href="#34-value-definition">Value Definition</a></em><code>*</code></p>
+
+<p>In the case of specifying a <em><a href="#322-variable-property-name">Variable Property Name</a></em>, the  <em><a href="#34-value-definition">Value Definition</a></em> MAY reference a <em><a href="#22-named-types">Named Type</a></em>
+that MUST be sub-typed from a <code>string</code> <em><a href="#211-primitive-types">Primitive Type</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>*rel (Custom String)* (object)
+</code></pre></div>
+<p>Where <code>rel</code> is a sample value for the arbitrary <em><a href="#321-property-name">Property Name</a></em> of a <em><a href="#32-property-member-declaration">Property Member Declaration</a></em>.</p>
+
+<h3 id="33-value-member-declaration">3.3 Value Member Declaration</h3>
+
+<p>Defines a <em><a href="#232-value-member-types">Value Member Type</a></em>. A <em>Value Member Declaration</em> MUST only be used to define structures of <code>array</code>
+or <code>enum</code> <em><a href="#23-member-types">Member Types</a></em>.</p>
+
+<p><em>Value Member Declaration</em> → <code>-</code> <em><a href="#34-value-definition">Value Definition</a></em> <code>-</code> <em>[opt]</em> <em><a href="#36-description">Description</a></em> <em>[opt]</em></p>
+
+<p>The optional <code>-</code> is only applicable in the case where a <em><a href="#36-description">Description</a></em> is provided.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- (array)
+</code></pre></div>
+<h3 id="34-value-definition">3.4 Value Definition</h3>
+
+<p>Every <em><a href="#23-member-types">Member Type</a></em> MAY specify type information associated with values in a structure or member in a structure.
+This includes a <em>Value Definition</em> that may include literal or sample <em><a href="#341-value">Values</a></em> and a <em><a href="#35-type-definition">Type Definition</a></em>, including
+a <em><a href="#351-type-specification">Type Specification</a></em> and/or <em><a href="#353-type-attribute">Type Attributes</a></em>, of associated types.</p>
+
+<p><em>Value Definition</em> → <em><a href="#341-value">Value</a></em> <em>[opt]</em> <em><a href="#35-type-definition">Type Definition</a></em> <em>[opt]</em></p>
+
+<p>A <em>Value Definition</em> MUST include at least a <em><a href="#341-value">Value</a></em> or a <em><a href="#35-type-definition">Type Definition</a></em>. A <em>Value Definition</em> of an
+<code>object</code> <em><a href="#23-member-types">Member Type</a></em> MUST NOT specify a <em><a href="#341-value">Value</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>5, 6 (array)
+</code></pre></div>
+<p>Defines a <em>Value Definition</em> for an <code>array</code> type structure with sample values "5" and "6".</p>
+
+<h4 id="341-value">3.4.1 Value</h4>
+
+<p>Defines either sample or actual value(s) in <em><a href="#23-member-types">Member Types</a></em> based on the associated <em><a href="#35-type-definition">Type Definition</a></em> in a
+<em><a href="#34-value-definition">Value Definition</a></em>.</p>
+
+<p><em>Value</em> → <em><a href="#342-literal-value">Literal Value</a></em> | <em><a href="#343-variable-value">Variable Value</a></em> | <em>Values List</em></p>
+
+<p><em>Values List</em> → <em>Value</em> | <em>Value</em><code>,</code> <em>Values List</em></p>
+
+<p>A <em>Values List</em> MUST only be used with <code>array</code> or <code>enum</code> <em><a href="#212-structure-types">Structure Types</a></em> or <em><a href="#22-named-types">Named Types</a></em> derived from them.</p>
+
+<p>By default:</p>
+
+<ul>
+<li>A <em>Value Definition</em> that incorporates a <em>Values List</em> but has no <em><a href="#35-type-definition">Type Definition</a></em> implies an
+<code>array</code> type structure.</li>
+</ul>
+<div class="highlight"><pre class="highlight plaintext"><code>- list: 1, 2, 3
+</code></pre></div>
+<p>is equivalent to:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- list: 1, 2, 3 (array)
+</code></pre></div>
+<p>Where "1", "2", and "3" are sample values of the <code>array</code> structure.</p>
+
+<ul>
+<li>A <em>Value Definition</em> that incorporates a <em>Values List</em> defines fully-qualified values of an <code>enum</code> type structure.</li>
+</ul>
+<div class="highlight"><pre class="highlight plaintext"><code>- colors: red, green (enum)
+</code></pre></div>
+<p>Where "red" and "green" are fully-qualified values of the <code>colors</code> enumeration.</p>
+
+<h4 id="342-literal-value">3.4.2 Literal Value</h4>
+
+<p>Literal value of a type instance. Some limitations apply (see <a href="#6-reserved-characters--keywords">Reserved Characters &amp; Keywords</a>).</p>
+<div class="highlight"><pre class="highlight plaintext"><code>5
+</code></pre></div>
+<h4 id="343-variable-value">3.4.3 Variable Value</h4>
+
+<p>Defines a <em><a href="#341-value">Value</a></em> that is not concrete using Markdown <em>italics</em>.</p>
+
+<p><em>Variable Value</em> → <code>*</code><em><a href="#342-literal-value">Literal Value</a></em><code>*</code></p>
+
+<p>A <em>Variable Value</em> MAY be used to indicate a <em><a href="#322-variable-property-name">Variable Property Name</a></em> in a <em><a href="#32-property-member-declaration">Property Member Declaration</a></em> or
+more generally, a sample value in a <em><a href="#34-value-definition">Value Definition</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>*rel*
+</code></pre></div>
+<h4 id="35-type-definition">3.5 Type Definition</h4>
+
+<p>Explicitly specifies the type of a value in an MSON instance.</p>
+
+<p><em>Type Definition</em> → <code>(</code><em><a href="#351-type-specification">Type Specification</a></em> <em>[opt]</em> <code>,</code> <em>[opt]</em> <em>Type Attributes List</em> <em>[opt]</em><code>)</code></p>
+
+<p><em>Type Attributes List</em> → <em><a href="#353-type-attribute">Type Attribute</a></em> | <em><a href="#353-type-attribute">Type Attribute</a></em><code>,</code> <em>Type Attributes List</em></p>
+
+<p>A <em>Type Definition</em> MUST separate multiple items with commas and is order-independent.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>(enum, optional)
+</code></pre></div>
+<h4 id="351-type-specification">3.5.1 Type Specification</h4>
+
+<p>Defines sub-typed <em><a href="#21-base-types">Base Types</a></em> or <em><a href="#2-types">Types</a></em> for a particular <em><a href="#2-types">Type</a></em>.</p>
+
+<p><em>Type Specification</em> → <em><a href="#352-type-name">Type Name</a></em> | <em><a href="#352-type-name">Type Name</a></em><code>[</code><em>Nested Type Name List</em><code>]</code></p>
+
+<p><em>Nested Type Name List</em> →  <em><a href="#352-type-name">Type Name</a></em> | <em><a href="#352-type-name">Type Name</a></em><code>,</code> <em>Nested Type Name List</em></p>
+
+<p>An <code>array</code> or <code>enum</code> <em><a href="#34-value-definition">Value Definition</a></em> MAY specify the <em>Type Specifications</em> of implied
+<em><a href="#43-nested-member-types">Nested Member Types</a></em> members in-line using <code>[]</code> as a <em>Nested Type Name List</em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>array[number, string]
+</code></pre></div>
+<p>Indicates a <code>array</code> type structure MAY include distinct numbers or strings as values.</p>
+
+<h5 id="3511-variable-type-specification">3.5.1.1 Variable Type Specification</h5>
+
+<p>Defines a variable <em><a href="#351-type-specification">Type Specification</a></em> to indicate generic <em><a href="#22-named-types">Named Types</a></em>.</p>
+
+<p><em>Variable Type Specification</em> → <em><a href="#351-type-specification">Type Specification</a></em></p>
+
+<p>A <em>Variable Type Specification</em> MUST include at least one <em><a href="#3521-variable-type-name">Variable Type Name</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code># One or Many (enum[*T*])
+</code></pre></div>
+<h4 id="352-type-name">3.5.2 Type Name</h4>
+
+<p>References the name of a type in <em><a href="#21-base-types">Base Types</a></em> or <em><a href="#22-named-types">Named Types</a></em>. Some limitations apply (see
+<a href="#6-reserved-characters--keywords">Reserved Characters &amp; Keywords</a>).</p>
+
+<p><em>Type Name</em> → <em><a href="#342-literal-value">Literal Value</a></em> | <em><a href="#3521-variable-type-name">Variable Type Name</a></em> | <em><a href="#3522-wildcard-type-name">Wildcard Type Name</a></em> | <em>Referenced Type Name</em></p>
+
+<p><em>Referenced Type Name</em> → <em>A valid <a href="http://daringfireball.net/projects/markdown/syntax#link">Markdown-style link</a>, where the link name MUST be a <em><a href="#342-literal-value">Literal Value</a></em></em></p>
+
+<p>A <em><a href="#3521-variable-type-name">Variable Type Name</a></em> MUST only be used in two situations:
+- As a <em>Type Name</em> in a <em><a href="#35-type-definition">Type Definition</a></em> for a <em><a href="#53-generic-named-type">Generic Named Type</a></em>.
+- As an associated <em>Type Name</em> in <em><a href="#43-nested-member-types">Nested Member Types</a></em> of the <em><a href="#53-generic-named-type">Generic Named Type</a></em>.</p>
+
+<p>A <em>Referenced Type Name</em> MAY be used to link to a <em>Type Name</em> defined in another location in an MSON document
+solely as a navigation convenience.</p>
+
+<h5 id="3521-variable-type-name">3.5.2.1 Variable Type Name</h5>
+
+<p>An <em>italicized</em> variable that MAY be used in place of a <em><a href="#352-type-name">Type Name</a></em> for a <em><a href="#35-type-definition">Type Definition</a></em> in a
+<em><a href="#311-generic-named-declaration">Generic Named Declaration</a></em>.</p>
+
+<p><em>Variable Type Name</em> → <code>*</code><em><a href="#342-literal-value">Literal Value</a></em><code>*</code></p>
+
+<h5 id="3522-wildcard-type-name">3.5.2.2 Wildcard Type Name</h5>
+
+<p>Indicates any type MAY be possible.</p>
+
+<p><em>Wildcard Type Name</em> → <code>*</code></p>
+
+<p>A <em>Wildcard Type Name</em> MAY only be used in a <em><a href="#351-type-specification">Type Specification</a></em> for <em><a href="#23-member-types">Member Types</a></em>.</p>
+
+<h4 id="353-type-attribute">3.5.3 Type Attribute</h4>
+
+<p>Defines extra attributes associated with the implementation of a type.</p>
+
+<ul>
+<li>
+<code>required</code>   - instance of this type is required</li>
+<li>
+<code>optional</code>   - instance of this type is optional (default)</li>
+<li>
+<code>fixed</code>      - instance of this type structure and values are fixed. This attribute propagates to <em><a href="#43-nested-member-types">Nested Member Types</a></em>.</li>
+<li>
+<code>fixed-type</code> - instance of this type structure is fixed, value is not. This attribute does not propagate to <em><a href="#43-nested-member-types">Nested Member Types</a></em>.</li>
+<li>
+<code>nullable</code>   - instance of this type <em>Value</em> MAY be unset (e.g. <code>null</code> or <code>nil</code>). <code>nullable</code> may only be used within properties of objects.</li>
+<li>
+<code>sample</code>     - Alternate way to indicate a <em><a href="#341-value">Value</a></em> is a sample. See <em><a href="#44-sample">Sample</a></em>.</li>
+<li>
+<code>default</code>    - Alternate way to indicate a <em><a href="#341-value">Value</a></em> is a default. See <em><a href="#45-default">Default</a></em>.</li>
+</ul>
+
+<p>A <code>sample</code> <em>Type Attribute</em> is mutually exclusive with <code>default</code>.</p>
+
+<h3 id="36-description">3.6 Description</h3>
+
+<p>Describes a <em><a href="#23-member-types">Member Type</a></em> in-line.</p>
+
+<p><em>Description</em> → <code>-</code> <em>Markdown-formatted text</em></p>
+<div class="highlight"><pre class="highlight plaintext"><code>- name: Andrew (string) - A Description
+</code></pre></div>
+<h2 id="4-type-sections">4 Type Sections</h2>
+
+<p><em><a href="#2-types">Types</a></em> MAY contain any <em><a href="#41-block-description">Block Description</a></em>, <em><a href="#42-member-type-group">Member Type Group</a></em>, <em><a href="#43-nested-member-types">Nested Member Types</a></em>,
+<em><a href="#44-sample">Sample</a></em>, <em><a href="#45-default">Default</a></em> and/or <em><a href="#46-validations">Validations</a></em> <em>Type Sections</em>. Apart from a <em><a href="#41-block-description">Block Description</a></em>, multiple
+<em><a href="#4-type-sections">Type Sections</a></em> MAY be specified and MAY have any order.</p>
+<div class="highlight"><pre class="highlight plaintext"><code># Person (object)
+An additional
+multi-line description
+
+- here
+- there
+
+## Sample
+...
+
+## Properties
+- `first_name`
+- `last_name`
+
+## Validations
+...
+
+## Sample
+Another ...
+</code></pre></div>
+<p>In general, <em>Type Sections</em> nested under:
+- A <em><a href="#31-named-declaration">Named Declaration</a></em> MUST use header-defined (<code>##</code>) variations.
+- A <em><a href="#32-property-member-declaration">Property Member Declaration</a></em> or <em><a href="#33-value-member-declaration">Value Member Declaration</a></em> MUST use list-defined (<code>-</code>) variations.</p>
+
+<h3 id="41-block-description">4.1 Block Description</h3>
+
+<p>Describes a <em><a href="#2-types">Type</a></em> using a nested (multi-line) Markdown text block.</p>
+
+<p><em>Block Description</em> → <em>Markdown-formatted text</em></p>
+
+<p>A <em>Block Description</em> MUST be located directly under a <em><a href="#3-type-declaration">Type Declaration</a></em> and MUST start with text. Markdown lists
+MAY be included in a <em>Block Description</em> after initial text content and are considered part of the block text.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- name: Andrew (string) - A Description
+
+    An additional
+    multi-line description.
+
+    - here
+    - there
+
+    More text.
+</code></pre></div>
+<p>Note that <code>here</code> and <code>there</code> are NOT <em><a href="#43-nested-member-types">Nested Member Types</a></em> but rather are part of a Markdown list in the
+<em>Block Description</em>.</p>
+
+<p>A <em><a href="#23-member-types">Member Types</a></em> <em>Block Description</em> MUST escape <em><a href="#421-member-type-separator">Member Type Separator</a></em> <em><a href="#62-keywords">Keywords</a></em> as a <code>code span</code>
+when used in a Markdown list.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object)
+    This person does not have:
+
+    - `Properties`
+        - first_name
+        - last_name
+
+    - Properties
+        - `given_name`
+        - surname
+</code></pre></div>
+<h3 id="42-member-type-group">4.2 Member Type Group</h3>
+
+<p>A <em>Member Type Group</em> delineates <em><a href="#43-nested-member-types">Nested Member Types</a></em> and MUST be used when other <em><a href="#4-type-sections">Type Sections</a></em> are present.</p>
+
+<p><em>Member Type Group</em> → <code>-</code> <em><a href="#421-member-type-separator">Member Type Separator</a></em> | <code>##</code> <em><a href="#421-member-type-separator">Member Type Separator</a></em></p>
+
+<p><em>Member Type Group</em> ⇒ <em>Nested Member Types</em></p>
+
+<p>In order to specify <em><a href="#43-nested-member-types">Nested Member Types</a></em> after a <em>Block Description</em>, <em><a href="#2-types">Types</a></em> MUST use an appropriate
+<em><a href="#42-member-type-group">Member Type Group</a></em> to indicate the end of the <em>Block Description</em> and the beginning of a
+<em><a href="#43-nested-member-types">Nested Member Types</a></em> list.</p>
+
+<ul>
+<li>
+<p>Named Type</p>
+
+<p>A header-defined (<code>##</code>) <em><a href="#42-member-type-group">Member Type Group</a></em> SHOULD be nested one additional header level under the associated
+<em><a href="#22-named-types">Named Type</a></em>, when required.</p>
+<div class="highlight"><pre class="highlight plaintext"><code># Person (object)
+An additional
+multi-line description
+
+- here
+- there
+
+## Properties
+- `first_name`
+- `last_name`
+</code></pre></div>
+</li>
+<li>
+<p>Member Type</p>
+
+<p>A list-defined (<code>-</code>) <em><a href="#42-member-type-group">Member Type Group</a></em> SHOULD be nested one indentation level under the associated
+<em><a href="#23-member-types">Member Type</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object)
+
+    An additional
+    multi-line description
+
+    - here
+    - there
+
+    - Properties
+        - `first_name`
+        - `last_name`
+</code></pre></div>
+</li>
+</ul>
+
+<p>A <em>Member Type Group</em> of an appropriate type MUST be used to define <em><a href="#43-nested-member-types">Nested Member Types</a></em> whenever any other
+<em><a href="#4-type-sections">Type Section</a></em> is specified at the same level.</p>
+
+<ul>
+<li>
+<p>Without a <em><a href="#41-block-description">Block Description</a></em></p>
+
+<ul>
+<li>
+<em><a href="#43-nested-member-types">Nested Member Types</a></em> SHOULD be nested directly under a <em><a href="#3-type-declaration">Type Declaration</a></em> whenever possible.</li>
+<li>
+<em><a href="#43-nested-member-types">Nested Member Types</a></em> MAY be used without a <em>Member Type Group</em> in a <em><a href="#22-named-types">Named Type</a></em>, even if other
+<em><a href="#4-type-sections">Type Sections</a></em> are present, if they are nested directly under the <em><a href="#3-type-declaration">Type Declaration</a></em>.</li>
+</ul>
+<div class="highlight"><pre class="highlight plaintext"><code># Person (object)
+- `first_name`
+- `last_name`
+
+## Sample
+...
+</code></pre></div>
+</li>
+<li>
+<p>With a <em><a href="#41-block-description">Block Description</a></em></p>
+
+<p>A <em>Member Type Group</em> MUST be used to define <em><a href="#43-nested-member-types">Nested Member Types</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code># Person (object)
+Just an ordinary person
+
+## Properties
+- `first_name`
+- `last_name`
+</code></pre></div>
+</li>
+</ul>
+
+<h4 id="421-member-type-separator">4.2.1 Member Type Separator</h4>
+
+<p>Defines the names of separators to indicate the beginning of a section of <em><a href="#43-nested-member-types">Nested Member Types</a></em>.</p>
+
+<p><em>Member Type Separator</em> →  <code>Items</code> | <code>Members</code> | <code>Properties</code></p>
+
+<ul>
+<li><p>Array Structures - MUST use <code>Items</code> for a <em>Member Type Separator</em></p></li>
+<li><p>Enum Structures - MUST use <code>Members</code> for a <em>Member Type Separator</em></p></li>
+<li><p>Object Structures - MUST use <code>Properties</code> for a <em>Member Type Separator</em></p></li>
+</ul>
+
+<h3 id="43-nested-member-types">4.3 Nested Member Types</h3>
+
+<p><em><a href="#2-types">Types</a></em> built from <em><a href="#212-structure-types">Structure Types</a></em> MAY contain <em>Nested Member Types</em>, which are defined using nested Markdown
+lists of allowed <em><a href="#23-member-types">Member Types</a></em>.</p>
+
+<p>A <em><a href="#23-member-types">Member Type</a></em> that contains <em>Nested Member Types</em> defines an inner, anonymous type that specifies the structure
+of values of that particular member.</p>
+
+<p><em>Nested Member Types</em> → <em><a href="#23-member-types">Member Types</a></em></p>
+
+<p>By Default:</p>
+
+<ul>
+<li>
+<p>Un-nested Member Types</p>
+
+<p>A <em><a href="#23-member-types">Member Type</a></em> that does not contain <em>Nested Member Types</em> and does not contain a <em><a href="#35-type-definition">Type Definition</a></em>
+implies a <code>string</code> <em><a href="#351-type-specification">Type Specification</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- count: 1
+</code></pre></div>
+<p>Implies:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- count: 1 (string)
+</code></pre></div>
+</li>
+<li>
+<p>Object Structures</p>
+
+<p>A <em><a href="#231-property-member-types">Property Member Type</a></em> without a <em><a href="#35-type-definition">Type Definition</a></em> that contains <em><a href="#43-nested-member-types">Nested Member Types</a></em> implies
+an <code>object</code> type structure.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- address
+    - city
+    - state
+</code></pre></div>
+<p>Implies:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- address (object)
+    - city
+    - state
+</code></pre></div>
+</li>
+<li>
+<p>Array Structures</p>
+
+<p>A <em><a href="#23-member-types">Member Type</a></em> with an <code>array</code> <em><a href="#35-type-definition">Type Definition</a></em> that contains <em><a href="#43-nested-member-types">Nested Member Types</a></em>
+specifies an <code>array</code> type structure that MAY contain items of the specified type and
+sample values per the particular <em><a href="#34-value-definition">Value Definition</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- colors (array)
+    - red (string)
+    - 5 (number)
+</code></pre></div>
+<p>Implies an <code>array</code> structure whose individual items MAY be strings or numbers with sample values "red" and 5,
+respectively.</p>
+</li>
+<li>
+<p>Enum Structures</p>
+
+<p>A <em><a href="#23-member-types">Member Type</a></em> with an <code>enum</code> <em><a href="#35-type-definition">Type Definition</a></em> that contains <em><a href="#43-nested-member-types">Nested Member Types</a></em>
+specifies an <code>enum</code> type structure that MUST only contain items of the specified type and
+values per the particular <em><a href="#34-value-definition">Value Definition</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- colors (enum)
+    - red (string)
+    - 5 (number)
+</code></pre></div>
+<p>Implies a <code>colors</code> <em><a href="#231-property-member-types">Property Member Type</a></em> that MUST only have a value of the string "red" or the number 5.</p>
+
+<p>A <em><a href="#343-variable-value">Variable Value</a></em> in a <em><a href="#43-nested-member-types">Nested Member Type</a></em> under a <code>enum</code> type structure indicates an allowed type
+with an associated sample value.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- colors (enum)
+    - red (string)
+    - *5* (number)
+</code></pre></div>
+<p>Implies a <code>colors</code> <em><a href="#231-property-member-types">Property Member Type</a></em> that MUST have either the string "red" or any number as
+a value, where "5" is a sample of a <code>number</code> value.</p>
+</li>
+<li>
+<p>Named Types</p>
+
+<p><em><a href="#43-nested-member-types">Nested Member Types</a></em> MAY be nested directly under a <em><a href="#31-named-declaration">Named Declaration</a></em> when there are no other
+<em><a href="#4-type-sections">Type Sections</a></em> present.</p>
+<div class="highlight"><pre class="highlight plaintext"><code># Person (object)
+- `first_name`
+- `last_name`
+</code></pre></div>
+</li>
+</ul>
+
+<p>With a <code>fixed</code> <em><a href="#353-type-attribute">Type Attribute</a></em>:</p>
+
+<ul>
+<li>
+<p>If a <em><a href="#22-named-types">Named Type</a></em> or <em><a href="#23-member-types">Member Type</a></em> annotates its type as <code>fixed</code>, all <em><a href="#43-nested-member-types">Nested Member Types</a></em> inherit
+the <code>fixed</code> attribute as well.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object, fixed)
+    - name
+</code></pre></div>
+<p>Implies:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object, fixed)
+    - name (fixed)
+</code></pre></div>
+</li>
+<li>
+<p>An <code>array</code> based <em><a href="#22-named-types">Named Type</a></em> or <em><a href="#23-member-types">Member Type</a></em> MAY specify <code>fixed</code> to indicate the structure is a
+"fixed ordered list" of only the specified values and/or types, if any, of its <em><a href="#43-nested-member-types">Nested Member Types</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- colors (array, fixed)
+    - red
+    - green
+</code></pre></div>
+<p>Implies a fixed-list <code>array</code> structure that MUST only contain the two items "red" and "green" in that order.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- components (array, fixed)
+    - (object)
+    - (string)
+</code></pre></div>
+<p>Implies a fixed-list <code>array</code> structure that MUST only contain the two items of an arbitrary <code>object</code> and <code>string</code>
+in that order.</p>
+</li>
+<li>
+<p>An <code>object</code> based <em><a href="#22-named-types">Named Type</a></em> or <em><a href="#23-member-types">Member Type</a></em> MAY specify <code>fixed</code> to indicate a "value object" where all
+the properties MUST be present and the values of the properties MUST be the values specified, if any, in its
+<em><a href="#43-nested-member-types">Nested Member Types</a></em>. Further, such an <code>object</code> type structure MUST NOT contain any other properties.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object, fixed)
+    - `first_name`: Andrew
+    - `last_name`: Smith
+</code></pre></div>
+<p>Implies a "value object" that MUST contain only the properties "first<em>name" and "last</em>name" with the values
+"Andrew" and "Smith", respectively.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object, fixed)
+    - `first_name`
+    - `last_name`
+</code></pre></div>
+<p>Implies an <code>object</code> that MUST contain only the properties "first<em>name" and "last</em>name", respectively.</p>
+</li>
+<li>
+<p>Individual <em><a href="#43-nested-member-types">Nested Member Types</a></em> MAY override inherited behavior from a <code>fixed</code> inherited type
+by using an <code>optional</code> attribute and/or MAY indicate values are samples using a <em><a href="#343-variable-value">Variable Value</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object, fixed)
+    - `first_name`
+    - `last_name` (optional)
+</code></pre></div>
+<p>Implies a "value object" that MUST contain the property "first<em>name" and MAY contain the property
+"last</em>name".</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- colors (array, fixed)
+    - red
+    - *green*
+</code></pre></div>
+<p>Implies an <code>array</code> type structure that MUST contain "red" as an item and MAY contain any other strings, where
+"green" is a sample value.</p>
+</li>
+</ul>
+
+<p>With a <code>fixed-type</code> <em><a href="#353-type-attribute">Type Attribute</a></em>:</p>
+
+<ul>
+<li><p>If a <em><a href="#22-named-types">Named Type</a></em> or <em><a href="#23-member-types">Member Type</a></em> annotates its type as <code>fixed-type</code>, <em><a href="#43-nested-member-types">Nested Member Types</a></em> do not inherit
+the <code>fixed-type</code> attribute.</p></li>
+<li>
+<p>An <code>array</code> based <em><a href="#22-named-types">Named Type</a></em> or <em><a href="#23-member-types">Member Type</a></em> MAY specify <code>fixed-type</code> to indicate the structure
+MUST contain items of the specified types only.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- colors (array, fixed-type)
+    - red (string)
+</code></pre></div>
+<p>Implies a fixed-list <code>array</code> structure that MUST only contain any string items; red is an example value.</p>
+</li>
+<li>
+<p>An <code>object</code> based <em><a href="#22-named-types">Named Type</a></em> or <em><a href="#23-member-types">Member Type</a></em> MAY specify <code>fixed-type</code> to indicate an object where all
+the properties MUST be present. Further, such an <code>object</code> type structure MUST NOT contain any other properties.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object, fixed-type)
+    - first_name: John
+    - last_name: Smith
+</code></pre></div>
+<p>Implies an object that MUST contain only the properties "first<em>name" and "last</em>name", respectively;
+John and Smith are example values.</p>
+</li>
+</ul>
+
+<h3 id="44-sample">4.4 Sample</h3>
+
+<p>Defines alternate sample <em><a href="#341-value">Values</a></em> for <em><a href="#23-member-types">Member Types</a></em> as a nested Markdown list with (multi-line) text.</p>
+
+<p><em>Sample</em> → <code>- Sample</code> | <code>- Sample :</code> <em><a href="#341-value">Value</a></em> | <code>## Sample</code></p>
+
+<p><em>Sample</em> ⇒ <em>Markdown-formatted text</em> | <em><a href="#232-value-member-types">Value Member Types</a></em></p>
+
+<p>A <em><a href="#2-types">Type</a></em> MAY have multiple <em>Sample</em> lists.</p>
+
+<ul>
+<li>
+<p>Named Types</p>
+
+<p>A header-defined (<code>##</code>) <em><a href="#44-sample">Sample</a></em> MUST be nested one additional header level under the associated
+<em><a href="#22-named-types">Named Type</a></em> if a <em><a href="#41-block-description">Block Description</a></em> is used.</p>
+<div class="highlight"><pre class="highlight plaintext"><code># Colors (array)
+A list of colors
+
+## Sample
+- red
+
+## Items
+- (string)
+
+## Sample
+- blue
+- green
+</code></pre></div>
+<p>A <code>sample</code> <em><a href="#353-type-attribute">Type Attribute</a></em> MUST NOT be used in the <em><a href="#35-type-definition">Type Definition</a></em> of a <em><a href="#31-named-declaration">Named Declaration</a></em>.</p>
+</li>
+<li>
+<p>Member Types</p>
+
+<p>A list-defined (<code>-</code>) <em><a href="#44-sample">Sample</a></em> SHOULD be nested one indentation level under the associated
+<em><a href="#23-member-types">Member Type</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- colors (array)
+  - Sample: red
+  - Sample
+      - blue
+      - green
+</code></pre></div>
+<p>A <code>sample</code> <em><a href="#353-type-attribute">Type Attribute</a></em> MAY be used to indicate a <em><a href="#341-value">Value</a></em> in a <em><a href="#232-value-member-types">Value Member Type</a></em> is a sample
+value.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- list: 3, 4 (enum, sample)
+</code></pre></div>
+<p>Is equivalent to:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- list: *3, 4* (enum)
+</code></pre></div>
+<p>Which, is equivalent to:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- list (enum)
+    - Sample
+        - 3
+        - 4
+</code></pre></div>
+</li>
+</ul>
+
+<h3 id="45-default">4.5 Default</h3>
+
+<p>Indicates <em><a href="#341-value">Values</a></em> for <em><a href="#23-member-types">Member Types</a></em> as a nested Markdown list with (multi-line) text are defaults.</p>
+
+<p><em>Default</em> → <code>- Default</code> | <code>- Default :</code> <em><a href="#341-value">Value</a></em> | <code>## Default</code></p>
+
+<p><em>Default</em> ⇒ <em>Markdown-formatted text</em> | <em><a href="#232-value-member-types">Value Member Types</a></em></p>
+
+<p>A <em><a href="#2-types">Type</a></em> MAY have one <em>Default</em> <em><a href="#4-type-sections">Type Section</a></em>. A <em>Default</em> for a <em><a href="#23-member-types">Member Type</a></em> MAY also indicate a
+<em><a href="#44-sample">Sample</a></em>.</p>
+
+<ul>
+<li>
+<p>Named Types</p>
+
+<p>A header-defined (<code>##</code>) <em><a href="#45-default">Default</a></em> MUST be nested one additional header level under the associated
+<em><a href="#22-named-types">Named Type</a></em> if a <em><a href="#41-block-description">Block Description</a></em> is used.</p>
+<div class="highlight"><pre class="highlight plaintext"><code># Colors (array)
+A list of colors
+
+## Default
+- red
+
+## Items
+- (string)
+</code></pre></div>
+<p>A <code>default</code> <em><a href="#353-type-attribute">Type Attribute</a></em> MUST NOT be used in the <em><a href="#35-type-definition">Type Definition</a></em> of a <em><a href="#31-named-declaration">Named Declaration</a></em>.</p>
+</li>
+<li>
+<p>Member Types</p>
+
+<p>A list-defined (<code>-</code>) <em><a href="#45-default">default</a></em> SHOULD be nested one indentation level under the associated
+<em><a href="#23-member-types">Member Type</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- colors (array)
+  - Default: red
+</code></pre></div>
+<p>A <code>default</code> <em><a href="#353-type-attribute">Type Attribute</a></em> MAY be used to indicate a <em><a href="#341-value">Value</a></em> in a <em><a href="#232-value-member-types">Value Member Type</a></em> is a default
+value.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- list: 4 (enum, default)
+    - 3
+    - 4
+</code></pre></div>
+<p>is equivalent to:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- list: 3, 4 (enum)
+    - Default: 4
+</code></pre></div>
+</li>
+</ul>
+
+<h3 id="46-validations">4.6 Validations</h3>
+
+<p>Reserved for future use.</p>
+
+<h2 id="5-type-inheritance">5 Type Inheritance</h2>
+
+<p>A <em><a href="#23-member-types">Member Type</a></em> or <em><a href="#22-named-types">Named Type</a></em> that inherits from another <em><a href="#22-named-types">Named Type</a></em> also inherits any
+<em><a href="#43-nested-member-types">Nested Member Types</a></em> in the same order they are defined in the inherited <em><a href="#22-named-types">Named Type</a></em> and in order based
+on the placement of the <em><a href="#51-mixin-type">Mixin Type</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code># Person (object)
+- `first_name`
+- `last_name`
+</code></pre></div>
+<p>And:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (Person)
+    - address
+</code></pre></div>
+<p>Implies the same structure as:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object)
+    - `first_name`
+    - `last_name`
+    - address
+</code></pre></div>
+<p>Where the inherited <em><a href="#23-member-types">Member Types</a></em> from <code>Person</code> <em><a href="#22-named-types">Named Type</a></em> are listed first.</p>
+
+<p>An object may not inherit from itself, either directly or indirectly.</p>
+
+<h3 id="51-mixin-type">5.1 Mixin Type</h3>
+
+<p>MSON defines a <em>Mixin Type</em> that supports multiple inheritance from another <em><a href="#22-named-types">Named Type</a></em>. The <em><a href="#22-named-types">Named Type</a></em> being inherited MUST be a <em><a href="#212-structure-types">Structure Type</a></em> or its sub-type.</p>
+
+<p><em><a href="#43-nested-member-types">Nested Member Types</a></em> defined in and inherited from the mixed-in <em><a href="#22-named-types">Named Type</a></em> are added at the same indentation level of the <em>Mixin Type</em>.</p>
+
+<p><em>Mixin Type</em> → <code>- Include</code> <em><a href="#352-type-name">Type Name</a></em> | <code>- Include</code> <em><a href="#35-type-definition">Type Definition</a></em></p>
+
+<p><em>Example 1</em></p>
+<div class="highlight"><pre class="highlight plaintext"><code># Person (object)
+- `first_name`
+- `last_name`
+</code></pre></div>
+<p>And:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- `formal_person` (object)
+    - prefix: Mr
+    - Include Person
+</code></pre></div>
+<p>Implies the same structure as:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- `formal_person` (object)
+    - prefix: Mr
+    - `first_name`
+    - `last_name`
+</code></pre></div>
+<p><em>Example 2</em></p>
+
+<p>Alternately:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- `formal_person` (object)
+    - Include Person
+    - prefix: Mr.
+</code></pre></div>
+<p>Implies the same structure as:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- `formal_person` (object)
+    - `first_name`
+    - `last_name`
+    - prefix: Mr.
+</code></pre></div>
+<p>A <em><a href="#51-mixin-type">Mixin Type</a></em> MUST use an appropriate <em><a href="#421-member-type-separator">Member Type Separator</a></em> in a <em><a href="#42-member-type-group">Member Type Group</a></em> in order to specify
+<em><a href="#43-nested-member-types">Nested Member Types</a></em> after a <em><a href="#41-block-description">Block Description</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- address (object)
+    An address
+
+    - Properties
+        - Include Address
+</code></pre></div>
+<h3 id="52-one-of-type">5.2 One Of Type</h3>
+
+<p>MSON defines a <em>One Of Type</em> that can be used to describe mutually exclusive sets of <em><a href="#43-nested-member-types">Nested Member Types</a></em>. A
+<em>One of Type</em> MUST only be used to define <em><a href="#231-property-member-types">Property Member Types</a></em> for a <code>object</code> type structure.</p>
+
+<p><em>One of Type</em> → <code>- One Of</code></p>
+
+<p><em>One of Type</em> ⇒ <em><a href="#42-member-type-group">Member Type Group</a></em></p>
+
+<p><em>One of Type</em> ⇒ <em><a href="#43-nested-member-types">Nested Member Types</a></em></p>
+
+<p><em>One of Type</em> ⇒ <em><a href="#51-mixin-type">Mixin Type</a></em></p>
+
+<p><em>One of Type</em> ⇒ <em>One of Type</em></p>
+<div class="highlight"><pre class="highlight plaintext"><code>- `first_name`
+- One Of
+    - `last_name`
+    - One Of
+        - `given_name`: Smith
+        - `suffixed_name`: Smith, Sr.
+</code></pre></div>
+<p>Implies values with a structure of:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- `first_name`
+- `last_name`
+</code></pre></div>
+<p>Or:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- `first_name`
+- `given_name`: Smith
+</code></pre></div>
+<p>Or:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- `first_name`
+- `suffixed_name`: Smith, Sr.
+</code></pre></div>
+<p>A <em>One Of Type</em> MUST use a <code>Properties</code> <em><a href="#421-member-type-separator">Member Type Separator</a></em> in a <em><a href="#42-member-type-group">Member Type Group</a></em>:
+- In order to specify <em><a href="#43-nested-member-types">Nested Member Types</a></em> after a <em><a href="#41-block-description">Block Description</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>```
+- address (object)
+    An address
+
+    - Properties
+        - One Of
+            - state
+            - province
+```
+</code></pre></div>
+<ul>
+<li>
+<p>When it contains a <em><a href="#42-member-type-group">Member Type Group</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object)
+    - One Of
+        - `full_name`
+        - Properties
+            - `first_name`
+            - `last_name`
+</code></pre></div>
+</li>
+</ul>
+
+<h3 id="53-generic-named-type">5.3 Generic Named Type</h3>
+
+<p>Defines a <em><a href="#22-named-types">Named Type</a></em> that allows an italicized <em><a href="#3521-variable-type-name">Variable Type Name</a></em> to represent a <em><a href="#352-type-name">Type Name</a></em>
+at any location in a <em><a href="#351-type-specification">Type Specification</a></em>.</p>
+
+<p><em>Generic Named Type</em> → <em><a href="#22-named-types">Named Type</a></em></p>
+
+<p>By default:
+- A <em><a href="#22-named-types">Named Type</a></em> that contains at least one <em><a href="#3521-variable-type-name">Variable Type Name</a></em> is a <em>Generic Named Type</em>.
+- A <em>Variable Type Name</em> in a <em><a href="#351-type-specification">Type Specification</a></em> MAY only be used in the <em><a href="#35-type-definition">Type Definition</a></em> of explicitly
+defined <em><a href="#43-nested-member-types">Nested Member Types</a></em> in the <em>Generic Named Type</em> and MUST NOT define any implied <em><a href="#43-nested-member-types">Nested Member Types</a></em>.</p>
+
+<ul>
+<li>
+<p>Inherited type as a variable</p>
+<div class="highlight"><pre class="highlight plaintext"><code># Address Decorator (*T*)
+    - address
+
+# Person (object)
+    - `first_name`
+    - `last_name`
+</code></pre></div>
+<p>And:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- `decorated_person` (Address Decorator(Person))
+</code></pre></div>
+<p>Implies the same structure as:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- decorated_person (object)
+    - `first_name`
+    - `last_name`
+    - address
+</code></pre></div>
+</li>
+<li>
+<p>Type passed into explicitly defined <em><a href="#23-member-types">Member Types</a></em></p>
+<div class="highlight"><pre class="highlight plaintext"><code># One or Many (*S*[*T*, string])
+- (*T*)
+- (array[*T*])
+</code></pre></div>
+<p>And:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- rel (One or Many(enum, object))
+</code></pre></div>
+<p>Implies the same structure as:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- rel (enum)
+    - (string)
+    - (object)
+    - array[object]
+</code></pre></div>
+</li>
+</ul>
+
+<h3 id="54-member-type-precedence">5.4 Member Type Precedence</h3>
+
+<p>Implementers of tooling for MSON structures SHOULD use an inheritance precedence such that the last redundant
+<em><a href="#23-member-types">Member Type</a></em> specified in a list at the same indentation level appends or overrides a previously defined
+<em><a href="#23-member-types">Member Type</a></em>.</p>
+<div class="highlight"><pre class="highlight plaintext"><code># Person (object, fixed)
+- `first_name`
+- `last_name`
+- address (object)
+</code></pre></div>
+<ul>
+<li>
+<p>Add/Override Attributes</p>
+
+<p><em>Example 1</em></p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (Person)
+    - `last_name` (optional)
+</code></pre></div>
+<p>Is literally the same as:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object)
+    - `first_name` (fixed)
+    - `last_name` (fixed)
+    - address (object, fixed)
+    - `last_name` (optional)
+</code></pre></div>
+<p>Which implies a structure the same as:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object)
+    - `first_name` (fixed)
+    - `last_name` (optional)
+    - address (object, fixed)
+</code></pre></div>
+<p><em>Example 2</em></p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object)
+    - `first_name` (optional)
+    - Include Person
+</code></pre></div>
+<p>Is literally the same as:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object)
+    - `first_name` (optional)
+    - `first_name` (fixed)
+    - `last_name` (fixed)
+    - address (object, fixed)
+</code></pre></div>
+<p>Which implies a structure the same as:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object)
+    - `first_name` (fixed)
+    - `last_name` (fixed)
+    - address (object, fixed)
+</code></pre></div>
+<p><em>Example 3</em></p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object)
+    - Include Person
+    - `first_name` (optional)
+
+</code></pre></div>
+<p>Is literally the same as:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object)
+    - `first_name` (fixed)
+    - `last_name` (fixed)
+    - address (object, fixed)
+    - `first_name` (optional)
+</code></pre></div>
+<p>Implies a structure the same as:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object)
+    - `first_name` (optional)
+    - `last_name` (fixed)
+    - address (object, fixed)
+</code></pre></div>
+</li>
+<li>
+<p>Add New Member Types</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (Person)
+    - citizenship
+</code></pre></div>
+<p>Implies a structure the same as:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object, fixed)
+    - `first_name`
+    - `last_name`
+    - address (object)
+    - citizenship
+</code></pre></div>
+</li>
+<li>
+<p>Override Member Types</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object)
+    - Include Person
+    - address (string)
+</code></pre></div>
+<p>Is literally the same as:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object)
+    - `first_name` (fixed)
+    - `last_name` (fixed)
+    - address (object, fixed)
+    - address (string)
+</code></pre></div>
+<p>Implies a structure the same as:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>- person (object)
+    - `first_name` (fixed)
+    - `last_name` (fixed)
+    - address (string)
+</code></pre></div>
+</li>
+</ul>
+
+<h2 id="6-reserved-characters--keywords">6 Reserved Characters &amp; Keywords</h2>
+
+<p>When using following characters or keywords in a <em><a href="#321-property-name">Property Name</a></em>, <em><a href="#342-literal-value">Literal Value</a></em> or <em><a href="#352-type-name">Type Name</a></em> the name
+or literal MUST be escaped in backticks <code>`</code>. Otherwise, a <code>code span</code> MAY be used for any arbitrary formatting
+and has no specific meaning in an MSON document.</p>
+
+<h3 id="61-characters">6.1 Characters</h3>
+
+<p><code>:</code>, <code>(</code>,<code>)</code>, <code>&lt;</code>, <code>&gt;</code>, <code>{</code>, <code>}</code>, <code>[</code>, <code>]</code>, <code>_</code>, <code>*</code>, <code>-</code>, <code>+</code>, <code>`</code></p>
+
+<h3 id="62-keywords">6.2 Keywords</h3>
+
+<p><code>Property</code>, <code>Properties</code>, <code>Item</code>, <code>Items</code>, <code>Member</code>, <code>Members</code>, <code>Include</code>, <code>One of</code>, <code>Sample</code></p>
+
+<p>Note keywords are case-insensitive.</p>
+
+<h3 id="63-additional-keywords">6.3 Additional Keywords</h3>
+
+<p>Following keywords are reserved for future use:</p>
+
+<p><code>Trait</code>, <code>Traits</code>, <code>Parameter</code>, <code>Parameters</code>, <code>Attribute</code>, <code>Attributes</code>, <code>Filter</code>, <code>Validation</code>, <code>Choice</code>, <code>Choices</code>,
+<code>Enumeration</code>, <code>Enum</code>, <code>Object</code>, <code>Array</code>, <code>Element</code>, <code>Elements</code>, <code>Description</code></p>
+</body></html>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div>
+          <ul class="social">
+              <li>
+                <a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">
+                  <img src="/images/stackoverflow-994229fe.svg" />
+                  <span class="relation">FAQ</span>
+                  <span class="service">Stack Overflow</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/apiaryio/api-blueprint/issues">
+                  <img src="/images/github-893a5b9a.svg" />
+                  <span class="relation">Issues</span>
+                  <span class="service">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/apiblueprint">
+                  <img src="/images/twitter-2ade0f64.svg" />
+                  <span class="relation">Twitter</span>
+                  <span class="service">@apiblueprint</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="info row">
+          <div class="brand-block col-md-6">
+              <img src="/images/apiblueprint-footer-81a6c64c.svg" alt="API Blueprint Logo" width=38 height=36 />
+              <div class="brand-info">
+                <span class="brand">API Blueprint</span>
+                <span>&copy; 2013—2023</span>
+              </div>
+            </ul>
+          </div>
+          <ul class="nav nav-pills col-md-6 text-md-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></div>
+      </div>
+    </footer>
+
+    <div class="rocket"></div>
+    <div class="moon"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

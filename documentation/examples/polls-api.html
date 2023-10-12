@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Polls API | API Blueprint</title>
+
+    <link href="/images/favicon-10b3ff24.png" rel="icon" type="image/png" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" /><link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /><link href="/stylesheets/all.css" rel="stylesheet" /><link href="/stylesheets/highlight.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+  </head>
+
+  <body class="documentation documentation_examples documentation_examples_polls-api">
+    <header>
+      <div class="container">
+        <div class="pull-right">
+          <a href="https://twitter.com/apiblueprint" class="twitter-follow-button" data-show-count="false">Follow @apiblueprint</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <iframe src="https://ghbtns.com/github-btn.html?user=apiaryio&repo=api-blueprint&type=star&count=true" frameborder="0" scrolling="0" width="105px" height="20px"></iframe>
+        </div>
+
+        <hr />
+
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">API Blueprint</a>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container page-content">
+      <div class="row content">
+        <div id="sidebar" class="col-md-3" role="complementary">
+            <ul class="nav">
+                  <li>
+                  <a href="/documentation/tutorial.html">Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/advanced-tutorial.html">Advanced Tutorial</a></li>
+                  <li>
+                  <a href="/documentation/specification.html">Specification</a></li>
+                  <li>
+                  <a href="/documentation/glossary.html">Glossary of Terms</a></li>
+                  <li>
+                  <a href="/documentation/mson/cheatsheet.html">MSON Cheatsheet</a></li>
+                  <li>
+                  <a href="/documentation/mson/tutorial.html">MSON</a></li>
+                  <li>
+                  <a href="/documentation/mson/specification.html">MSON Specification</a></li>
+                  <li>
+                  <a href="/documentation/examples/">Examples</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 text" role="main">
+            <h2>Polls API</h2>
+            <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><div class="highlight"><pre class="highlight apiblueprint"><code><span class="nv">FORMAT</span><span class="p">: </span><span class="s">1A</span>
+<span class="nv">HOST</span><span class="p">: </span><span class="s">http://polls.apiblueprint.org/</span>
+
+<span class="gh"># Polls</span>
+
+Polls is a simple API allowing consumers to view polls and vote in them. You can view this documentation over at <span class="nv">[Apiary](http</span><span class="p">:</span><span class="s">//docs.pollsapi.apiary.io).</span>
+
+<span class="p">#</span><span class="gh"> Polls API Root </span><span class="s">[/]</span>
+
+This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body.
+
+It is recommend to follow the “url” link values, <span class="nv">[Link](https</span><span class="p">:</span><span class="s">//tools.ietf.org/html/rfc5988) or Location headers where applicable to retrieve resources. Instead of constructing your own URLs, to keep your client decoupled from implementation details.</span>
+
+<span class="p">##</span><span class="gh"> Retrieve the Entry Point </span><span class="s">[GET]</span>
+<span class="p">
++</span> Response 200 (application/json)<span class="sb">
+
+        {
+            "questions_url": "/questions"
+        }
+
+</span><span class="p">##</span><span class="k"> Group </span><span class="gh">Question</span>
+
+Resources related to questions in the API.
+
+<span class="p">##</span><span class="gh"> Question </span><span class="s">[/questions/{question_id}]</span>
+
+A Question object has the following attributes:
+<span class="p">
++</span> question
+<span class="p">+</span> published_at - An ISO8601 date when the question was published.
+<span class="p">+</span> url
+<span class="p">+</span> choices - An array of Choice objects.
+<span class="p">
++ </span><span class="k">Parameters</span>
+<span class="p">    +</span> question_id: 1 (required, number) - ID of the Question in form of an integer
+
+<span class="p">###</span><span class="gh"> View a Questions Detail </span><span class="s">[GET]</span>
+<span class="p">
++</span> Response 200 (application/json)<span class="sb">
+
+        {
+            "question": "Favourite programming language?",
+            "published_at": "2014-11-11T08:40:51.620Z",
+            "url": "/questions/1",
+            "choices": [
+                {
+                    "choice": "Swift",
+                    "url": "/questions/1/choices/1",
+                    "votes": 2048
+                }, {
+                    "choice": "Python",
+                    "url": "/questions/1/choices/2",
+                    "votes": 1024
+                }, {
+                    "choice": "Objective-C",
+                    "url": "/questions/1/choices/3",
+                    "votes": 512
+                }, {
+                    "choice": "Ruby",
+                    "url": "/questions/1/choices/4",
+                    "votes": 256
+                }
+            ]
+        }
+
+</span><span class="p">##</span><span class="gh"> Choice </span><span class="s">[/questions/{question_id}/choices/{choice_id}]</span>
+<span class="p">
++ </span><span class="k">Parameters</span>
+<span class="p">    +</span> question_id: 1 (required, number) - ID of the Question in form of an integer
+<span class="p">    +</span> choice_id: 1 (required, number) - ID of the Choice in form of an integer
+
+<span class="p">###</span><span class="gh"> Vote on a Choice </span><span class="s">[POST]</span>
+
+This action allows you to vote on a question's choice.
+<span class="p">
++</span> Response 201<span class="sb">
+
+    + Headers
+
+            Location: /questions/1
+
+</span><span class="p">##</span><span class="gh"> Questions Collection </span><span class="s">[/questions{?page}]</span>
+<span class="p">
++ </span><span class="k">Parameters</span>
+<span class="p">    +</span> page: 1 (optional, number) - The page of questions to return
+
+<span class="p">###</span><span class="gh"> List All Questions </span><span class="s">[GET]</span>
+<span class="p">
++</span> Response 200 (application/json)<span class="sb">
+
+    + Headers
+
+            Link: &lt;/questions?page=2&gt;; rel="next"
+
+    + Body
+
+            [
+                {
+                    "question": "Favourite programming language?",
+                    "published_at": "2014-11-11T08:40:51.620Z",
+                    "url": "/questions/1",
+                    "choices": [
+                        {
+                            "choice": "Swift",
+                            "url": "/questions/1/choices/1",
+                            "votes": 2048
+                        }, {
+                            "choice": "Python",
+                            "url": "/questions/1/choices/2",
+                            "votes": 1024
+                        }, {
+                            "choice": "Objective-C",
+                            "url": "/questions/1/choices/3",
+                            "votes": 512
+                        }, {
+                            "choice": "Ruby",
+                            "url": "/questions/1/choices/4",
+                            "votes": 256
+                        }
+                    ]
+                }
+            ]
+
+</span><span class="p">###</span><span class="gh"> Create a New Question </span><span class="s">[POST]</span>
+
+You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.
+<span class="p">
++</span> question (string) - The question
+<span class="p">+</span> choices (array[string]) - A collection of choices.
+<span class="p">
++</span> Request (application/json)<span class="sb">
+
+        {
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
+            ]
+        }
+
+</span><span class="p">+ </span><span class="k">Response</span><span class="m"> 201</span><span class="s"> (application/json)</span><span class="sb">
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2014-11-11T08:40:51.620Z",
+                "url": "/questions/2",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "url": "/questions/2/choices/1",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "url": "/questions/2/choices/2",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "url": "/questions/2/choices/3",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "url": "/questions/2/choices/4",
+                        "votes": 0
+                    }
+                ]
+            }
+</span></code></pre></div></body></html>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div>
+          <ul class="social">
+              <li>
+                <a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">
+                  <img src="/images/stackoverflow-994229fe.svg" />
+                  <span class="relation">FAQ</span>
+                  <span class="service">Stack Overflow</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/apiaryio/api-blueprint/issues">
+                  <img src="/images/github-893a5b9a.svg" />
+                  <span class="relation">Issues</span>
+                  <span class="service">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/apiblueprint">
+                  <img src="/images/twitter-2ade0f64.svg" />
+                  <span class="relation">Twitter</span>
+                  <span class="service">@apiblueprint</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="info row">
+          <div class="brand-block col-md-6">
+              <img src="/images/apiblueprint-footer-81a6c64c.svg" alt="API Blueprint Logo" width=38 height=36 />
+              <div class="brand-info">
+                <span class="brand">API Blueprint</span>
+                <span>&copy; 2013—2023</span>
+              </div>
+            </ul>
+          </div>
+          <ul class="nav nav-pills col-md-6 text-md-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></div>
+      </div>
+    </footer>
+
+    <div class="rocket"></div>
+    <div class="moon"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

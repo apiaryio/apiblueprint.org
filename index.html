@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>API Blueprint | API Blueprint</title>
+
+    <link href="/images/favicon-10b3ff24.png" rel="icon" type="image/png" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" /><link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /><link href="/stylesheets/all.css" rel="stylesheet" /><link href="/stylesheets/highlight.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+    <script src="/javascripts/all.js"></script>
+  </head>
+
+  <body class="index">
+    <header>
+      <div class="container">
+        <div class="pull-right">
+          <a href="https://twitter.com/apiblueprint" class="twitter-follow-button" data-show-count="false">Follow @apiblueprint</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <iframe src="https://ghbtns.com/github-btn.html?user=apiaryio&repo=api-blueprint&type=star&count=true" frameborder="0" scrolling="0" width="105px" height="20px"></iframe>
+        </div>
+
+        <hr />
+
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">API Blueprint</a>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container page-content">
+      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h2 id="api-blueprint-a-powerful-high-level-api-description-language-for-web-apis">API Blueprint. A powerful high-level API description language for web APIs.</h2>
+
+<p>API Blueprint is simple and accessible to everybody involved in the API
+lifecycle. Its syntax is concise yet expressive. With API Blueprint you can
+quickly design and prototype APIs to be created or document and test already
+deployed mission-critical APIs.</p>
+
+<p><a href="/documentation/tutorial.html">Tutorial</a> <a href="/tools.html">Tools section</a></p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="gh"># GET /message</span>
+<span class="p">+ </span><span class="k">Response</span><span class="m"> 200</span><span class="s"> (text/plain)</span><span class="sb">
+
+        Hello World!
+</span></code></pre></div>
+<h3 id="focused-on-collaboration">Focused on Collaboration</h3>
+
+<p>API Blueprint is built to encourage dialogue and collaboration between
+project stakeholders, developers and customers at any point in the API
+lifecycle. At the same time, the API Blueprint tools provide the support to
+achieve the goals be it API development, governance or delivery.</p>
+
+<h3 id="open">Open</h3>
+
+<p>API Blueprint is completely open sourced under the MIT license.
+Its future is <a href="https://github.com/apiaryio/api-blueprint/wiki/Roadmap">transparent and open</a>.
+API Blueprint doesn't need a closed work group. Instead it uses the RFC
+process similar to Rust language or Django Enhancement Proposal RFC processes.</p>
+
+<p>To contribute, submit a proposal to <a href="https://github.com/apiaryio/api-blueprint-rfcs">API Blueprint RFC repository</a>.</p>
+
+<h3 id="at-home-on-github">At home on GitHub</h3>
+
+<p>The API Blueprint language is recognized by GitHub.
+<a href="https://github.com/search?utf8=%E2%9C%93&amp;q=language%3A%22API+Blueprint%22&amp;ref=simplesearch">Search for API Blueprint</a> on GitHub using the
+<code>language:"API Blueprint"</code> query.</p>
+
+<p>The media type for API Blueprint is <code>text/vnd.apiblueprint</code>, and the
+standard file extension is <code>.apib</code>. If you use this extension your
+blueprints on GitHub will get syntax-highlighted.</p>
+
+<h3 id="built-for-better-api-designs">Built for better API Designs</h3>
+
+<p>API Blueprint is built to encourage better API designs through abstraction.
+The goal of API Blueprint is to decouple elements of API to enable modularity
+while encapsulating backend implementation behavior.</p>
+
+<p>For example, model your data first using the data description syntax.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="gh"># Data Structures</span>
+
+<span class="gu">## Blog Post (object)</span>
+<span class="p">+</span> id: 42 (number, required)
+<span class="p">+</span> text: Hello World (string)
+<span class="p">+</span> author (Author) - Author of the blog post.
+
+<span class="gu">## Author (object)</span>
+<span class="p">+</span> name: Boba Fett
+<span class="p">+</span> email: fett@intergalactic.com
+</code></pre></div>
+<p>Then, use and reuse the data in your API endpoints.</p>
+<div class="highlight"><pre class="highlight apiblueprint"><code><span class="p">#</span><span class="gh"> Blog Posts </span><span class="s">[/posts]</span>
+
+<span class="p">##</span><span class="gh"> Retrieve All Posts </span><span class="s">[GET]</span>
+<span class="p">+ </span><span class="k">Response</span><span class="m"> 200</span><span class="s"> (application/json)</span>
+<span class="p">    + </span><span class="k">Attributes</span><span class="s"> (array[Blog Post])</span>
+</code></pre></div>
+<h3 id="design-first">Design-first</h3>
+
+<p>API Blueprint is all about the design-first philosophy. Similar to tests in
+test-driven development, API Blueprint represents a contract for an API.
+Discussing your API and settling on the contract before it is developed tends to
+lead to better API designs.</p>
+
+<p>Once your API Blueprint is in place everybody can <a href="https://github.com/apiaryio/dredd">test</a> whether the
+implementation is living up to the expectations set in the contract.</p>
+
+<h3 id="awesome-tools">Awesome Tools</h3>
+
+<p>Thanks to its broad adoption there is a plethora of tools built for API Blueprint.
+From various standalone tools such as mock server, documentation and testing
+tools to full-featured API life-cycle solutions.</p>
+
+<p>See the <a href="/tools.html">Tools section</a> for the list.</p>
+
+<hr>
+
+<h3 id="getting-started">Getting Started</h3>
+
+<p>To get started with API Blueprint you will need a plain-text editor. For the
+best editing experience switch the syntax-highlighting to Markdown or
+directly to API Blueprint (if <a href="/tools.html#editors">supported</a> by your editor).</p>
+
+<p>With editor ready, follow the <a href="/documentation/tutorial.html">API Blueprint tutorial</a>.</p>
+
+<p>Once you have written your first API Blueprint you can discuss the API design
+with friends and use the <a href="/tools.html">tools for API Blueprint</a>. For example,
+to render documentation, generate a mock of your service or start testing your
+backend implementation.</p>
+
+<p>Check the <a href="./documentation/">Documentation section</a> for additional resources on
+the API Blueprint syntax.</p>
+</body></html>
+
+    </div>
+
+    <footer>
+      <div class="container">
+        <div>
+          <ul class="social">
+              <li>
+                <a href="https://stackoverflow.com/questions/tagged/apiblueprint?sort=frequent&pageSize=15">
+                  <img src="/images/stackoverflow-994229fe.svg" />
+                  <span class="relation">FAQ</span>
+                  <span class="service">Stack Overflow</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/apiaryio/api-blueprint/issues">
+                  <img src="/images/github-893a5b9a.svg" />
+                  <span class="relation">Issues</span>
+                  <span class="service">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/apiblueprint">
+                  <img src="/images/twitter-2ade0f64.svg" />
+                  <span class="relation">Twitter</span>
+                  <span class="service">@apiblueprint</span>
+                </a>
+              </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="info row">
+          <div class="brand-block col-md-6">
+              <img src="/images/apiblueprint-footer-81a6c64c.svg" alt="API Blueprint Logo" width=38 height=36 />
+              <div class="brand-info">
+                <span class="brand">API Blueprint</span>
+                <span>&copy; 2013—2023</span>
+              </div>
+            </ul>
+          </div>
+          <ul class="nav nav-pills col-md-6 text-md-right">
+            <li><a class="documentation" href="/documentation/">Docs</a></li>
+            <li><a class="tools" href="/tools.html">Tools</a></li>
+            <li><a class="developers" href="/developers.html">Developers</a></li>
+            <li><a class="support" href="/support.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="license">API Blueprint is released under <a href="https://github.com/apiaryio/api-blueprint/blob/master/LICENSE">MIT License</a></div>
+      </div>
+    </footer>
+
+    <div class="rocket"></div>
+    <div class="moon"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
